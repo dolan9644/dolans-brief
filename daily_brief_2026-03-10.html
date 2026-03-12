@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's AI Morning Brief</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-color: #1a1a1a;
+            --accent-color: #8b0000;
+            --border-color: #2a2a2a;
+            --muted-color: #666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+            line-height: 1.8;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .poster-container {
+            max-width: 900px;
+            background: #fdfdfc;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid var(--border-color);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--text-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .header h1 {
+            font-family: "Oswald", "Noto Sans SC", sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+        .header .tagline {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--muted-color);
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted-color);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 0;
+        }
+        .content {
+            column-count: 2;
+            column-gap: 3rem;
+            column-rule: 1px solid #ccc;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+        .content h2 {
+            font-family: "Noto Sans SC", sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin: 0 0 1.5rem 0;
+            column-span: all;
+            text-align: left;
+            line-height: 1.3;
+            color: var(--accent-color);
+            letter-spacing: -0.5px;
+        }
+        .content p {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        .content p:first-of-type::first-letter {
+            font-family: "Playfair Display", serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            margin-top: 6px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .content .quote {
+            font-family: "Playfair Display", serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--muted-color);
+            column-span: all;
+        }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted-color);
+        }
+        @media (max-width: 768px) {
+            .content { column-count: 1; }
+            .header h1 { font-size: 2rem; letter-spacing: 4px; }
+            .poster-container { padding: 1.5rem; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <header class="header">
+            <h1>Dolan's</h1>
+            <p class="tagline">The Daily Observer of Tech Industry</p>
+            <div class="meta">
+                <span>Vol. 2026-03-10</span>
+                <span>AI Morning Brief</span>
+                <span>Powered by BIBI Agent</span>
+            </div>
+        </header>
+        <main class="content">
+            <h2>硅谷的算力军备竞赛已经打响了：Google收购Wiz， Mira Murati抱上Nvidia大腿</h2>
+            <p>硅谷的算力军备竞赛已经彻底白热化了。就在昨天，Google正式宣布完成收购网络安全独角兽Wiz——这不仅是今年最大的科技并购之一，更是巨头们在AI时代疯狂囤积安全资产的标志性事件。你看，Wiz可是近年来增长最快的云安全初创，Google花重金买它，图的不是别的，就是四个字：未雨绸缪。毕竟AI驱动的网络攻击越来越狠，巨头们必须要把护城河筑到硬件层面。</p>
+            <p>但真正有意思的是Mira Murati的动向。这位前OpenAI高管创立的Thinking Machines Lab，前脚刚离职，后脚就抱上了Nvidia的大腿，宣布千兆瓦规模的合作。表面看是强强联手，细想则是整个AI行业的隐喻：没有Nvidia的算力，你连上牌桌的资格都没有。Nvidia已经成了AI初创的"水电煤"，谁抱上大腿谁就能起飞，但也意味着脖子被卡得更紧——这波啊，是甜蜜的枷锁。</p>
+            <p>再说Meta那边推出的MTIA 300芯片。大厂自研芯片早就不是新闻，但Meta在算力上的持续投入说明了一个趋势：AI竞争已经打到硬件层面了。将来不是谁模型好谁赢，而是谁芯片多谁赢。算力就是新时代的石油，这不是比喻，是现实。</p>
+            <div class="quote">"真正的创新，永远发生在开源社区和边缘地带。"</div>
+            <p>不过，极客圈子里可不管这些大厂的游戏。Microsoft开源的BitNet能在本地CPU上跑100B参数的1-bit模型，这才是真正砸场子的存在。边缘设备运行大模型不再是梦，推理成本直接砍到脚踝。而GitHub上爆火的agent框架——agency-agents、MiroFish、airi——说明单体Agent已经过时了，多智能体协作才是下一个爆点。</p>
+            <p>最后聊聊那些见不得光的暗流。Grammarly的AI"sloppelganger"争议还没完——未经同意模仿他人风格写作，这事儿在法律上还是灰色地带。至于AI面试官取代人类HR，虽然听起来很美，但算法偏见同样存在，而且你连申诉的门都找不到。</p>
+            <p>一句话总结：巨头们在算力战场上杀红了眼，安全成了新的必争之地。而真正的创新，永远发生在开源社区和边缘地带。</p>
+        </main>
+        <footer class="footer">
+            <p>Generated by BIBI Agent · Autonomous AI News Desk</p>
+        </footer>
+    </div>
+</body>
+</html>
