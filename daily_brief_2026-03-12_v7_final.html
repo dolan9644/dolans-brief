@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's 全景内参：AI重构世界的深水区</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --accent-color: #e94560;
+            --text-color: #16213e;
+            --muted-color: #533483;
+            --bg-color: #fafbfc;
+            --card-bg: #ffffff;
+            --border-color: #e8e8e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 28px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h3 {
+            font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--muted-color);
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fff5f5 0%, #fff0f0 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dolan-quote {
+            background: linear-gradient(135deg, #fff 0%, #fff8f8 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .dolan-quote .dolan-label {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .dolan-quote p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        .final-verdict {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 28px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .final-verdict h2 {
+            color: white;
+            border-bottom: none;
+            margin-bottom: 16px;
+        }
+
+        .final-verdict p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 18px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-verdict {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dolan's 全景内参：AI重构世界的深水区</h1>
+
+        <div class="section">
+            <h2>🎯 核心阵地</h2>
+
+            <h3>Google双拳出击：极致性价比与图像生成的生产力革命</h3>
+            <p>本周Google发布了Gemini 3.1 Flash-Lite，以$0.25/百万输入token、$1.50/百万输出token的定价杀入市场。这个价格意味着AI调用成本已经逼近传统云服务的临界点，企业可以真正开始大规模部署智能能力。</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">1432</div>
+                    <div class="stat-label">Arena.ai ELO</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">86.9%</div>
+                    <div class="stat-label">GPQA</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">76.8%</div>
+                    <div class="stat-label">MMMU Pro</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$0.25</div>
+                    <div class="stat-label">每百万输入</div>
+                </div>
+            </div>
+
+            <p>更值得关注的是"思维层级"（thinking levels）创新，让开发者可以精确控制推理深度。</p>
+
+            <div class="highlight">
+                <strong>Nano Banana 2</strong> 将Pro级图像生成能力与Flash速度融合。5角色主体一致性、14物体保真度、精确指令遵循、512px-4K分辨率控制——Midjourney和DALL-E的商业护城河正在被Google用生态优势暴力填平。
+            </div>
+
+            <h3>AlphaGo十周年：DeepMind的AGI路线图</h3>
+            <p>十年前AlphaGo击败李世石的"第37手"已成为AI创造力的象征，十年后DeepMind用AlphaFold解决50年蛋白质折叠难题获诺贝尔化学奖，AlphaProof/AlphaGeometry获IMO银牌。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 认为</span>
+                <p>AlphaGo的遗产是一套方法论——深度神经网络+蒙特卡洛树搜索+强化学习的组合，正在成为AI破解科学难题的标准范式。</p>
+            </div>
+
+            <h3>Wayfair与乐天：企业AI落地的两种范本</h3>
+            <p>乐天在30000名员工中部署Codex，MTTR降低50%，季度级开发周期压缩至数周。LLM的角色正在从"写代码"转向"验证输出"。Wayfair纠正250万+产品标签属性，支持请求处理自动化41000张/月。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 锐评</span>
+                <p>这两个案例的共同点不是技术，而是组织变革。AI不是一次性部署的产品，而是需要持续治理的数字化资产。</p>
+            </div>
+
+            <h3>NVIDIA AI-Q：企业级AI智能体的架构答案</h3>
+            <p>NVIDIA AI-Q在DeepResearch Bench双榜均获第一。Orchestrator+Planner+Researcher的多智能体设计，67k SFT轨迹训练。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 判断</span>
+                <p>AI-Q的意义在于证明了深度研究能力是可工程化的。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌍 巨头绞肉机</h2>
+
+            <h3>OpenAI的安全悖论：防御范式的根本转移</h3>
+            <p>不再依赖输入过滤，转向社会工程学防御模型。AI不再被设计为"识别所有恶意输入"，而是被视为"限制能力边界的客服代理"。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 毒舌</span>
+                <p>这一招叫"打不过就加入"，好听点叫"限制攻击面"，难听点叫"承认防御失败"。</p>
+            </div>
+
+            <h3>Cloudflare重写Next.js：AI重构软件栈的标志性事件</h3>
+            <p>用AI重写Next.js——新范式是"AI直接改写"。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 冷眼</span>
+                <p>当AI可以维护代码时，人类开发者的价值将彻底转向需求定义和系统设计。</p>
+            </div>
+
+            <h3>Qwen生态异动：中国大模型的全球野望</h3>
+            <p>Qwen系列可能正在酝酿重大变化。</p>
+        </div>
+
+        <div class="section">
+            <h2>📡 极客雷达</h2>
+
+            <h3>Simon Willison的态度转向</h3>
+            <p>从"无聊技术"到重新审视AI编程工具。</p>
+
+            <div class="dolan-quote">
+                <span class="dolan-label">DOLAN 点评</span>
+                <p>Simon的转变说明AI编程工具不是要不要用的问题，而是怎么用更好的问题。</p>
+            </div>
+
+            <ul>
+                <li><strong>编码Agent的法律雷区</strong>：AI生成代码是否构成衍生作品？清洁室实现难以界定。许可证战争可能随AI编码普及而升级。</li>
+                <li><strong>Hugging Face Storage Buckets</strong>：填补ML中间存储层的空白。</li>
+                <li><strong>16个开源RL库</strong>：RL训练的核心挑战是保持token流动。</li>
+                <li><strong>3D编织技术</strong>：99%材料利用率，仅需6人团队即可日产150件衣物。</li>
+                <li><strong>微SaaS的消亡</strong>：用LLM生成的代码在20分钟内重建了一个年费$120的微SaaS服务。</li>
+                <li><strong>开发者的grief</strong>：开发者面对AI生成代码时的复杂情感——失去创造控制感、身份认同危机。</li>
+            </ul>
+        </div>
+
+        <div class="final-verdict">
+            <h2>💡 终局研判</h2>
+            <p>本周情报揭示的核心趋势：AI从"能做什么"进化到"能落地什么"。Google的Flash-Lite证明智能可以白菜价，乐天和Wayfair证明企业AI不是镜花水月，NVIDIA AI-Q证明深度研究能力可工程化。</p>
+            
+            <div class="dolan-quote" style="margin-top: 20px; background: rgba(255,255,255,0.1); border-color: #e94560;">
+                <span class="dolan-label" style="color: #ff6b6b;">DOLAN 终局研判</span>
+                <p style="color: white;">2025年是AI工业化的元年。之前是"实验室里刷榜"，之后是"工厂里拧螺丝"。谁先完成这个转身，谁就握住下一个十年的门票。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
