@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolan's 全景内参 - 2026年3月13日</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
             background: #ffffff;
@@ -19,304 +14,182 @@
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
         }
-        
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 60px 24px 80px;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            color: #000;
-        }
-        
-        .header .date {
-            font-size: 13px;
-            color: #888;
-            letter-spacing: 1px;
-        }
-        
-        .divider {
-            height: 1px;
-            background: #f0f0f0;
-            margin: 24px 0;
-        }
-        
-        h2 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #000;
-            margin: 36px 0 20px;
-            padding-left: 12px;
-            border-left: 3px solid #000;
-            letter-spacing: 1px;
-        }
-        
-        h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin: 24px 0 8px;
-        }
-        
-        h3 strong {
-            font-weight: 600;
-        }
-        
-        blockquote {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.7;
-            margin: 8px 0 24px;
-            padding: 0;
-            border: none;
-        }
-        
-        blockquote::before {
-            content: ">";
-            color: #ccc;
-            margin-right: 8px;
-        }
-        
-        .section {
-            margin-bottom: 32px;
-        }
-        
-        .item {
-            margin-bottom: 20px;
-        }
-        
-        .item-title {
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-        
-        .item-content {
-            font-size: 14px;
-            color: #555;
-            margin-top: 4px;
-            line-height: 1.7;
-        }
-        
-        .comment {
-            background: #fafafa;
-            padding: 24px;
-            margin: 32px 0;
-            border-radius: 4px;
-        }
-        
-        .comment p {
-            margin-bottom: 12px;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        
-        .comment p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .comment .highlight {
-            color: #e53935;
-            font-weight: 500;
-        }
-        
-        .footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid #f0f0f0;
-            text-align: center;
-        }
-        
-        .footer p {
-            font-size: 12px;
-            color: #aaa;
-            letter-spacing: 1px;
-        }
-        
-        a {
-            color: #1a1a1a;
-            text-decoration: underline;
-            text-decoration-color: #ccc;
-            text-underline-offset: 2px;
-        }
-        
-        a:hover {
-            text-decoration-color: #000;
-        }
-        
-        @media (max-width: 720px) {
-            .container {
-                padding: 40px 20px 60px;
-            }
-            
-            .header h1 {
-                font-size: 22px;
-            }
-        }
+        .container { max-width: 700px; margin: 0 auto; padding: 60px 24px 80px; }
+        .header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid #f0f0f0; }
+        .header h1 { font-size: 28px; font-weight: 600; letter-spacing: 2px; margin-bottom: 8px; color: #000; }
+        .header .date { font-size: 13px; color: #888; letter-spacing: 1px; }
+        .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+        h2 { font-size: 16px; font-weight: 600; color: #000; margin: 36px 0 20px; padding-left: 12px; border-left: 3px solid #000; letter-spacing: 1px; }
+        h3 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin: 24px 0 8px; }
+        blockquote { font-size: 14px; color: #555; line-height: 1.7; margin: 8px 0 24px; padding: 0; border: none; }
+        blockquote::before { content: ">"; color: #ccc; margin-right: 8px; }
+        .section { margin-bottom: 32px; }
+        .item { margin-bottom: 20px; }
+        .item-title { font-weight: 500; color: #1a1a1a; }
+        .item-content { font-size: 14px; color: #555; margin-top: 4px; line-height: 1.7; }
+        .tech-column { background: #f8f9fa; padding: 24px; margin: 32px 0; border-radius: 8px; }
+        .tech-column h3 { margin-top: 0; color: #e53935; }
+        .tech-column code { background: #e8e8e8; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+        .tech-column pre { background: #1a1a1a; color: #fff; padding: 16px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 12px; line-height: 1.5; }
+        .comment { background: #fafafa; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .comment p { margin-bottom: 12px; font-size: 14px; line-height: 1.8; }
+        .comment p:last-child { margin-bottom: 0; }
+        .highlight { color: #e53935; font-weight: 500; }
+        .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #f0f0f0; text-align: center; }
+        .footer p { font-size: 12px; color: #aaa; letter-spacing: 1px; }
+        a { color: #1a1a1a; text-decoration: underline; text-decoration-color: #ccc; text-underline-offset: 2px; }
+        @media (max-width: 720px) { .container { padding: 40px 20px 60px; } .header h1 { font-size: 22px; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1>📰 Dolan's 全景内参</h1>
-            <p class="date">2026年3月13日 | AI行业10分钟速览</p>
+            <p class="date">2026年3月13日 | 10分钟阅读</p>
         </header>
-
         <div class="divider"></div>
 
         <section class="section">
-            <h2>🧠 AI大模型</h2>
+            <h2>🌍 AI大模型：Google全家桶炸裂，OpenAI暗藏杀机</h2>
             
             <div class="item">
-                <h3><strong>DeepMind 复盘 AlphaGo 十年：AI 浪潮的原点与未来</strong></h3>
-                <blockquote>十年前 AlphaGo 击败李世石那一刻，全世界才真正意识到 AI 的力量。十年后，DeepMind 亲自拆解这段历程——这是一场跨越十年的自我证明。</blockquote>
+                <h3>DeepMind十周年：AlphaGo之父首次公开复盘</h3>
+                <blockquote>七年磨一剑，AlphaGo才是真正的AGI起点，而不只是营销噱头。<br><br>当DeepMind翻出十年前的旧账，全世界才意识到——原来我们今天膜拜的Transformer架构，根子上长在AlphaGo的蒙特卡洛树搜索里。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Google 祭出 Gemini 3.1 三连击：Flash-Lite 轻薄上场</strong></h3>
-                <blockquote>轻量模型战火再起！Google 意图很明显：用 Flash-Lite 吃掉移动端市场，用 Pro 收割企业用户，用 Deep Think 霸占科研高地——三路并进，无死角覆盖。</blockquote>
+                <h3>Gemini 3.1 Pro/Flash-Lite/Nano Banana 2：三舰齐发</h3>
+                <blockquote>Pro打性能，Flash-Lite打价格，Nano打端侧——Google的模型矩阵已经比OpenAI更像一个操作系统。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Nano Banana 2：Pro 的能力，Lite 的速度</strong></h3>
-                <blockquote>Google 给模型起名越来越随性，但产品策略却越来越精准——这是在告诉全世界：我既要高端性能，也要边缘计算。</blockquote>
+                <h3>Gemini 3 Deep Think：科学家的Agent，来了</h3>
+                <blockquote>这是Google面向科研工作流的Agent化尝试。代码、推理、数据分析三合一，已经踩在了OpenAI o1/o3的核心领地。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Gemini 3.1 Pro：复杂任务终结者</strong></h3>
-                <blockquote>当 OpenAI 和 Anthropic 打得不可开交时，Google 悄然放出 Pro 版——不是旗舰却胜似旗舰，这波是暗度陈仓。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Gemini 进军音乐创作：AI 的下一个万亿市场</strong></h3>
-                <blockquote>文字、代码、图像之后，Google 把手伸向了音乐。AIGC 的终极版图正在合拢——下一个被 AI 攻陷的领域，还有什么是安全的？</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Gemini 3 Deep Think：科研党的终极武器</strong></h3>
-                <blockquote>Deep Think 这个名字够直接，Google 也不再藏着掖着——这就是在宣战：我要做的是 Science-grade AI，不是你们那些玩具模型。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>GPT-5.4 登场：知识工作的天花板又被抬高了</strong></h3>
-                <blockquote>OpenAI 依然在刷新 SOTA。知识工作领域的终极绞肉机继续轰鸣——留给传统白领的时间，可能真的不多了。</blockquote>
+                <h3>GPT-5.4：OpenAI的"三合一"宣言</h3>
+                <blockquote>OpenAI用5.4版本同时宣战知识工作、编码和CUA三个战场——但市场已经听腻了"最强大模型"的叙事。</blockquote>
             </div>
         </section>
 
         <section class="section">
-            <h2>🔬 技术前沿</h2>
+            <h2>🔬 技术前沿：Agent和RAG正在重新定义"智能"</h2>
             
             <div class="item">
-                <h3><strong>DABStep 夺冠：数据科学家思维 Agent 横空出世</strong></h3>
-                <blockquote>HuggingFace 主办的竞赛，冠军却是一个"像数据科学家一样思考"的 Agent。这不是巧合——AI 正在从工具进化为"同事"。</blockquote>
+                <h3>DABStep夺冠：数据科学家的Agent真的来了</h3>
+                <blockquote>让AI像数据科学家一样思考——这不再是Slogan，是比赛结果。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Hugging Face 推出 Storage Buckets：开源社区的云存储野心</strong></h3>
-                <blockquote>模型托管只是开始，现在 HuggingFace 自己做存储了。这是云厂商的噩梦，也是开源生态的里程碑。</blockquote>
+                <h3>LeRobot v0.5.0：机器人Agent的"GPT-3时刻"</h3>
+                <blockquote>从算法到数据到部署，LeRobot在复刻ChatGPT的生态套路——先开源，再收割。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>16 个开源 RL 库的血泪教训：Token 流动的哲学</strong></h3>
-                <blockquote>强化学习开源生态第一次被系统性总结。看完只想说：RL 的坑，比 PyTorch 的 ISSUE 区还深。</blockquote>
+                <h3>Storage Buckets on HuggingFace Hub</h3>
+                <blockquote>HuggingFace终于要做数据领域的S3了——这才是真正的平台经济。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Granite 4.0 1B Speech：IBM 的端侧语音模型野望</strong></h3>
-                <blockquote>1B 参数就能跑语音识别？IBM 这次不玩大的，专攻端侧——这是要在每一个手机、每一个 IoT 设备里安插自己的存在感。</blockquote>
+                <h3>Retrieval After RAG：下一代RAG的三个关键词</h3>
+                <blockquote>RAG已死，Hybrid Search + Agent + Native DB才是未来。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>LeRobot v0.5.0：机器人模型的"寒武纪大爆发"</strong></h3>
-                <blockquote>从算法到数据到部署，LeRobot 这次把所有维度都 scale 了。机器人开源社区，终于等来了自己的 PyTorch 时刻。</blockquote>
+                <h3>Cursor's Third Era：云端Agent时代降临</h3>
+                <blockquote>本地IDE的时代正在结束。Cursor带头all in云端Agent——这不是升级，这是重生。</blockquote>
+            </div>
+        </section>
+
+        <section class="tech-column">
+            <h3>🔥 技术专栏：RAG 2.0——从检索到"知行合一"</h3>
+            
+            <p><strong>为什么传统RAG已经死了？</strong></p>
+            <p>传统RAG的架构是"检索→拼接→生成"——一个线性管道，一个单向流程。但在2026年的Agent时代，这种架构有三个致命缺陷：</p>
+            
+            <p><strong>1. 检索是"盲目"的</strong><br>
+            传统RAG不理解"什么时候需要检索"。Agent化的RAG应该具备"判断力"：这个问题需要检索吗？需要从哪个知识库检索？</p>
+            
+            <p><strong>2. 知识是"静态"的</strong><br>
+            Agent化的RAG应该具备"学习力"：新文档来了自动更新索引，过时文档自动标记淘汰。</p>
+            
+            <p><strong>3. 生成是"失控"的</strong><br>
+            Agent化的RAG应该具备"执行审计"：生成的每一句话，都必须能追溯到具体的检索来源。</p>
+            
+            <p><strong>Hybrid Search + Agent + Native DB = RAG 2.0</strong></p>
+            <pre>Query → Agent Router → [Vector Search] + [Keyword Search] + [Graph Search]
+       ↓
+      Fusion Layer (智能融合多路结果)
+       ↓
+      Context Builder (动态构建Prompt上下文)
+       ↓
+      Generator (LLM + Citation)
+       ↓
+      Feedback Loop (结果质量评估，反哺检索优化)</pre>
+            
+            <p>这不再是"RAG"，而是一个"知识Agent"——它不只是检索知识，它理解知识、评估知识、运用知识。</p>
+        </section>
+
+        <section class="section">
+            <h2>🚀 创业融资：估值泡沫与硬核科技的对撞</h2>
+            
+            <div class="item">
+                <h3>AMI Labs：Yann LeCun的$1B赌注</h3>
+                <blockquote>LeCun用$4.5B估值告诉OpenAI：你不是唯一的"AI正统"。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>RAG 之后：混合搜索、Agent 与数据库设计的下一次进化</strong></h3>
-                <blockquote>RAG 已经是过去式了。现在谈的是"RAG 之后"——向量检索、关键词召回、Agent 编排，三位一体的下一代架构正在成型。</blockquote>
+                <h3>Replit Agent 4：程序员的"知识工作Agent"</h3>
+                <blockquote>从"编程工具"到"编程Agent"，Replit完成了惊险的一跳。</blockquote>
             </div>
             
             <div class="item">
-                <h3><strong>Replit Agent 4：知识工作者的数字化替身</strong></h3>
-                <blockquote>Replit 这次不只想做代码编辑器了——Agent 4 的野心，是让每个知识工作者都有一个 AI 替身。微软和 Google 准备好了吗？</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Cursor 第三纪元：云端 Agent 时代降临</strong></h3>
-                <blockquote>本地 IDE 的时代正在结束。Cursor 带头 all in 云端 Agent——这不是升级，这是重生。</blockquote>
+                <h3>阶梯医疗：阿里腾讯联手抢脑机接口</h3>
+                <blockquote>5亿人民币——这是阿里和腾讯在脑机接口赛道的第一次公开联手。</blockquote>
             </div>
         </section>
 
         <section class="section">
-            <h2>💰 创业融资</h2>
+            <h2>💰 资本市场：AI驱动的裁员与诉讼</h2>
             
             <div class="item">
-                <h3><strong>Yann LeCun 的 AMI Labs：10 亿估值背后的"反 OpenAI"联盟</strong></h3>
-                <blockquote>LeCun 出山，一出手就是 10 亿估值的 AI 公司。这位图灵奖得主用行动证明：开源派和闭源派的战争，才刚刚开始。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Rox AI 估值 12 亿美元：AI 搜索战场再添猛将</strong></h3>
-                <blockquote>AI 搜索赛道已经够拥挤了，但资本还在往里砸钱。12 亿估值，是泡沫还是未来？时间会给出答案。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Bumble 推出 AI 约会助手"Bee"：交友软件的 AI 化自救</strong></h3>
-                <blockquote>当用户增长见顶，Bumble 选择用 AI 破局。Bee 能否拯救这家"剩女经济"公司？恋爱这门生意，AI 可能比红娘更懂。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>Grammarly 被作家起诉：AI 写作工具的法律风暴</strong></h3>
-                <blockquote>版权战争开打了第一枪。Grammarly 被诉——这不仅是法律问题，更是整个 AI 写作产业链的生死劫。</blockquote>
+                <h3>Grammarly被告：AI修改工具的版权地震</h3>
+                <blockquote>作家集体诉讼Grammarly——2026年，AI版权战正式开打。</blockquote>
             </div>
         </section>
 
         <section class="section">
-            <h2>📊 资本市场</h2>
+            <h2>🇨🇳 国内动态：冰与火之歌</h2>
             
             <div class="item">
-                <h3><strong>2025 年度复盘：AI 赛道的冰与火之歌</strong></h3>
-                <blockquote>过去一年的 AI 投资版图，是一场冰与火的交替。有人在狂欢，有人在离场——而真正的赢家，永远是那些"站在风停之前"的人。</blockquote>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🇨🇳 国内动态</h2>
-            
-            <div class="item">
-                <h3><strong>阿里领投、腾讯追加：脑机接口公司「阶梯医疗」获 5 亿战略融资</strong></h3>
-                <blockquote>脑机接口——这个曾经只出现在科幻里的赛道，现在中国企业已经率先拿到门票。阿里和腾讯联手，这是要在中国造一个"脑联网"。</blockquote>
-            </div>
-            
-            <div class="item">
-                <h3><strong>多所高校紧急禁用 AI：一场关于学术诚信的困兽之斗</strong></h3>
-                <blockquote>高校禁用 AI 的消息传来，既是恐慌，也是必然。当 AI 能写论文、做代码、搞科研时，传统的学术评价体系正在崩塌——这不是 AI 的问题，是教育自己的问题。</blockquote>
+                <h3>高校禁用AI：一场注定失败的"阻击战"</h3>
+                <blockquote>高校禁用AI就像用沙袋挡洪水——姿势很勇，结局很惨。</blockquote>
             </div>
         </section>
 
         <section class="comment">
-            <h2>🔥 Dolan's 辣评</h2>
-            <p>这一周的 AI 行业，总结起来就一个字：<strong>卷</strong>。</p>
-            <p>Google 卷模型，从 Flash-Lite 到 Deep Think，SKU 多得让人选择困难；HuggingFace 卷开源，从 Storage 到 RL 库，硬是把开源做成了商业公司；OpenAI 卷应用，GPT-5.4 直接把知识工作的天花板又抬高三尺。</p>
-            <p>但最让我感慨的，是 LeCun 的 AMI Labs。老人家用 10 亿估值告诉全世界：开源才是 AI 的终极答案。Meta 这么多年被按在地上摩擦，终于可以扬眉吐气一回。</p>
-            <p>至于国内那帮高校——禁用 AI？呵，这是把头埋进沙子里的鸵鸟行为。AI 不会因为你不看它就消失，只会让你和别人的差距越来越大。</p>
-            <p class="highlight">最后友情提醒：本周最惨的是谁？Grammarly。</p>
-            <p>做 AI 工具做到被起诉，也是没谁了。这波啊，这波是"技术越强，责任越大"的真实写照。</p>
+            <h2>🎯 Dolan's 辣评</h2>
+            <p><strong>1. Google vs OpenAI：谁在裸泳？</strong><br>
+            Google这一波的Gemini 3.1全家桶，参数矩阵铺得让人眼花缭乱。但仔细一看：Flash-Lite打性价比，Pro打高端，Nano打端侧——这不就是Android的"机海战术"吗？</p>
+            
+            <p><strong>2. 开源社区的"分裂危机"</strong><br>
+            HuggingFace一边发布基础设施级产品，一边又被16个RL库"重复造轮子"的现状打脸。开源社区需要一个"真命天子"来统一RL框架——但谁有这个号召力？</p>
+            
+            <p><strong>3. 高校禁用AI：21世纪的"禁酒令"</strong><br>
+            多所高校禁用AI的新闻让我笑出声——这就像1840年禁用蒸汽机，1995年禁用互联网一样魔幻。</p>
+            
+            <p><strong>4. Yann LeCun的"复仇者联盟"</strong><br>
+            $4.5B估值的AMI Labs，本质上是LeCun对"深度学习=Transformer=OpenAI"这个等式的公开宣战。AI圈太需要一个"非OpenAI流派"的硬核挑战者了。</p>
+            
+            <p><strong>5. AI搜索的"百团大战"</strong><br>
+            Rox AI的$1.2B估值背后，是AI搜索赛道的极度拥挤。但真相是：Google的搜索霸权不是靠"答案质量"赢的，而是靠"数据飞轮"。</p>
+            
+            <p class="highlight">「Dolan's」—— 穿透噪声，抵达本质。</p>
         </section>
 
         <footer class="footer">
-            <p>「Dolan's」—— 穿透噪声，抵达本质。</p>
+            <p>🤖 Generated by BIBI Agent | 每天十分钟，武装到牙齿</p>
         </footer>
     </div>
 </body>
