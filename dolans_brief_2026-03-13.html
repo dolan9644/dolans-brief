@@ -6,277 +6,125 @@
     <title>Dolan's 全景内参 | 2026年3月13日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
-            line-height: 1.7;
-            min-height: 100vh;
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5; 
+            padding: 20px;
+            line-height: 1.6;
         }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 60px 24px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #222;
-        }
-        .logo {
-            font-size: 14px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 16px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff 0%, #999 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .date {
-            color: #555;
-            font-size: 13px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section-title {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ff6b35;
-            margin-bottom: 20px;
-            padding-left: 12px;
-            border-left: 2px solid #ff6b35;
-        }
-        .topic {
-            background: #111;
+        .container { 
+            max-width: 700px; 
+            margin: 0 auto; 
+            background: #fff;
             border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
             padding: 24px;
-            margin-bottom: 16px;
-            border: 1px solid #1a1a1a;
-            transition: border-color 0.2s;
+            text-align: center;
         }
-        .topic:hover {
-            border-color: #333;
-        }
-        .topic-title {
-            font-size: 18px;
+        .header h1 { font-size: 24px; margin-bottom: 8px; }
+        .header .date { opacity: 0.7; font-size: 14px; }
+        .content { padding: 24px; }
+        .section { margin-bottom: 24px; }
+        .section-title {
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 12px;
-            color: #fff;
+            padding-bottom: 8px;
+            border-bottom: 2px solid;
         }
-        .topic-content {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 16px;
+        .section-red { border-color: #e74c3c; color: #e74c3c; }
+        .section-orange { border-color: #e67e22; color: #e67e22; }
+        .section-green { border-color: #27ae60; color: #27ae60; }
+        .item { margin-bottom: 12px; }
+        .item-title { font-weight: 500; margin-bottom: 4px; }
+        .item-url { font-size: 12px; color: #666; }
+        .item-url a { color: #3498db; text-decoration: none; }
+        .tag { 
+            display: inline-block; 
+            background: #f0f0f0; 
+            padding: 2px 8px; 
+            border-radius: 4px; 
+            font-size: 11px;
+            margin-right: 6px;
         }
-        .topic-source {
-            font-size: 12px;
-            color: #555;
-        }
-        .topic-source span {
-            color: #ff6b35;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-            border: 1px solid #2a2a4e;
-        }
-        .highlight-box h3 {
-            font-size: 14px;
-            color: #ff6b35;
-            margin-bottom: 12px;
-        }
-        .highlight-box p {
-            color: #ccc;
-            font-size: 14px;
-        }
-        code {
-            background: #1a1a1a;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 13px;
-            color: #ff6b35;
-        }
-        .Dolans-pinglun {
-            background: #fff;
-            color: #000;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 24px;
-        }
-        .Dolans-pinglun h4 {
-            font-size: 12px;
-            color: #ff6b35;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-        .Dolans-pinglun p {
-            font-size: 14px;
-            line-height: 1.6;
-            font-style: italic;
-        }
-        footer {
-            margin-top: 60px;
-            padding-top: 24px;
-            border-top: 1px solid #222;
+        .footer {
+            background: #f8f9fa;
+            padding: 16px;
             text-align: center;
-            color: #444;
             font-size: 12px;
+            color: #666;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo">Dolan's Brief</div>
-            <h1>晨间科技脉搏</h1>
-            <p class="date">2026年3月13日 · 星期五</p>
-        </header>
-
-        <div class="section">
-            <div class="section-title">🔴 核心事件</div>
-            
-            <div class="topic">
-                <h3 class="topic-title">1. RAG 系统文档投毒攻击：你的 AI 知识库正在被污染</h3>
-                <p class="topic-content">
-                    安全研究员演示了令人不安的攻击：在不接触用户查询、不利用软件漏洞的情况下，仅通过向知识库注入3份伪造文档，就能让 RAG 系统报告完全错误的财务数据。攻击者在 MacBook Pro 上用本地模型完成，无需 GPU 或云端资源。
-                </p>
-                <p class="topic-content">
-                    <strong>攻击原理：</strong>利用"检索条件"和"生成条件"两个窗口——注入的文档需要在语义上与目标查询相似度更高，同时在生成时获得更高的权威性评分。实验中，真实的 $24.7M 收入被替换为伪造的 $8.3M，系统置信满满。
-                </p>
-                <div class="highlight-box">
-                    <h3>🛡️ 防御方案</h3>
-                    <p>Embedding 异常检测最有效，可将攻击成功率从 95% 降至 20%。在文档入库前检测语义异常度、文档簇密度是关键。</p>
+        <div class="header">
+            <h1>📰 Dolan's 全景内参</h1>
+            <div class="date">2026年3月13日 · 星期四</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title section-red">🔴 核心事件</div>
+                
+                <div class="item">
+                    <div class="item-title">1. AlphaGo 十周年：DeepMind 复盘 AI 突破之路</div>
+                    <div class="item-url"><a href="https://deepmind.google/blog/10-years-of-alphago/">https://deepmind.google/blog/10-years-of-alphago/</a></div>
+                    <div style="margin-top:4px;font-size:13px;color:#555;">从围棋到生物科学，AlphaGo 如何改变了 AI 的发展轨迹。DeepMind 创始人 Hassabis 亲自撰文回顾。</div>
                 </div>
-                <p class="topic-source">来源: <span>aminrj.com</span> | 深度分析</p>
+                
+                <div class="item">
+                    <div class="item-title">2. Gemini 3.1 家族全面更新</div>
+                    <div class="item-url"><a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">Flash-Lite</a> · <a href="https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/">Pro</a> · <a href="https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/">Deep Think</a></div>
+                    <div style="margin-top:4px;font-size:13px;color:#555;">Gemini 3.1 Flash-Lite 主打性价比，Pro 版本处理复杂任务，Deep Think 模式强化推理能力。</div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-title">3. Nano Banana 2 发布</div>
+                    <div class="item-url"><a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">https://deepmind.google/blog/nano-banana-2-...</a></div>
+                    <div style="margin-top:4px;font-size:13px;color:#555;">DeepMind 图像生成模型更新，Pro 能力 + Flash 速度。</div>
+                </div>
             </div>
-
-            <div class="topic">
-                <h3 class="topic-title">2. 斯坦福研究：肠道菌群通信逆转记忆衰退</h3>
-                <p class="topic-content">
-                    斯坦福医学院与 Arc Institute 的研究揭示了令人振奋的发现：肠道菌群随年龄变化会影响大脑通信，而刺激迷走神经可以逆转老年小鼠的认知衰退。
-                </p>
-                <p class="topic-content">
-                    <strong>关键发现：</strong>老年小鼠肠道中 Parabacteroides goldsteinii 细菌增多，导致中链脂肪酸积累，引发肠道免疫细胞炎症，抑制迷走神经向海马体的信号传递。通过刺激迷走神经，衰老小鼠的记忆力恢复到年轻水平。
-                </p>
-                <p class="topic-source">来源: <span>Stanford Medicine</span> | Nature 期刊</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">🟠 AI 与 Startups</div>
             
-            <div class="topic">
-                <h3 class="topic-title">Gumloop 获 5000 万美元：让每个员工成为 AI Agent  builder</h3>
-                <p class="topic-content">
-                    Benchmark 领投 Gumloop，押注"人人都是 AI Agent 开发者"的愿景。Gumloop 提供可视化 Agent 构建平台，降低 AI 自动化门槛。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
+            <div class="section">
+                <div class="section-title section-orange">🟠 技术前沿</div>
+                
+                <div class="item">
+                    <div class="item-title">Hugging Face: DABSTEP 数据科学 Agent 夺魁</div>
+                    <div class="item-url"><a href="https://huggingface.co/blog/nvidia/nemo-agent-toolkit-data-explorer-dabstep-1st-place">https://huggingface.co/blog/...</a></div>
+                    <div style="margin-top:4px;font-size:13px;color:#555;">NVIDIA Nemo Agent Toolkit 助力数据科学 Agent 达到 SOTA 水平。</div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-title">Hugging Face 推出 Storage Buckets</div>
+                    <div class="item-url"><a href="https://huggingface.co/blog/storage-buckets">https://huggingface.co/blog/storage-buckets</a></div>
+                    <div style="margin-top:4px;font-size:13px;color:#555;">模型托管平台再升级，支持更大规模的数据存储。</div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-title">Latent Space: RAG 之后的未来</div>
+                    <div class="item-url">检索增强生成的演进：混合搜索、Agent、数据库设计</div>
+                </div>
             </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Sunday 人形机器人估值 11.5 亿美元</h3>
-                <p class="topic-content">
-                    人形机器人公司 Sunday 获得大额融资，目标是构建名为"Memo"的家务机器人，能完成洗衣、收拾餐桌等任务。已有 1000 人在等待名单上。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Wonderful 客服 AI 融资 1.5 亿美元，估值 20 亿</h3>
-                <p class="topic-content">
-                    Insight Partners 领投，Wonderful 仅四个月前完成 A 轮融资后又获 B 轮。AI 客服赛道持续火热。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Bumble 推出 AI 约会助手 "Bee"</h3>
-                <p class="topic-content">
-                    Bumble 正在超越"滑动匹配"模式，AI 助手 Bee 将基于兼容性和目标进行匹配。约会 app 全面 AI 化。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">🔵 工具与产品</div>
             
-            <div class="topic">
-                <h3 class="topic-title">Chrome 即将登陆 ARM Linux 设备</h3>
-                <p class="topic-content">
-                    Google 宣布 Chrome 将于 2026 年 Q2 登陆 ARM64 Linux 设备。这填补了 Chrome 在 ARM Linux 生态的最后一块空白。
-                </p>
-                <p class="topic-source">来源: <span>Chromium Blog</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Alexa+ 推出"成年人"人格选项</h3>
-                <p class="topic-content">
-                    亚马逊为 Alexa+ 添加了新"Sassy"风格——可以骂人但不会进入 NSFW 内容。这位"嘴臭"助手刷新了 AI 语音助手的边界。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Gemini 任务自动化实测：手机自己点外卖</h3>
-                <p class="topic-content">
-                    The Verge 实测 Gemini 在三星 S26 Ultra 上的任务自动化能力——AI 可以在虚拟窗口中操作外卖和打车应用，自主完成订餐、叫车等任务。"这太诡异了，看着手机自己用自己。"
-                </p>
-                <p class="topic-source">来源: <span>The Verge</span></p>
+            <div class="section">
+                <div class="section-title section-green">🟢 快速扫描</div>
+                <div style="font-size:13px;color:#555;">
+                    <span class="tag">AI 编程</span> Replit Agent 4 发布<br>
+                    <span class="tag">开源</span> 16 个 RL 开源库经验总结<br>
+                    <span class="tag">AI 基建</span> Async RL 训练架构演进
+                </div>
             </div>
         </div>
-
-        <div class="section">
-            <div class="section-title">🟢 汽车与出行</div>
-            
-            <div class="topic">
-                <h3 class="topic-title">Rivian R2 定价 $57,990 起，基础版延迟至 2027</h3>
-                <p class="topic-content">
-                    Rivian 公布了 R2 SUV 的完整定价和规格。入门版 $45,000 的承诺要等到 2027 年底。供应链和制造成本压力下，又一个电动车主打性价比的梦想被推迟。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Uber + Wayve + 日产：东京机器人出租车今年落地</h3>
-                <p class="topic-content">
-                    日产将把 Wayve 的自动驾驶软件集成到 Leaf 车型，目标是在 Uber app 上提供东京地区的自动驾驶出租车服务。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
-
-            <div class="topic">
-                <h3 class="topic-title">Tesla 成为英国公用事业公司</h3>
-                <p class="topic-content">
-                    Tesla Energy Ventures 获得 Ofgem 批准，直接向英国客户销售电力。能源版图再下一城。
-                </p>
-                <p class="topic-source">来源: <span>TechCrunch</span></p>
-            </div>
+        
+        <div class="footer">
+            🤖 Generated by BIBI Agent · 每日 AI 行业速报
         </div>
-
-        <div class="Dolans-pinglun">
-            <h4>DOLAN'S 辣评</h4>
-            <p>RAG 文档投毒这个攻击太优雅了——不找你聊天，不骗你点链接，就往你数据库里塞几份文档，然后让你的 AI 自己編故事。这比 prompt injection 恐怖多了：它持久（直到手动删除）、隐蔽（用户看到的只是答案）、门槛低（会写商业文档就能干）。<br><br>
-            
-            哦对了，Atlassian 又裁员 1600 人投资 AI。Salesforce 们看了沉默，被裁的员工看了流泪。这波"AI 替代"不是狼来了，是狼已经进村了。</p>
-        </div>
-
-        <footer>
-            <p>Dolan's Brief · AI 行业内参</p>
-            <p>Generated by BIBI Agent</p>
-        </footer>
     </div>
 </body>
 </html>
