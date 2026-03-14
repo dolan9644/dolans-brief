@@ -6,28 +6,19 @@
     <title>Dolan's 全景内参 | 2026-03-14</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); 
-            color: #e8e8e8;
-            line-height: 1.7;
-            padding: 48px 24px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); color: #e8e8e8; line-height: 1.7; padding: 48px 24px; }
         .container { max-width: 720px; margin: 0 auto; }
         header { text-align: center; padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid #2a2a2a; }
         h1 { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #ff6b6b, #ffd93d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
         .meta { color: #666; font-size: 13px; font-family: monospace; }
-        
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
         .stat { background: #121212; border: 1px solid #222; border-radius: 12px; padding: 16px; text-align: center; }
         .stat-num { font-size: 24px; font-weight: 700; color: #ff6b6b; }
         .stat-label { font-size: 12px; color: #666; margin-top: 4px; }
-        
         .sources { background: #121212; border: 1px solid #222; border-radius: 12px; padding: 16px; margin-bottom: 24px; }
         .sources h3 { font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
         .sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
         .sources li { background: #1e1e1e; color: #888; font-size: 11px; padding: 4px 10px; border-radius: 6px; }
-        
         .topic { background: #151515; border: 1px solid #252525; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
         .topic-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .topic-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
@@ -42,7 +33,6 @@
         .hot { border-left: 4px solid #ff6b6b; }
         .signal { border-left: 4px solid #ffd93d; }
         .warning { border-left: 4px solid #ff8c42; }
-        
         .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e1e1e; text-align: center; color: #444; font-size: 12px; }
         .footer .brand { color: #666; font-weight: 600; }
     </style>
@@ -50,92 +40,87 @@
 <body>
     <div class="container">
         <header>
-            <h1>🔥 AlphaGo 十周年：AGI 路径清晰</h1>
-            <p class="meta">Dolan's 全景内参 | 2026-03-14 | RSS 多源加固版</p>
+            <h1>🔥 AlphaGo 十周年：DeepMind 全面爆发</h1>
+            <p class="meta">Dolan's 全景内参 | 2026-03-14 | RSS 加固版 v2</p>
         </header>
-
         <div class="stats">
-            <div class="stat"><div class="stat-num">55</div><div class="stat-label">情报条目</div></div>
-            <div class="stat"><div class="stat-num">11</div><div class="stat-label">独立信源</div></div>
+            <div class="stat"><div class="stat-num">240</div><div class="stat-label">情报条目</div></div>
+            <div class="stat"><div class="stat-num">10</div><div class="stat-label">独立信源</div></div>
             <div class="stat"><div class="stat-num">HEALTHY</div><div class="stat-label">系统状态</div></div>
+            <div class="stat"><div class="stat-num">50</div><div class="stat-label">DeepMind</div></div>
         </div>
-
         <div class="sources">
             <h3>📡 信源分布</h3>
             <ul>
-                <li>DeepMind</li>
-                <li>GitHub</li>
-                <li>AutoGen</li>
-                <li>HackerNews</li>
-                <li>Anthropic</li>
-                <li>SimonWillison</li>
-                <li>LatePost</li>
-                <li>PragmaticEngineer</li>
-                <li>TechCrunch</li>
-                <li>TheVerge</li>
-                <li>Wired</li>
+                <li>DeepMind (50)</li>
+                <li>HuggingFace (50)</li>
+                <li>36Kr (30)</li>
+                <li>OpenClaw (20)</li>
+                <li>LatentSpace (20)</li>
+                <li>TechCrunch (20)</li>
+                <li>SimonWillison (15)</li>
+                <li>PragmaticEngineer (15)</li>
+                <li>LangChain (10)</li>
+                <li>TheVerge (10)</li>
             </ul>
         </div>
-
         <div class="topic hot">
             <div class="topic-header"><div class="topic-icon">🧠</div><h2>AlphaGo 十周年：Demis Hassabis 亲述 AGI 路径</h2></div>
-            <p>DeepMind 庆祝 AlphaGo 战胜李世石十周年。Demis Hassabis 撰文回顾：从 Move 37 到 AlphaFold 诺贝尔奖，从 AlphaProof IMO 银牌到 Gemini Deep Think 奥运金牌。"10年前那步棋点燃了现代 AI 革命的火种。"</p>
+            <p>DeepMind 庆祝 AlphaGo 战胜李世石十周年。Demis 撰文回顾：从 Move 37 到 AlphaFold 诺贝尔奖，从 AlphaProof IMO 银牌到 Gemini Deep Think 奥运金牌。"10年前那步棋点燃了现代 AI 革命的火种。"</p>
             <div class="detail">💡 里程碑：AlphaGo → AlphaZero → AlphaFold → AlphaProof → Gemini。Hassabis：AGI 将是有史以来最深刻的发明。</div>
-            <div class="tags"><span class="tag">DeepMind</span><span class="tag">AlphaGo</span><span class="tag">AGI</span><span class="tag">Demis Hassabis</span></div>
+            <div class="tags"><span class="tag">DeepMind</span><span class="tag">AlphaGo</span><span class="tag">AGI</span></div>
         </div>
-
         <div class="topic hot">
-            <div class="topic-header"><div class="topic-icon">🔐</div><h2>AutoGen 安全大地震：FunctionTool 被紧急下架</h2></div>
-            <p>Microsoft AutoGen 紧急移除 FunctionTool，因其使用 exec() 执行用户代码造成 RCE 漏洞。团队改用 MCP Workbenches 替代，WebSocket 端点全面加固。</p>
-            <div class="detail">💡 影响：AutoGen Studio 所有自定义工具创建功能被砍，/api/validate/ 端点存在 drive-by 攻击风险。建议用户迁移至 MCP。</div>
-            <div class="tags"><span class="tag">AutoGen</span><span class="tag">安全</span><span class="tag">MCP</span><span class="tag">Microsoft</span></div>
-        </div>
-
-        <div class="topic signal">
-            <div class="topic-header"><div class="topic-icon">📱</div><h2>Gemini 3.1 Flash-Lite：全员可用的智能</h2></div>
-            <p>DeepMind 发布 Gemini 3.1 Flash-Lite，为大规模场景优化。继续保持 multimodal 优势，同时大幅降低延迟和成本。</p>
-            <div class="detail">💡 定位：低成本 + 高性能 + multimodal，面向移动端和大规模部署场景。</div>
+            <div class="topic-header"><div class="topic-icon">📱</div><h2>Gemini 3 家族全发布：Flash-Lite / Pro / Nano Banana</h2></div>
+            <p>Google DeepMind 批量发布 Gemini 3 系列：Flash-Lite 主打大规模低成本，Pro 应对复杂任务，Nano Banana 2 融合 Pro 能力 + 闪电速度。Gemini 还能创作音乐了。</p>
+            <div class="detail">💡 亮点：Gemini Deep Think 模式已达 IMO 金牌水平。Google Antigravity 智能体开发平台正式亮相。</div>
             <div class="tags"><span class="tag">Google</span><span class="tag">Gemini</span><span class="tag">多模态</span></div>
         </div>
-
-        <div class="topic signal">
-            <div class="topic-header"><div class="topic-icon">🤖</div><h2>Anthropic 1M Context：上下文战争终结</h2></div>
-            <p>Claude Opus 4.6 和 Sonnet 4.6 全面支持 1M 上下文，标准定价无附加费。MRCR v2 测试 78.3% 准确率领先所有前沿模型。</p>
-            <div class="detail">💡 定价：Opus $5/$25 per 1M tokens，Sonnet $3/$15。600 图片/PDF 每请求。</div>
-            <div class="tags"><span class="tag">Anthropic</span><span class="tag">Claude</span><span class="tag">上下文</span></div>
+        <div class="topic hot">
+            <div class="topic-header"><div class="topic-icon">🔐</div><h2>AutoGen 安全大地震：FunctionTool 被紧急下架</h2></div>
+            <p>Microsoft AutoGen 紧急移除 FunctionTool，因 exec() 造成 RCE 漏洞。团队改用 MCP Workbenches 替代，WebSocket 端点全面加固。</p>
+            <div class="detail">💡 影响：AutoGen Studio 所有自定义工具创建被砍，/api/validate/ 存在 drive-by 攻击风险。</div>
+            <div class="tags"><span class="tag">AutoGen</span><span class="tag">安全</span><span class="tag">MCP</span></div>
         </div>
-
+        <div class="topic signal">
+            <div class="topic-header"><div class="topic-icon">🤖</div><h2>GGML + llama.cpp 加入 HuggingFace</h2></div>
+            <p>开源本地 AI 核心工具链 GGML 和 llama.cpp 正式加入 HuggingFace，确保本地 AI 的长期发展。Transformers.js v4 预览版发布。</p>
+            <div class="detail">💡 意义：本地大模型民主化里程碑。边缘设备 AI 部署将迎来爆发。</div>
+            <div class="tags"><span class="tag">HuggingFace</span><span class="tag">llama.cpp</span><span class="tag">本地AI</span></div>
+        </div>
+        <div class="topic signal">
+            <div class="topic-header"><div class="topic-icon">🦾</div><h2>LeRobot v0.5.0：机器人 AI 的规模化突破</h2></div>
+            <p>HuggingFace 发布 LeRobot v0.5.0，实现机器人 AI 在所有维度的规模化突破。涵盖数据集录制、VLA 微调、设备端优化。</p>
+            <div class="detail">💡 趋势：机器人 AI 从实验室走向边缘设备。开源生态正在吞噬硬件。</div>
+            <div class="tags"><span class="tag">HuggingFace</span><span class="tag">机器人</span><span class="tag">LeRobot</span></div>
+        </div>
+        <div class="topic signal">
+            <div class="topic-header"><div class="topic-icon">💼</div><h2>IBM + UC Berkeley：企业 AI 代理失败诊断</h2></div>
+            <p>IBM 和 UC Berkeley 联合发布 IT-Bench 和 MAST，诊断企业 AI 代理失败的根本原因。</p>
+            <div class="detail">💡 洞察：企业 AI 代理失败的首要原因不是技术问题，而是流程设计和治理。</div>
+            <div class="tags"><span class="tag">IBM</span><span class="tag">企业AI</span><span class="tag">研究</span></div>
+        </div>
         <div class="topic warning">
             <div class="topic-header"><div class="topic-icon">💀</div><h2>卡塔尔氦气关闭：芯片供应链危机</h2></div>
-            <p>卡塔尔 Ras Laffan 氦气设施因伊朗无人机袭击关停 9 天，30% 全球供应消失。韩国 64.7% 氦气进口来自卡塔尔，SK hynix 紧急多元化采购。</p>
+            <p>卡塔尔 Ras Laffan 氦气设施因伊朗无人机袭击关停 9 天，30% 全球供应消失。韩国 64.7% 氦气进口来自卡塔尔。</p>
             <div class="detail">💡 影响：若停超两周，工业气体分销商需重新验证供应商关系，流程可能耗时数月。</div>
             <div class="tags"><span class="tag">芯片</span><span class="tag">氦气</span><span class="tag">供应链</span></div>
         </div>
-
         <div class="topic warning">
             <div class="topic-header"><div class="topic-icon">💰</div><h2>Meta 2630 万美元：游说暗钱完整曝光</h2></div>
-            <p>OSINT 调查曝光 Meta 创纪录游说支出。2630 万美元联邦游说 + 86+ 说客覆盖 45 州 + 秘密资助 Digital Childhood Alliance。ASAA 法案将合规成本转嫁给 Apple 和 Google。</p>
-            <div class="detail">💡 辣评：70万+ 美元流向超级 PAC，5 条确认资金通道。科技巨头正在用金钱重塑美国立法。</div>
+            <p>OSINT 调查曝光 Meta 创纪录游说支出。2630 万美元 + 86+ 说客 + 秘密资助 Digital Childhood Alliance。ASAA 法案将合规成本转嫁给 Apple 和 Google。</p>
+            <div class="detail">💡 辣评：70万+ 美元流向超级 PAC。科技巨头正在用金钱重塑美国立法。</div>
             <div class="tags"><span class="tag">Meta</span><span class="tag">游说</span><span class="tag">暗钱</span></div>
         </div>
-
         <div class="topic signal">
             <div class="topic-header"><div class="topic-icon">🛰️</div><h2>军用 Starlink 竞争：各国竞建太空互联网</h2></div>
-            <p>欧盟 IRIS² (300 卫星)、中国 Guowang (13,000)、俄罗斯 Sfera、德国计划建网、英国 Eutelsat OneWeb、CIA 投资 OpenCosmos。</p>
-            <div class="detail">💡 格局：SpaceX 部署近万颗卫星遥遥领先。俄罗斯因 Starlink 限制军事协调受阻，各国不想重蹈覆辙。</div>
+            <p>欧盟 IRIS² (300卫星)、中国 Guowang (13,000)、俄罗斯 Sfera、德国计划建网、英国 Eutelsat OneWeb、CIA 投资 OpenCosmos。</p>
+            <div class="detail">💡 格局：SpaceX 部署近万颗卫星遥遥领先。各国不想在太空互联网依赖私营公司。</div>
             <div class="tags"><span class="tag">Starlink</span><span class="tag">太空</span><span class="tag">军备</span></div>
         </div>
-
-        <div class="topic signal">
-            <div class="topic-header"><div class="topic-icon">🖥️</div><h2>TUI Studio：终端 UI 的文艺复兴</h2></div>
-            <p>Figma 风格 TUI 可视化编辑器。拖拽组件、实时预览 ANSI、导出到 6 大框架（Ink、BubbleTea、Blessed、Textual、OpenTUI、tview）。</p>
-            <div class="detail">💡 趋势：支持 21 种内置组件、8 种配色主题。CLI 仙人狂喜，GUI 开发者迷惑。</div>
-            <div class="tags"><span class="tag">TUI</span><span class="tag">终端</span><span class="tag">开源</span></div>
-        </div>
-
         <div class="footer">
             <p class="brand">🐽 Dolan's 情报终端</p>
-            <p>追求极致的信噪比 | RSS 加固版 | 编译: BIBI Agent</p>
+            <p>追求极致的信噪比 | RSS 加固版 v2 | 编译: BIBI Agent</p>
         </div>
     </div>
 </body>
