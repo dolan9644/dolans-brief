@@ -38,6 +38,35 @@
             font-family: 'SF Mono', Monaco, monospace;
         }
         
+        .sources {
+            background: #121212;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+        }
+        .sources h3 {
+            font-size: 12px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .sources ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .sources li {
+            background: #1e1e1e;
+            color: #888;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+        
         .topics-grid {
             display: flex;
             flex-direction: column;
@@ -118,6 +147,30 @@
         .signal { border-left: 4px solid #ffd93d; }
         .warning { border-left: 4px solid #ff8c42; }
         
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat {
+            background: #121212;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
         .footer {
             margin-top: 48px;
             padding-top: 24px;
@@ -131,56 +184,39 @@
             font-weight: 600;
             margin-bottom: 4px;
         }
-        
-        .toc {
-            background: #121212;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 32px;
-        }
-        .toc h3 {
-            font-size: 12px;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-        .toc ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-        }
-        .toc li {
-            color: #888;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .toc li::before {
-            content: "▸";
-            color: #444;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🔥 Hackerville 的昨日与明日</h1>
-            <p class="meta">Dolan's 全景内参 | 2026-03-14 | HackerNews 编译</p>
+            <p class="meta">Dolan's 全景内参 | 2026-03-14 | 多源编译</p>
         </header>
 
-        <div class="toc">
-            <h3>今日议题</h3>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">RSS 源抓取</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">6</div>
+                <div class="stat-label">情报簇</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">4</div>
+                <div class="stat-label">全文提取</div>
+            </div>
+        </div>
+
+        <div class="sources">
+            <h3>📡 数据来源</h3>
             <ul>
-                <li>卡塔尔氦气关闭威胁芯片供应链</li>
-                <li>CanIRun.ai 本地运行 AI 模型</li>
-                <li>TUI Studio 终端 UI 可视化</li>
-                <li>Meta 1127 points 游说暗钱</li>
-                <li>Instagram E2E 加密退出</li>
-                <li>军用 Starlink 竞争加剧</li>
+                <li>HackerNews</li>
+                <li>Tom's Hardware</li>
+                <li>GitHub</li>
+                <li>New Scientist</li>
+                <li>CanIRun.ai</li>
+                <li>TUI Studio</li>
             </ul>
         </div>
 
@@ -190,12 +226,13 @@
                     <div class="topic-icon">💀</div>
                     <h2>卡塔尔氦气关闭：芯片供应链的定时炸弹</h2>
                 </div>
-                <p>全球氦气供应告急！卡塔尔北部油田检修关闭 3 个月，直接威胁半导体制造。氦气是光刻机的冷却剂，没它等于造不了芯片。</p>
-                <div class="detail">💡 影响：台积电、英特尔、三星产能受限，全球芯片价格预计上涨 5-15%</div>
+                <p>卡塔尔Ras Laffan氦气设施因伊朗无人机袭击关停9天，30%全球供应消失。韩国2025年64.7%氦气进口来自卡塔尔，SK hynix被迫紧急多元化采购。</p>
+                <div class="detail">💡 影响：如果停产超过两周，工业气体分销商需重新验证供应商关系，流程可能耗时数月。台积电称目前影响不大，但正在监控局势。</div>
                 <div class="tags">
                     <span class="tag">芯片供应链</span>
                     <span class="tag">氦气危机</span>
                     <span class="tag">地缘政治</span>
+                    <span class="tag">SK hynix</span>
                 </div>
             </div>
 
@@ -204,12 +241,13 @@
                     <div class="topic-icon">🤖</div>
                     <h2>CanIRun.ai：本地大模型的民主化时刻</h2>
                 </div>
-                <p>一个新网站让你输入自己的电脑配置，就能告诉你能跑什么模型。4090 用户狂喜，Mac Mini M4 用户沉默。</p>
-                <div class="detail">💡 观察：这波是硬件党的胜利，还是模型优化的失败？本地运行的门槛正在极速降低</div>
+                <p>输入你的电脑配置，网站告诉你能跑什么模型。数据来自 llama.cpp、Ollama 和 LM Studio。支持从 0.5GB TinyLlama 到 512GB Kimi K2 的全部主流开源模型。</p>
+                <div class="detail">💡 观察：4090 用户狂喜，Mac Mini M4 用户沉默。本地运行门槛正在极速降低，边缘计算的民主化时代来临。</div>
                 <div class="tags">
                     <span class="tag">本地大模型</span>
                     <span class="tag">硬件评测</span>
                     <span class="tag">边缘计算</span>
+                    <span class="tag">Llama.cpp</span>
                 </div>
             </div>
 
@@ -218,12 +256,13 @@
                     <div class="topic-icon">🖥️</div>
                     <h2>TUI Studio：终端党的文艺复兴</h2>
                 </div>
-                <p>一款新的 TUI 可视化工具让终端 UI 开发变得优雅。CLI 仙人狂喜，GUI 开发者迷惑。</p>
-                <div class="detail">💡 趋势：在这个看脸的时代，终端反而成了新潮。复古与现代的奇妙交汇</div>
+                <p>Figma 风格的 TUI 可视化编辑器。拖拽组件、实时预览 ANSI、导出到 6 大框架（Ink、BubbleTea、Blessed、Textual、OpenTUI、tview）。</p>
+                <div class="detail">💡 趋势：支持 21 种内置组件，8 种配色主题（Dracula、Nord、Solarized、Monokai 等）。CLI 仙人狂喜，GUI 开发者迷惑。</div>
                 <div class="tags">
                     <span class="tag">终端工具</span>
                     <span class="tag">开发者工具</span>
                     <span class="tag">TUI</span>
+                    <span class="tag">开源</span>
                 </div>
             </div>
 
@@ -232,12 +271,13 @@
                     <div class="topic-icon">💰</div>
                     <h2>Meta 1127 points：游说暗钱的冰山一角</h2>
                 </div>
-                <p>Meta 今年游说支出再创新高。1127 points 只是明面上的，真正的暗钱流动在华盛顿的迷雾中。</p>
-                <div class="detail">💡 辣评：科技巨头的政治影响力，正在重构美国权力的版图。民主的代价是金钱？</div>
+                <p>OSINT 调查曝光 Meta 创纪录的 2630 万美元联邦游说支出，部署 86+ 说客覆盖 45 个州。秘密资助 "Digital Childhood Alliance" (DCA) 推动 App Store Accountability Act (ASAA)。</p>
+                <div class="detail">💡 辣评：ASAA 要求 app store 验证年龄，却不针对社交媒体平台。Meta 成功将合规成本转嫁给 Apple 和 Google，自己零负担。5 条确认资金通道 + 1 条可能的暗钱路径，超过 70 万美元流向超级 PAC。</div>
                 <div class="tags">
                     <span class="tag">科技政治</span>
                     <span class="tag">游说</span>
                     <span class="tag">Meta</span>
+                    <span class="tag">暗钱</span>
                 </div>
             </div>
 
@@ -246,12 +286,13 @@
                     <div class="topic-icon">🔒</div>
                     <h2>Instagram E2E 加密：5 月 8 日的告别</h2>
                 </div>
-                <p>Meta 宣布 Instagram E2E 加密将于 5 月 8 日正式退出部分地区。隐私与安全的拉锯战，用户成了牺牲品。</p>
-                <div class="detail">💡 真相：免费的，往往是最贵的。你的数据，就是他们的商品</div>
+                <p>Meta 宣布 Instagram 端到端加密将于 5 月 8 日正式退出部分地区。隐私与安全的拉锯战，用户再次成为牺牲品。</p>
+                <div class="detail">💡 真相：免费的，往往是最贵的。你的数据，就是他们的商品。全球最值钱的资产不是石油，是数据。</div>
                 <div class="tags">
                     <span class="tag">隐私</span>
                     <span class="tag">Meta</span>
                     <span class="tag">加密</span>
+                    <span class="tag">Instagram</span>
                 </div>
             </div>
 
@@ -260,13 +301,14 @@
                     <div class="topic-icon">🛰️</div>
                     <h2>军用 Starlink 竞争：太空互联网的军备竞赛</h2>
                 </div>
-                <p>军用 Starlink 竞争加剧，五角大楼开始扶持替代供应商。Amazon Project Kuiper、加拿大 Telesat、德国 Bundeswehr 都在构建自己的卫星网络。</p>
-                <div class="detail">💡 格局：俄罗斯也在搞"Rassvet"卫星星座，首批 16 颗 2025 年底发射。太空战国时代来临</div>
+                <p>各国正争相建设自己的 Starlink 替代品。欧盟 IRIS² (300 颗卫星，2030 年运营)、中国 Guowang (13,000 颗)、俄罗斯 Sfera、德国计划建网、英国保留 Eutelsat OneWeb 股份、OpenCosmos 获 CIA 投资。</p>
+                <div class="detail">💡 格局：New Scientist 分析指出，SpaceX 已部署近 10,000 颗卫星，遥遥领先。俄罗斯因 Starlink 限制而军事协调受阻，各国都不想重蹈覆辙。"富国终将赶上，" Exeter 大学 Anthony King 教授说。</div>
                 <div class="tags">
                     <span class="tag">太空</span>
                     <span class="tag">军备竞赛</span>
                     <span class="tag">Starlink</span>
                     <span class="tag">卫星互联网</span>
+                    <span class="tag">地缘政治</span>
                 </div>
             </div>
         </div>
