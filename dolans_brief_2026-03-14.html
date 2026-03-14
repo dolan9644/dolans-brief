@@ -195,15 +195,15 @@
 
         <div class="stats">
             <div class="stat">
-                <div class="stat-num">30+</div>
-                <div class="stat-label">RSS 源抓取</div>
+                <div class="stat-num">30</div>
+                <div class="stat-label">HN 热门</div>
             </div>
             <div class="stat">
-                <div class="stat-num">6</div>
+                <div class="stat-num">8</div>
                 <div class="stat-label">情报簇</div>
             </div>
             <div class="stat">
-                <div class="stat-num">4</div>
+                <div class="stat-num">5</div>
                 <div class="stat-label">全文提取</div>
             </div>
         </div>
@@ -212,27 +212,56 @@
             <h3>📡 数据来源</h3>
             <ul>
                 <li>HackerNews</li>
+                <li>Anthropic Blog</li>
                 <li>Tom's Hardware</li>
                 <li>GitHub</li>
                 <li>New Scientist</li>
-                <li>CanIRun.ai</li>
-                <li>TUI Studio</li>
+                <li>MetaGenesis</li>
             </ul>
         </div>
 
         <div class="topics-grid">
             <div class="topic hot">
                 <div class="topic-header">
+                    <div class="topic-icon">🚀</div>
+                    <h2>Anthropic 1M Context：上下文战争的终结</h2>
+                </div>
+                <p>Claude Opus 4.6 和 Sonnet 4.6 全面上线 1M 上下文窗口，标准定价，无任何附加费。每百万 token：Opus $5/$25，Sonnet $3/$15。媒体限制扩展至 600 张图片或 PDF 页面。</p>
+                <div class="detail">💡 意义：MRCR v2 测试中 Opus 4.6 达 78.3% 准确率，领先所有前沿模型。意味着你可以加载整个代码库、数千页合同，或完整的 agent 追踪记录——无需有损摘要。</div>
+                <div class="tags">
+                    <span class="tag">Anthropic</span>
+                    <span class="tag">Claude</span>
+                    <span class="tag">大模型</span>
+                    <span class="tag">上下文</span>
+                </div>
+            </div>
+
+            <div class="topic hot">
+                <div class="topic-header">
                     <div class="topic-icon">💀</div>
                     <h2>卡塔尔氦气关闭：芯片供应链的定时炸弹</h2>
                 </div>
-                <p>卡塔尔Ras Laffan氦气设施因伊朗无人机袭击关停9天，30%全球供应消失。韩国2025年64.7%氦气进口来自卡塔尔，SK hynix被迫紧急多元化采购。</p>
+                <p>卡塔尔 Ras Laffan 氦气设施因伊朗无人机袭击关停 9 天，30% 全球供应消失。韩国 2025 年 64.7% 氦气进口来自卡塔尔，SK hynix 被迫紧急多元化采购。</p>
                 <div class="detail">💡 影响：如果停产超过两周，工业气体分销商需重新验证供应商关系，流程可能耗时数月。台积电称目前影响不大，但正在监控局势。</div>
                 <div class="tags">
                     <span class="tag">芯片供应链</span>
                     <span class="tag">氦气危机</span>
                     <span class="tag">地缘政治</span>
-                    <span class="tag">SK hynix</span>
+                </div>
+            </div>
+
+            <div class="topic signal">
+                <div class="topic-header">
+                    <div class="topic-icon">🔬</div>
+                    <h2>MetaGenesis Core：计算结果的驗證 Protocol</h2>
+                </div>
+                <p>一个开源协议，解决 AI/ML 领域"声称结果但无法验证"的危机。任何计算结果打包成防篡改证据包，第三方只需运行一条命令即可离线验证 PASS 或 FAIL。</p>
+                <div class="detail">💡 亮点：8 项验证 claim，107 个测试，覆盖 ML 基准、材料科学、数据管道、漂移监测、数字孪生六大领域。70% 科研人员报告无法复现他人结果——这个工具正是为此而生。</div>
+                <div class="tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">验证</span>
+                    <span class="tag">开源</span>
+                    <span class="tag">Protocol</span>
                 </div>
             </div>
 
@@ -247,7 +276,6 @@
                     <span class="tag">本地大模型</span>
                     <span class="tag">硬件评测</span>
                     <span class="tag">边缘计算</span>
-                    <span class="tag">Llama.cpp</span>
                 </div>
             </div>
 
@@ -262,17 +290,16 @@
                     <span class="tag">终端工具</span>
                     <span class="tag">开发者工具</span>
                     <span class="tag">TUI</span>
-                    <span class="tag">开源</span>
                 </div>
             </div>
 
             <div class="topic hot">
                 <div class="topic-header">
                     <div class="topic-icon">💰</div>
-                    <h2>Meta 1127 points：游说暗钱的冰山一角</h2>
+                    <h2>Meta 2630 万美元：游说暗钱的冰山一角</h2>
                 </div>
                 <p>OSINT 调查曝光 Meta 创纪录的 2630 万美元联邦游说支出，部署 86+ 说客覆盖 45 个州。秘密资助 "Digital Childhood Alliance" (DCA) 推动 App Store Accountability Act (ASAA)。</p>
-                <div class="detail">💡 辣评：ASAA 要求 app store 验证年龄，却不针对社交媒体平台。Meta 成功将合规成本转嫁给 Apple 和 Google，自己零负担。5 条确认资金通道 + 1 条可能的暗钱路径，超过 70 万美元流向超级 PAC。</div>
+                <div class="detail">💡 辣评：ASAA 要求 app store 验证年龄，却不针对社交媒体平台。Meta 成功将合规成本转嫁给 Apple 和 Google，自己零负担。超过 70 万美元流向超级 PAC，5 条确认资金通道。</div>
                 <div class="tags">
                     <span class="tag">科技政治</span>
                     <span class="tag">游说</span>
@@ -283,32 +310,29 @@
 
             <div class="topic signal">
                 <div class="topic-header">
-                    <div class="topic-icon">🔒</div>
-                    <h2>Instagram E2E 加密：5 月 8 日的告别</h2>
+                    <div class="topic-icon">📺</div>
+                    <h2>Channel Surfer：YouTube 电视化</h2>
                 </div>
-                <p>Meta 宣布 Instagram 端到端加密将于 5 月 8 日正式退出部分地区。隐私与安全的拉锯战，用户再次成为牺牲品。</p>
-                <div class="detail">💡 真相：免费的，往往是最贵的。你的数据，就是他们的商品。全球最值钱的资产不是石油，是数据。</div>
+                <p>Show HN：像看有线电视一样看 YouTube。把 YouTube 频道变成"电视频道"界面，用遥控器浏览，适合客厅使用。</p>
+                <div class="detail">💡 趋势：复古怀旧 + 流媒体整合。YouTube 正在吞噬电视，但交互方式还在向遥控器回归。</div>
                 <div class="tags">
-                    <span class="tag">隐私</span>
-                    <span class="tag">Meta</span>
-                    <span class="tag">加密</span>
-                    <span class="tag">Instagram</span>
+                    <span class="tag">YouTube</span>
+                    <span class="tag">TV</span>
+                    <span class="tag">ShowHN</span>
                 </div>
             </div>
 
             <div class="topic warning">
                 <div class="topic-header">
                     <div class="topic-icon">🛰️</div>
-                    <h2>军用 Starlink 竞争：太空互联网的军备竞赛</h2>
+                    <h2>军用 Starlink：太空互联网的军备竞赛</h2>
                 </div>
-                <p>各国正争相建设自己的 Starlink 替代品。欧盟 IRIS² (300 颗卫星，2030 年运营)、中国 Guowang (13,000 颗)、俄罗斯 Sfera、德国计划建网、英国保留 Eutelsat OneWeb 股份、OpenCosmos 获 CIA 投资。</p>
-                <div class="detail">💡 格局：New Scientist 分析指出，SpaceX 已部署近 10,000 颗卫星，遥遥领先。俄罗斯因 Starlink 限制而军事协调受阻，各国都不想重蹈覆辙。"富国终将赶上，" Exeter 大学 Anthony King 教授说。</div>
+                <p>各国正争相建设自己的 Starlink 替代品。欧盟 IRIS² (300 卫星)、中国 Guowang (13,000)、俄罗斯 Sfera、德国计划建网、英国保留 Eutelsat OneWeb 股份、OpenCosmos 获 CIA 投资。</p>
+                <div class="detail">💡 格局：SpaceX 已部署近 10,000 颗卫星遥遥领先。俄罗斯因 Starlink 限制军事协调受阻，各国都不想重蹈覆辙。"富国终将赶上。"</div>
                 <div class="tags">
                     <span class="tag">太空</span>
                     <span class="tag">军备竞赛</span>
                     <span class="tag">Starlink</span>
-                    <span class="tag">卫星互联网</span>
-                    <span class="tag">地缘政治</span>
                 </div>
             </div>
         </div>
