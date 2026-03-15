@@ -3,54 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolan's 晨间脉搏 | 2026-03-15</title>
+    <title>当 AI 巨头的「生态霸权」遇见开源世界的「草根逆袭」—— Dolan's 全景内参</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #1a1a1a; background: #fafafa; }
-        h1 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2.5rem; color: #000; letter-spacing: 0.05em; }
-        h2 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0066cc; border-left: 3px solid #0066cc; padding-left: 0.75rem; }
-        p { margin-bottom: 1rem; color: #333; }
-        .cover-story { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
-        .cover-story h2 { color: white; border-left-color: white; }
-        .cover-story p { color: rgba(255,255,255,0.95); font-size: 1.1rem; }
-        .date { text-align: center; font-size: 0.875rem; color: #888; margin-bottom: 2rem; letter-spacing: 0.1em; }
-        blockquote { background: #f5f5f5; border-left: 4px solid #ff9800; padding: 1rem; margin: 1.5rem 0; font-style: italic; }
-        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; }
-        th { background: #f5f5f5; font-weight: 600; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            font-size: 17px;
+            line-height: 1.85;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .article-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .article-meta {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .lead-quote {
+            font-size: 18px;
+            color: #444;
+            font-style: italic;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background: #fff;
+            border-left: 4px solid #ff6b35;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #0a0a0a;
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff6b35;
+            display: inline-block;
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 2rem 0 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            background: #fffbf5;
+            border: 1px solid #ffe0cc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+        
+        ol, ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
+        }
+        
+        strong {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e5e5e5, transparent);
+            margin: 3rem 0;
+        }
+        
+        .emoji {
+            font-style: normal;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            background: #f5f5f5;
+            border-radius: 6px;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <h1>🔥 Dolan's 晨间脉搏</h1>
-    <p class="date">2026-03-15 | AI 情报内参 · 完整版</p>
-    
-    <div class="cover-story">
-        <h2>封面事件：Anthropic 掷出 $1B 打造 Claude 生态帝国</h2>
-        <p>Anthropic 终于明白，单打独斗干不过 Microsoft 和 OpenAI 的生态包围网。晚了，但不算太晚。</p>
-    </div>
-    
-    <h2>AlphaGo 十周年：从围棋到 AGI</h2>
-    <p>十年前，AlphaGo 击败李世石。十年后，DeepMind 回顾这段历史，同时发布 Gemini 3.1 Flash-Lite 和 Nano Banana 2。</p>
-    
-    <h2>Transformers 5.0：开源框架核弹更新</h2>
-    <p>Transformers 5.0 发布，带来更高效的模型架构和推理优化。开源社区正在从仓库进化为操作系统。</p>
-    
-    <h2>NVIDIA NeMo Agentic RAG</h2>
-    <p>将 RAG 能力提升到 Agent 级别，企业级 AI 工作流再升级。</p>
-    
-    <h2>Simon Willison 谈 Agentic Engineering</h2>
-    <p>AI 工程师将成为最重要的技术角色。</p>
-    
-    <h2>Ichinichi E2E 加密笔记</h2>
-    <p>一天一条笔记，E2E 加密，本地优先。</p>
-    
-    <h2>📊 情报聚合</h2>
-    <table>
-        <tr><th>事件</th><th>类别</th><th>重要性</th></tr>
-        <tr><td>Anthropic $1B Partner Network</td><td>大厂动态</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>AlphaGo 十周年</td><td>AI 里程碑</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Transformers 5.0</td><td>开源框架</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>NVIDIA NeMo RAG</td><td>基础设施</td><td>⭐⭐⭐</td></tr>
-    </table>
+    <header class="article-header">
+        <h1 class="article-title">🔥 当 AI 巨头的「生态霸权」遇见开源世界的「草根逆袭」</h1>
+        <p class="article-meta">专栏坐标：2026年3月 · Dolan's Intelligence Brief<br>阅读时长：10 分钟</p>
+    </header>
+
+    <blockquote class="lead-quote">
+        「这个三月，AI 行业上演了一出好戏：Anthropic 挥金如土撒出一个亿，Google 借 AlphaGo 十周年秀肌肉，NVIDIA 继续闷声发大财，而 Simon Willison 则在安静地写着关于 Agentic Engineering 的博客——仿佛一切都没有发生。」
+    </blockquote>
+
+    <section>
+        <h2>🔥 Dolan's 辣评</h2>
+        
+        <p><strong>Anthropic 撒出一个亿的那一刻，我仿佛看到了微软在 2019 年的影子——只不过这次，剧本换主角了。</strong></p>
+        
+        <p>当我看到 Anthropic 宣布投资 <strong>1亿美元</strong> 建立 Claude Partner Network 时，我的第一反应不是激动，而是深深的审美疲劳。是的，又一个「生态合作伙伴计划」，又一个「赋能开发者」的叙事，又一个对标微软 OpenAI 企业服务的故事。</p>
+        
+        <div class="highlight-box">
+            <ol>
+                <li><strong>这不是施舍，是投名状</strong>。1亿美元不是白给的——它买的是 AI 初创企业的「战略忠诚度」。</li>
+                <li><strong>微软模式的可复制性存疑</strong>。微软/OpenAI 的成功建立在多年积累的企业客户关系、Azure 云基础设施之上。</li>
+                <li><strong>开发者不是棋子，是玩家</strong>。</li>
+            </ol>
+        </div>
+        
+        <p><strong>AlphaGo 十周年？Google 怕的不是纪念，是被遗忘。</strong></p>
+        
+        <p>十年了。2016 年 3 月，AlphaGo 击败李世石的那一刻，全世界都知道了 DeepMind 的名字。</p>
+        
+        <div class="section-divider"></div>
+        
+        <p><strong>NVIDIA 永远不亏——这才是真正的『智能体经济学』。 </strong></p>
+        
+        <p>当所有人都在讨论 Agentic RAG 时，NVIDIA 悄然推出了 NeMo Agentic RAG。</p>
+        
+        <div class="section-divider"></div>
+        
+        <p><strong>Simon Willison 才是真正的『AI 哲学家』——他在写博客，而其他人在写融资 PPT。</strong></p>
+    </section>
+
+    <section>
+        <h2>🧠 深度分析：AI 行业的「三极格局」</h2>
+        
+        <h3>第一极：生态霸权派 —— Anthropic、Microsoft/OpenAI</h3>
+        
+        <div class="section-divider"></div>
+        
+        <h3>第二极：技术铁幕派 —— Google/DeepMind、NVIDIA</h3>
+        
+        <div class="section-divider"></div>
+        
+        <h3>第三极：草根逆袭派 —— Hugging Face，开源社区</h3>
+    </section>
+
+    <section>
+        <h2>📊 产业趋势</h2>
+        
+        <h3>趋势一：模型本身正在变成「自来水」</h3>
+        
+        <div class="section-divider"></div>
+        
+        <h3>趋势二：智能体（Agent）才是新的价值高地</h3>
+        
+        <div class="section-divider"></div>
+        
+        <h3>趋势三：隐私安全正在从「选修课」变成「必修课」</h3>
+    </section>
 </body>
 </html>
