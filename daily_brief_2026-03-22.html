@@ -3,625 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dolan的全景内参 | 2026年3月22日</title>
+<title>DOLAN'S 全景内参｜2026-03-22</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
   :root {
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --bg-card: #1c2128;
-    --bg-card-hover: #22272e;
-    --accent-cyan: #00d4ff;
-    --accent-purple: #a855f7;
-    --accent-green: #10b981;
-    --accent-orange: #f59e0b;
-    --accent-pink: #ec4899;
-    --accent-red: #ef4444;
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted: #6e7681;
-    --border-color: #30363d;
-    --glow-cyan: 0 0 20px rgba(0,212,255,0.15);
-    --glow-purple: 0 0 20px rgba(168,85,247,0.15);
+    --bg-primary: #0d1117; --bg-card: #1c2128; --border-color: #30363d;
+    --text-primary: #e6edf3; --text-secondary: #8b949e; --text-muted: #6e7681;
+    --accent-cyan: #39d0d8; --accent-blue: #58a6ff; --accent-purple: #bc8cff;
+    --accent-pink: #f778ba; --accent-orange: #ffa657; --accent-green: #3fb950;
+    --accent-red: #ff7b72; --accent-yellow: #d29922;
+    --glow-cyan: rgba(57,208,216,0.35); --glow-blue: rgba(88,166,255,0.35);
+    --glow-purple: rgba(188,140,255,0.35); --glow-pink: rgba(247,120,186,0.35);
+    --glow-orange: rgba(255,166,87,0.35); --glow-green: rgba(63,185,80,0.35);
+    --glow-red: rgba(255,123,114,0.35); --glow-yellow: rgba(210,153,34,0.35);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background-color: var(--bg-primary); color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.7; min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(57,208,216,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,208,216,0.025) 1px, transparent 1px);
+    background-size: 60px 60px; pointer-events: none; z-index: 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; position: relative; z-index: 1; }
 
-  body {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
+  .masthead { text-align: center; margin-bottom: 48px; padding: 40px 24px;
+    background: linear-gradient(135deg, rgba(57,208,216,0.06) 0%, rgba(188,140,255,0.06) 100%);
+    border: 1px solid var(--border-color); border-radius: 16px; position: relative; overflow: hidden; }
+  .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink)); }
+  .masthead-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 500; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 12px; background: rgba(57,208,216,0.08); border: 1px solid rgba(57,208,216,0.2);
+    padding: 4px 14px; border-radius: 20px; }
+  .masthead h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 60%, var(--accent-pink) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    letter-spacing: -0.5px; margin-bottom: 10px; }
+  .masthead-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
 
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
+  .intro { background: linear-gradient(135deg, rgba(57,208,216,0.07) 0%, rgba(188,140,255,0.05) 100%);
+    border: 1px solid rgba(57,208,216,0.22); border-left: 3px solid var(--accent-cyan);
+    border-radius: 12px; padding: 28px 28px 24px; margin-bottom: 40px; position: relative; }
+  .intro::before { content: '导语'; position: absolute; top: -1px; left: 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;
+    background: var(--bg-primary); padding: 0 8px; }
+  .intro p { font-size: 15px; color: var(--text-secondary); line-height: 1.85; }
+  .intro strong { color: var(--accent-cyan); font-weight: 600; }
 
-  /* Header */
-  .header {
-    text-align: center;
-    padding: 60px 0 50px;
-    position: relative;
-  }
+  .topics { display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px; }
+  .topic-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px;
+    overflow: hidden; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+  .topic-card:hover { transform: translateY(-3px); }
+  .topic-card.glow-cyan:hover   { box-shadow: 0 0 28px var(--glow-cyan),   0 8px 32px rgba(0,0,0,0.5); border-color: rgba(57,208,216,0.5); }
+  .topic-card.glow-blue:hover   { box-shadow: 0 0 28px var(--glow-blue),   0 8px 32px rgba(0,0,0,0.5); border-color: rgba(88,166,255,0.5); }
+  .topic-card.glow-purple:hover{ box-shadow: 0 0 28px var(--glow-purple), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(188,140,255,0.5); }
+  .topic-card.glow-pink:hover   { box-shadow: 0 0 28px var(--glow-pink),   0 8px 32px rgba(0,0,0,0.5); border-color: rgba(247,120,186,0.5); }
+  .topic-card.glow-orange:hover { box-shadow: 0 0 28px var(--glow-orange), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(255,166,87,0.5); }
+  .topic-card.glow-green:hover  { box-shadow: 0 0 28px var(--glow-green),  0 8px 32px rgba(0,0,0,0.5); border-color: rgba(63,185,80,0.5); }
+  .topic-card.glow-red:hover    { box-shadow: 0 0 28px var(--glow-red),    0 8px 32px rgba(0,0,0,0.5); border-color: rgba(255,123,114,0.5); }
+  .topic-card.glow-yellow:hover { box-shadow: 0 0 28px var(--glow-yellow), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(210,153,34,0.5); }
 
-  .header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
-    border-radius: 2px;
-  }
+  .card-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px 14px; border-bottom: 1px solid rgba(48,54,61,0.6); }
+  .card-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; flex-shrink: 0; }
+  .glow-cyan   .card-num{background:rgba(57,208,216,0.12);color:var(--accent-cyan);border:1px solid rgba(57,208,216,0.3);}
+  .glow-blue   .card-num{background:rgba(88,166,255,0.12);color:var(--accent-blue);border:1px solid rgba(88,166,255,0.3);}
+  .glow-purple .card-num{background:rgba(188,140,255,0.12);color:var(--accent-purple);border:1px solid rgba(188,140,255,0.3);}
+  .glow-pink   .card-num{background:rgba(247,120,186,0.12);color:var(--accent-pink);border:1px solid rgba(247,120,186,0.3);}
+  .glow-orange .card-num{background:rgba(255,166,87,0.12);color:var(--accent-orange);border:1px solid rgba(255,166,87,0.3);}
+  .glow-green  .card-num{background:rgba(63,185,80,0.12);color:var(--accent-green);border:1px solid rgba(63,185,80,0.3);}
+  .glow-red    .card-num{background:rgba(255,123,114,0.12);color:var(--accent-red);border:1px solid rgba(255,123,114,0.3);}
+  .glow-yellow .card-num{background:rgba(210,153,34,0.12);color:var(--accent-yellow);border:1px solid rgba(210,153,34,0.3);}
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+  .card-body { padding: 20px 24px; }
+  .card-section { margin-bottom: 16px; }
+  .card-section:last-child { margin-bottom: 0; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .glow-cyan   .section-label{color:var(--accent-cyan);}
+  .glow-blue   .section-label{color:var(--accent-blue);}
+  .glow-purple .section-label{color:var(--accent-purple);}
+  .glow-pink   .section-label{color:var(--accent-pink);}
+  .glow-orange .section-label{color:var(--accent-orange);}
+  .glow-green  .section-label{color:var(--accent-green);}
+  .glow-red    .section-label{color:var(--accent-red);}
+  .glow-yellow .section-label{color:var(--accent-yellow);}
+  .section-text { font-size: 14px; color: var(--text-secondary); line-height: 1.78; }
+  .section-text strong { color: var(--text-primary); font-weight: 600; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .link-chip { display: inline-flex; align-items: center; gap: 5px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary); background: rgba(139,148,158,0.07); border: 1px solid rgba(139,148,158,0.15); border-radius: 6px; padding: 4px 10px; text-decoration: none; transition: color 0.15s, background 0.15s, border-color 0.15s; }
+  .link-chip:hover { color: var(--text-primary); background: rgba(139,148,158,0.14); border-color: rgba(139,148,158,0.28); }
+  .link-chip::before { content: '🔗'; font-size: 10px; }
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li { font-size: 14px; color: var(--text-secondary); line-height: 1.78; padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .bullet-list li:last-child { margin-bottom: 0; }
+  .bullet-list li::before { content: '›'; position: absolute; left: 4px; font-weight: 700; }
+  .glow-cyan   li::before{color:var(--accent-cyan);}
+  .glow-blue   li::before{color:var(--accent-blue);}
+  .glow-purple li::before{color:var(--accent-purple);}
+  .glow-pink   li::before{color:var(--accent-pink);}
+  .glow-orange li::before{color:var(--accent-orange);}
+  .glow-green  li::before{color:var(--accent-green);}
+  .glow-red    li::before{color:var(--accent-red);}
+  .glow-yellow li::before{color:var(--accent-yellow);}
 
-  .header-eyebrow {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--accent-cyan);
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
+  .outro { background: linear-gradient(135deg, rgba(188,140,255,0.07) 0%, rgba(247,120,186,0.05) 100%); border: 1px solid rgba(188,140,255,0.2); border-left: 3px solid var(--accent-purple); border-radius: 12px; padding: 28px 28px 24px; margin-bottom: 32px; position: relative; }
+  .outro::before { content: '结语'; position: absolute; top: -1px; left: 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--accent-purple); letter-spacing: 2px; text-transform: uppercase; background: var(--bg-primary); padding: 0 8px; }
+  .outro p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.88; }
+  .outro strong { color: var(--accent-purple); font-weight: 600; }
 
-  .header-title {
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-  }
+  .cta-row { text-align: center; margin-bottom: 48px; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #fff; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); border: none; border-radius: 10px; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .cta-btn:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(57,208,216,0.28); }
 
-  .header-date {
-    font-size: 14px;
-    color: var(--text-secondary);
-    letter-spacing: 2px;
-  }
-
-  /* Divider */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 40px 0;
-    color: var(--text-muted);
-    font-size: 12px;
-    letter-spacing: 3px;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-  }
-
-  /* Intro */
-  .intro {
-    background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(168,85,247,0.08));
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 50px;
-    position: relative;
-    overflow: hidden;
-  }
-  .intro::before {
-    content: '导语';
-    position: absolute;
-    top: -1px; left: 24px;
-    background: var(--bg-primary);
-    padding: 0 12px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--accent-cyan);
-    border: 1px solid rgba(0,212,255,0.3);
-    border-radius: 0 0 8px 8px;
-  }
-  .intro p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.9;
-    padding-top: 8px;
-  }
-
-  /* Topic Card */
-  .topic-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    margin-bottom: 28px;
-    overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  .topic-card:hover {
-    border-color: rgba(0,212,255,0.3);
-    box-shadow: var(--glow-cyan);
-  }
-
-  .topic-header {
-    padding: 24px 28px 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .topic-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .topic-1 .topic-number { background: rgba(0,212,255,0.15); color: var(--accent-cyan); }
-  .topic-2 .topic-number { background: rgba(168,85,247,0.15); color: var(--accent-purple); }
-  .topic-3 .topic-number { background: rgba(16,185,129,0.15); color: var(--accent-green); }
-  .topic-4 .topic-number { background: rgba(245,158,11,0.15); color: var(--accent-orange); }
-  .topic-5 .topic-number { background: rgba(236,72,153,0.15); color: var(--accent-pink); }
-  .topic-6 .topic-number { background: rgba(239,68,68,0.15); color: var(--accent-red); }
-
-  .topic-meta { flex: 1; }
-
-  .topic-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.4;
-    margin-bottom: 6px;
-  }
-
-  .topic-subtitle {
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-  }
-
-  .topic-body { padding: 24px 28px; }
-
-  .section-block {
-    margin-bottom: 20px;
-  }
-  .section-block:last-child { margin-bottom: 0; }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 6px;
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-
-  .topic-1 .section-label { background: rgba(0,212,255,0.1); color: var(--accent-cyan); }
-  .topic-2 .section-label { background: rgba(168,85,247,0.1); color: var(--accent-purple); }
-  .topic-3 .section-label { background: rgba(16,185,129,0.1); color: var(--accent-green); }
-  .topic-4 .section-label { background: rgba(245,158,11,0.1); color: var(--accent-orange); }
-  .topic-5 .section-label { background: rgba(236,72,153,0.1); color: var(--accent-pink); }
-  .topic-6 .section-label { background: rgba(239,68,68,0.1); color: var(--accent-red); }
-
-  .section-content {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.85;
-  }
-
-  .section-content ul {
-    list-style: none;
-    padding: 0;
-  }
-  .section-content ul li {
-    padding: 6px 0 6px 20px;
-    position: relative;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-  }
-  .section-content ul li:last-child { border-bottom: none; }
-  .section-content ul li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--text-muted);
-    font-size: 11px;
-    top: 8px;
-  }
-
-  /* Highlight box */
-  .highlight-box {
-    background: rgba(255,255,255,0.03);
-    border-left: 3px solid var(--accent-cyan);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px;
-    margin-top: 12px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.8;
-  }
-
-  .highlight-box strong {
-    color: var(--accent-cyan);
-    font-weight: 600;
-  }
-
-  /* Conclusion */
-  .conclusion {
-    background: linear-gradient(135deg, rgba(168,85,247,0.06), rgba(0,212,255,0.06));
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 32px;
-    margin-top: 50px;
-  }
-  .conclusion-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent-purple);
-    margin-bottom: 16px;
-  }
-  .conclusion p {
-    font-size: 14.5px;
-    color: var(--text-secondary);
-    line-height: 2;
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-muted);
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-
-  /* Spec table */
-  .spec-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
-    font-size: 13px;
-  }
-  .spec-table th {
-    text-align: left;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.04);
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 1px;
-    border-bottom: 1px solid var(--border-color);
-  }
-  .spec-table td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-    color: var(--text-secondary);
-  }
-  .spec-table tr:last-child td { border-bottom: none; }
-  .spec-table .spec-name { color: var(--text-primary); font-weight: 600; }
-  .spec-table .spec-val { color: var(--accent-cyan); font-family: monospace; }
+  .footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border-color); }
+  .footer p { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-color), transparent); margin: 0 0 40px; }
 
   @media (max-width: 600px) {
-    .container { padding: 24px 16px 60px; }
-    .topic-header { padding: 20px 20px 16px; gap: 12px; }
-    .topic-body { padding: 20px 20px; }
-    .intro { padding: 24px 20px; }
-    .conclusion { padding: 24px 20px; }
-    .spec-table { font-size: 12px; }
-    .spec-table th, .spec-table td { padding: 6px 8px; }
+    .container { padding: 20px 14px 60px; }
+    .masthead { padding: 28px 16px; }
+    .intro, .outro { padding: 22px 18px 18px; }
+    .card-header { padding: 14px 16px 12px; }
+    .card-body { padding: 16px; }
+    .links { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-eyebrow">Daily Tech Briefing</div>
-    <h1 class="header-title">Dolan的全景内参</h1>
-    <div class="header-date">2026年3月22日 · 第六期</div>
+  <header class="masthead">
+    <div class="masthead-badge">AI &amp; TECHNOLOGY MARKETS</div>
+    <h1>DOLAN'S 全景内参</h1>
+    <div class="masthead-date">2026-03-22 &nbsp;&middot;&nbsp; DAILY BRIEF</div>
   </header>
 
-  <div class="divider">━━━━━━━</div>
-
-  <!-- Intro -->
   <div class="intro">
-    <p>本期内参涵盖AI模型行为异常现象、商业合规争议、软件开发文化反思、Linux内核补丁、JavaScript依赖膨胀、以及高性价比深度学习硬件与家庭节能六大主题。多个事件指向同一底层矛盾：当技术迭代速度超越制度与认知的适应能力，隐患往往以争议或bug的形式显现。</p>
+    <p>开源工具链成 AI 实验室战略资产，小模型价格战倒逼推理成本见底，桌面 Agent 暗战与 Context Window 瓶颈共同勾勒出 AI 基础设施争夺的新战场。</p>
   </div>
 
-  <!-- Topic 1 -->
-  <article class="topic-card topic-1">
-    <div class="topic-header">
-      <div class="topic-number">01</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">跨模型"确定性沉默"：AI认知边界的涌现信号</h2>
-        <div class="topic-subtitle">AI · 对齐 · 涌现行为</div>
-      </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>GPT-5.2与Claude Opus 4.6在特定embodiment提示词下同步出现token预算归零后停止输出的现象，预印本研究（Zenodo DOI: 10.5281/zenodo.18976656，作者Rayan Pal）揭示这一行为具有跨模型一致性。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <ul>
-            <li>现象发生在特定embodiment提示触发后，两模型均出现确定性空输出</li>
-            <li>输出停止不受token预算独立性的约束，表明并非单纯的资源管理机制</li>
-            <li>部分对抗性提示无法绕过该行为，暗示其可能源自更深层的对齐特性</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>技术视角：</strong>跨模型语义收敛暗示当前主流LLM架构在embodiment推理上存在共同盲点，认知局限可能是普遍性的而非偶发的。</li>
-            <li><strong>安全视角：</strong>确定性沉默或许是模型对齐的涌现特性——模型在特定边界内主动"选择"不响应，而非被强制过滤。</li>
-            <li><strong>批判视角：</strong>该行为边界清晰、可预测，理论上可被用于隐蔽式内容审查，使外界难以区分"模型不知道"与"模型被指示不说"。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+  <div class="divider"></div>
 
-  <!-- Topic 2 -->
-  <article class="topic-card topic-2">
-    <div class="topic-header">
-      <div class="topic-number">02</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">AI热潮中的四方争议：合规、补偿、出版与文化</h2>
-        <div class="topic-subtitle">产业 · 监管 · 文化</div>
-      </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>本周AI产业密集爆出多起争议事件，涉及合规认证欺骗、tokens新型补偿模式、出版商因AI恐慌撤书、以及创意人士对"AI优生学思维"的批判。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <ul>
-            <li>Delve被匿名Substack指控虚假宣传合规认证，实际能力与宣传不符</li>
-            <li>AI tokens正成为科技公司第四大补偿支柱（仅次于工资、股权、奖金），但税务处理框架尚不清晰</li>
-            <li>Hachette出版集团以AI担忧为由撤下恐怖小说《Shy Girl》，引发出版界对恐慌性拒稿的讨论</li>
-            <li>创意人士Valerie Veatch公开批评AI行业存在"优生学简化主义"倾向，将复杂的人类创造力还原为可优化指标</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>监管视角：</strong>合规自动化（用工具证明合规）不等于真实合规，第三方审计与实质性验证的重要性被普遍低估。</li>
-            <li><strong>人才市场视角：</strong>AI tokens作为补偿工具正在模糊证券、货币与商品之间的边界，现有监管框架无法覆盖。</li>
-            <li><strong>出版与文化视角：</strong>Veatch的批评指向的正是这种"把多元智能还原为单一优化目标"的思维模式。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+  <div class="topics">
 
-  <!-- Topic 3 -->
-  <article class="topic-card topic-3">
-    <div class="topic-header">
-      <div class="topic-number">03</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">速度崇拜与持久力危机：开源生态的系统性警示</h2>
-        <div class="topic-subtitle">开源 · 软件工程 · 长期主义</div>
+    <article class="topic-card glow-cyan">
+      <div class="card-header"><span class="card-num">TOPIC 01</span><h2 class="card-title">AI Lab 战略：收购开源工具链</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">OpenAI 收购 Astral（uv/ruff/ty 开发商），GDM 收购 Antigravity，Anthropic 收购 Bun——AI 实验室批量收割开源开发工具链。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">Astral 旗下 <strong>uv</strong>（Python 包管理器）、<strong>ruff</strong>（Rust 高速 linter）、<strong>ty</strong> 三个关键工具被纳入 OpenAI Codex 体系。OpenAI 承诺维持开源，但 Simon Willison 直言这是「产品+人才」收购，随时可演变为纯人才收割。Fidji Simo 将 Coding（Astral）列为与 Enterprise 并列的优先方向，并推进 ChatGPT 与 Codex 统一为「超级 App」。Anthropic 收购 Bun 则补全 JavaScript 运行时栈。</p></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>开源被收购后的独立性悖论：BurntSushi 等顶级 Rust 工程师的持续输出存疑，历史上大多数并购最终走向人才收割而非长期开源贡献，社区需提前布局 fork 路径。</li><li>AI 实验室「买开发者生态」逻辑的本质是绑定 Python 工作流——控制 uv、ruff 意味着影响绝大多数 AI 编程工具链的依赖关系，这是比模型本身更隐蔽的控制权迁移。</li></ul></div>
       </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>知名开发者Armin Ronacher发文指出，当前软件开发文化对"快速迭代"的崇拜已走向极端，导致项目生命周期缩短、代码质量下降，并系统性损害需要长期维护的基础设施。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <ul>
-            <li>YC大批量毕业公司中，无声关闭（silent shutdown）的比例持续上升——正式关闭意味着向用户、员工和开源依赖者发出信号，无声关闭则是这一基本信任的破裂</li>
-            <li>多个开源项目在首次提交后一周内完全消失，维护者无力支撑</li>
-            <li>SOC2等合规流程中的摩擦并非官僚主义，其存在有其合理性——压缩这些摩擦的同时也在压缩质量保障层</li>
-            <li>AI辅助编程加速了代码产出，但也同步加速了劣质软件的扩散</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>韧性优于速度：</strong>在基础设施和开源领域，一个运行十年、被人深度理解的系统，其价值远超一个三个月前上线但无人能维护的新系统。</li>
-            <li><strong>生命周期压缩的危险：</strong>软件"保质期"从过去的数十年缩短至数月，这意味着技术债务的累积速度远超行业解决能力。</li>
-            <li><strong>文化层面：</strong>YC等加速器模式过度奖励"快速启动"而忽视"持久运行"，这在应用层或许是优势，但在基础设施层是系统性风险。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
 
-  <!-- Topic 4 -->
-  <article class="topic-card topic-4">
-    <div class="topic-header">
-      <div class="topic-number">04</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">从零到内核补丁：虚拟化学习的技术成长范式</h2>
-        <div class="topic-subtitle">Linux · KVM · 虚拟化 · 社区</div>
+    <article class="topic-card glow-blue">
+      <div class="card-header"><span class="card-num">TOPIC 02</span><h2 class="card-title">AI 编程：从辅助工具到自主工程</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">AI 编程代理跨越「帮人写代码」到「人不读代码」临界点，Simon Willison 发出安全警告。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">Simon Willison 在 Pragmatic Summit 将 AI 编程分为三阶段——ChatGPT 问答、代理写代码、以及「不读代码」新阶段。StrongDM 提出「没人写代码、没人读代码」原则，Willison 斥为「明显不负责任」，尤其 StrongDM 作为安全公司的身份更令此宣言充满讽刺。OpenAI 收购 Astral 将 coding 确立为最高优先级；Claude Code 用户大量用于非编程工作，开发工具与通用工作助手的边界已彻底模糊。</p><div class="links"><a class="link-chip" href="https://pragmaticmag.com/simon-willison-agentic">Simon Willison 炉边谈话</a><a class="link-chip" href="https://strongdm.com/blog/zero-code-principles">StrongDM 原则声明</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>安全公司 StrongDM 的「无人读代码」宣言本质是将安全责任外包给 AI——在关键基础设施场景中，这种模式可能将风险放大至系统性级别，绝非危言耸听。</li><li>AI 编程代理的核心价值在于放大专业知识，而非替代程序员——但这要求从业者具备足够的判断力来验证 AI 输出，当前行业既无培训标准，也无责任框架。</li></ul></div>
       </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>一位开发者在构建Type-2 hypervisor的过程中，独立发现Linux内核x86 TSS（Task State Segment）中的sign-extension bug，并成功提交了第一个内核补丁。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <ul>
-            <li>bug位于GUEST_TR_BASE字段，涉及Intel VT-x、KVM和VMCS的交互层</li>
-            <li>发现源于"自己造轮子"的学习路径——通过亲手实现hypervisor，理解了TSS per-core设计中内核栈指针的处理逻辑</li>
-            <li>补丁已进入Linux内核主线，这是许多内核开发者职业生涯的重要里程碑</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>技术成长视角：</strong>自己构建底层系统是理解操作系统核心概念的最有效路径，这一范式在虚拟化领域尤为经典。</li>
-            <li><strong>系统设计视角：</strong>TSS per-core设计体现了向后兼容（legacy BIOS时代的设计）与现代多核需求之间的持续博弈，这一博弈仍在进行。</li>
-            <li><strong>社区参与视角：</strong>内核补丁的提交门槛被高估——真正的障碍不是技术能力，而是不知道从哪里入手；这位开发者的经历为潜在贡献者提供了有价值的路径参考。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
 
-  <!-- Topic 5 -->
-  <article class="topic-card topic-5">
-    <div class="topic-header">
-      <div class="topic-number">05</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">JavaScript依赖膨胀：三个结构性根源与e18e清理运动</h2>
-        <div class="topic-subtitle">npm · JavaScript · 依赖治理</div>
+    <article class="topic-card glow-purple">
+      <div class="card-header"><span class="card-num">TOPIC 03</span><h2 class="card-title">小模型军备竞赛：成本效率成为主战场</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">GPT-5.4 nano 降至 $0.20/M input，MiniMax 2.7 以 1/3 成本达到 SOTA，小模型赛道进入极度内卷。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">OpenAI 发布 GPT-5.4 mini（$0.75 input / $4.50 output 每 M token）和 GPT-5.4 nano（$0.20 input / $1.25 output 每 M token），nano 价格已低于 Gemini 3.1 Flash-Lite。2751 input + 112 output tokens 批量图片描述任务成本仅 <strong>0.069 美分</strong>，7.6 万张照片处理约 $52.44。MiniMax 2.7 发布，Artificial Analysis 图表显示其在绿色象限以 1/3 成本达到 SOTA 分数，并声称 30%-50% 工作流可「自我进化」覆盖。</p><div class="links"><a class="link-chip" href="https://openai.com/gpt-5-4">GPT-5.4 mini/nano 发布公告</a><a class="link-chip" href="https://artificialanalysis.ai/minimax-27">Artificial Analysis MiniMax 2.7 评测</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>小模型成本战的终极走向是推理边际成本趋近于零——当 token 价格足够便宜，基于用量计费的商业模式将面临根本性重构，模型厂商的护城河必须从价格转向能力本身。</li><li>MiniMax「自我进化」声称需高度审慎：30%-50% 工作流覆盖与真正的自主进化存在数量级差距，当前更多是市场叙事而非技术事实，过度承诺将反噬用户信任。</li></ul></div>
       </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>JavaScript生态的npm依赖树持续膨胀，研究者揭示其三大结构性根源，e18e社区正推进自下而上的依赖清理行动。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <ul>
-            <li>三大膨胀根源：①ES3旧引擎polyfill仍在被现代项目依赖；②primordials命名空间保护机制被滥用；③跨realm值处理逻辑在不需要的场景下仍被执行</li>
-            <li>chai等测试库的跨realm设计是合理的，但当其成为所有依赖的默认行为时，成本由全体开发者承担</li>
-            <li>e18e社区的cleanup倡议旨在识别并移除真正不再必要的兼容性代码，预计可显著缩小主流项目的依赖树</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>环境适配视角：</strong>2026年的浏览器环境已不需要ES3支持，继续携带这些polyfill是历史遗留负担而非必要保险。</li>
-            <li><strong>依赖治理视角：</strong>少数库的兼容性设计选择，通过npm的传递依赖机制，被指数级放大为全生态的成本——这是一种典型的外部性问题。</li>
-            <li><strong>生态自净视角：</strong>e18e运动代表了一种不同于RFC流程的自组织优化路径，其成功取决于社区的广泛参与和主要维护者的认可。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
 
-  <!-- Topic 6 -->
-  <article class="topic-card topic-6">
-    <div class="topic-header">
-      <div class="topic-number">06</div>
-      <div class="topic-meta">
-        <h2 class="topic-title">深度学习硬件性价比突围：Tinybox v2与exa级算力路线图</h2>
-        <div class="topic-subtitle">硬件 · tinygrad · AI训练</div>
+    <article class="topic-card glow-pink">
+      <div class="card-header"><span class="card-num">TOPIC 04</span><h2 class="card-title">Anthropic 桌面 AI 战略：Claude Cowork 与本地优先</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">Anthropic 推出 Claude Cowork 桌面应用，以 Electron 沙箱安全模型切入桌面 AI 市场，对标 OpenClaw。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">Felix Rieseberg（Slack 桌面版/Electron 核心维护者）主导开发。Claude Cowork 起源于意外发现：Claude Code 用户主要用它做非编程工作，甚至非技术人员也在用它构建东西。更惊人的是，Claude Cowork「自己写了自己」——人类团队仅用一周半协调多个 Claude Code 实例完成产品。Anthropic 选择 Electron 架构实现沙箱安全，Jensen Huang 在 GTC 上点名 OpenClaw 安全缺陷并力推 NemoClaw，被视为对 OpenClaw 的追赶。</p><div class="links"><a class="link-chip" href="https://anthropic.com/cowork-felix-riesenberg">Felix Rieseberg 访谈</a><a class="link-chip" href="https://anthropic.com/claude-cowork">Claude Cowork 官方发布</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>Anthropic 两年后才推出「桌面 AI」反映大模型公司的典型困境：过度聚焦基准测试而忽视真实工作流，产品化能力系统性落后于工程能力，市场窗口已被 OpenClaw 抢占。</li><li>Electron 沙箱方案的安全边界存疑：本地拥有完整文件系统访问权限的 AI 代理，其攻击面远超浏览器沙箱，Cowork 的本地安全模型实际比云端方案面临更大挑战，而非更小。</li></ul></div>
       </div>
-    </div>
-    <div class="topic-body">
-      <div class="section-block">
-        <span class="section-label">核心事件</span>
-        <div class="section-content">
-          <p>tinygrad发布Tinybox v2，提供Red（AMD）和Green（Nvidia）两个版本，并披露2027年exa级超算路线图，直接挑战云端GPU租赁的商业模式。</p>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">关键细节</span>
-        <div class="section-content">
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>版本</th>
-                <th>GPU配置</th>
-                <th>FP16算力</th>
-                <th>显存</th>
-                <th>价格</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="spec-name">Red v2</td>
-                <td>4×AMD 9070 XT</td>
-                <td class="spec-val">778 TFLOPS</td>
-                <td>64GB</td>
-                <td class="spec-val">$12,000</td>
-              </tr>
-              <tr>
-                <td class="spec-name">Green v2</td>
-                <td>4×NVIDIA RTX PRO 6000</td>
-                <td class="spec-val">3086 TFLOPS</td>
-                <td>384GB</td>
-                <td class="spec-val">$65,000</td>
-              </tr>
-              <tr>
-                <td class="spec-name">Exa版（2027目标）</td>
-                <td>TBD</td>
-                <td class="spec-val">~1 EXAFLOP</td>
-                <td>25,920GB</td>
-                <td class="spec-val">$10,000,000</td>
-              </tr>
-            </tbody>
-          </table>
-          <ul style="margin-top: 14px;">
-            <li>MLPerf 4.0基准测试中，Tinybox v2击败价格高出10倍的竞品</li>
-            <li>tiny corp（geohot创办）同期完成$5M融资</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section-block">
-        <span class="section-label">观点分析</span>
-        <div class="section-content">
-          <ul>
-            <li><strong>硬件竞争视角：</strong>性价比革命正在从云端向本地蔓延，Tinybox的定价策略直接指向"买断比租用划算"的临界点正在逼近。</li>
-            <li><strong>垂直整合视角：</strong>tinygrad从training框架到inference硬件的垂直整合路径，挑战的是云厂商的全栈优势——但硬件量产与软件生态的难度不在同一量级。</li>
-            <li><strong>市场影响视角：</strong>若exa级算力真能在2027年以$10M落地，将重新定义大模型训练的进入门槛，但这一路线图的可信度仍需实际量产验证。</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
 
-  <!-- Conclusion -->
-  <div class="conclusion">
-    <div class="conclusion-title">结语</div>
-    <p>本期内参描摹了一幅张力并存的技术图景——AI在认知边界上出现令人警觉的涌现行为，在产业应用中却因过热而引发信任危机；软件开发在加速的诱惑下逐渐丧失持久力，而底层技术创新（内核补丁、依赖清理）仍在按自己的节奏推进。高速迭代与长期主义、合规自动化与真实安全、规模扩张与生态可持续——这些结构性矛盾不会在短期内消解，唯一确定的是：能够在这两种节奏之间找到平衡的个人和组织，将是下一阶段真正的赢家。</p>
+    <article class="topic-card glow-orange">
+      <div class="card-header"><span class="card-num">TOPIC 05</span><h2 class="card-title">NVIDIA GTC 2026：硬件霸权与 OpenClaw 成为行业标准</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">NVIDIA GTC 2026 黄仁勋即兴演讲，Blackwell/Rubin 热卖，Vera CPU 登场，$1T 销售积压展望 2027；Jensen 点名 OpenClaw 安全缺陷推 NemoClaw。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">黄仁勋 GTC 主题演讲覆盖完整 NVIDIA 生态：Blackwell 和 Rubin GPU 销售强劲，Vera CPU 正式发布。黄仁勋在演讲末尾专辟章节谈 OpenClaw——先大力称赞其革新意义，再指出安全缺陷，最后推出 NVIDIA 自家方案 NemoClaw。「每家公司都需要一个 OpenClaw 战略」已成行业方向标被广泛引用。2027 年预期销售积压达 <strong>$1 万亿</strong>。</p><div class="links"><a class="link-chip" href="https://nvidia.com/gtc-2026">NVIDIA GTC 2026 主题演讲回顾</a><a class="link-chip" href="https://nvidia.com/nemoclaw">NemoClaw 技术白皮书</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>黄仁勋「先赞后贬推自研」的操作是教科书级别的平台战略：通过承认开源方案市场教育价值，以安全性切入，最终在企业级市场建立 NVIDIA 主导的替代方案——这是硬件厂商软件生态扩张的标准路径。</li><li>$1T 积压订单数字需理性看待：包含大量超量预订成分，供应链瓶颈（HBM 短缺、CoWoS 封装产能）仍是实际交付的核心约束，预期数字与实际出货之间存在系统性高估。</li></ul></div>
+      </div>
+    </article>
+
+    <article class="topic-card glow-green">
+      <div class="card-header"><span class="card-num">TOPIC 06</span><h2 class="card-title">Context Window 瓶颈：AI 推理的全局内存危机</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">上下文窗口扩展速度远低于模型其他维度提升，HBM/DRAM 短缺正成为限制 AI 能力的关键瓶颈。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">Anthropic 发布 100 万 token 上下文 GA 版本，MRCR 测试刷新 SOTA。然而讽刺的是，Gemini 2024 年 2 月已实现百万 token 上下文，OpenAI 上周才 GA 同类产品——整整两年，理论上可实现的能力才姗姗来迟。根本原因是推理端 HBM（高带宽内存）严重短缺，Sam Altman 此前「上下文窗口将扩展 100 倍」的预言被 AINews 认为是过度乐观。两年来上下文窗口仅扩大不到 10 倍，远慢于成本下降和速度提升的速度。</p><div class="links"><a class="link-chip" href="https://AINews.com/context-drought">AINews Context Drought 分析</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>上下文窗口扩展放缓意味着 RAG 和记忆工程将在未来一到两年内成为 AI 应用主流范式——开发者需重新设计架构，从「把所有上下文塞进 prompt」转向「精准检索+精确调用」。</li><li>HBM 短缺背后是半导体供应链的结构性脆弱：即使台积电 CoWoS 封装产能提升，HBM 良率和产能仍受制于 SK 海力士和三星特定工艺节点，AI 硬件荒尚未结束，只是换了一个包装。</li></ul></div>
+      </div>
+    </article>
+
+    <article class="topic-card glow-red">
+      <div class="card-header"><span class="card-num">TOPIC 07</span><h2 class="card-title">AI Agent 平台生态：消费级 Agent OS 的崛起</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">Dreamer 以消费级 Agent OS 定位入场，前 Stripe/Android 领导层联合创立，构建 Agent 制造 Agent 的平台生态，$10000 现金奖励刺激工具开发者。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">前 Stripe CTO David Singleton 与前 Android Hugo Barra 共同创立 Dreamer，定位消费级 AI Agent 发现、构建和使用平台，核心是名为 Sidekick 的个人助理——一个「制造 Agent 的 Agent」。平台自建完整技术栈：SDK、日志系统、数据库、Prompt 管理、无服务器函数，并允许推送任意代码至其 VM。Dreamer 深谙四边网络效应（用户/构建者/工具开发者/平台），通过「驻场构建者」招聘和 $10000 最佳工具现金奖励加速生态建设。</p><div class="links"><a class="link-chip" href="https://dreamer.ai/sidekick">Dreamer 官方发布</a><a class="link-chip" href="https://dreamer.ai/blog/david-singleton-ctos">David Singleton 访谈</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>Dreamer「全栈自己做」是防御性护城河——但纯粹的工具平台最终价值会向模型层集中，Sidekick 的智能程度才是决定性用户体验，全栈策略若无模型差异化支撑，终将沦为通道。</li><li>消费级 Agent OS 的核心挑战不是技术，而是用户对 AI 自主行动的心理接受度——任何需要用户逐一批确认的 Agent 本质上仍是工具而非操作系统，真正突破需等待用户信任拐点。</li></ul></div>
+      </div>
+    </article>
+
+    <article class="topic-card glow-yellow">
+      <div class="card-header"><span class="card-num">TOPIC 08</span><h2 class="card-title">AI 工程实践：Harness 与 Prompt Engineering 的战略价值</h2></div>
+      <div class="card-body">
+        <div class="card-section"><div class="section-label">核心事件</div><p class="section-text">模型质量已非瓶颈，Harness（工具链/沙箱/记忆/可观测性）的设计质量正成为 AI 应用的实际差异化因素。</p></div>
+        <div class="card-section"><div class="section-label">关键细节</div><p class="section-text">Tyler Cowen「提高他人期望是高回报活动」理论被应用于 LLM 使用场景——能够「刚刚好在疯狂边缘」使用 AI 的用户获得最大收益，而保守评估 AI 现状的人进展有限。多个 convergence 观点指出：模型质量本身不再是瓶颈，Harness（工具链）、沙箱、文件系统访问、技能、记忆和可观测性才是关键。LangChain JS 发布跨框架 useStream hook，Redis 推出 context-engineering lab，Artificial Analysis 发布 Stirrup Slack 集成（MCP + 浏览器使用 + 代码执行）。</p><div class="links"><a class="link-chip" href="https://marginalrevolution.com/ai-expectations">Tyler Cowen 原文</a><a class="link-chip" href="https://artificialanalysis.ai/stirrup">Artificial Analysis Stirrup 发布</a></div></div>
+        <div class="card-section"><div class="section-label">观点分析</div><ul class="bullet-list"><li>「提高 AI 期望值」策略存在幸存者偏差：成功案例被过度宣传，系统性失败的案例（因过度自信导致项目崩盘）被系统性忽视——盲目跟随「刚好疯狂」策略可能比保守策略更危险。</li><li>Harness 战争的本质是数据结构的战争：谁能建立最丰富的工具调用和记忆沉淀体系，谁就拥有最持久的护城河——这与模型参数规模几乎无关，却是当前最少被重视的投资方向。</li></ul></div>
+      </div>
+    </article>
+
+  </div><!-- end topics -->
+
+  <div class="outro">
+    <p>今日 AI 战局的核心矛盾浮现——基础设施层（开源工具链/HBM/Context Window）与应用层（Agent OS/Harness）的投资优先级正在激烈争夺资本与人才。<strong>开源生态商业化、小模型成本战见底、桌面 Agent 暗战</strong>三个趋势交织，预示 2026 年下半年 AI 行业将从「模型能力竞赛」全面转入「系统整合能力竞赛」。<strong>谁能更好地管理 AI 的复杂度，谁就能在模型同质化时代存活。</strong></p>
   </div>
 
-  <footer class="footer">
-    <div>Dolan的全景内参 · 每日科技前沿洞察</div>
-  </footer>
+  <div class="cta-row">
+    <a class="cta-btn" href="#">📄 查看完整研报</a>
+  </div>
 
-</div>
+  <div class="footer">
+    <p>DOLAN'S 全景内参 &nbsp;|&nbsp; AI &amp; TECHNOLOGY MARKETS &nbsp;|&nbsp; 2026-03-22</p>
+  </div>
+
+</div><!-- end container -->
 </body>
 </html>
