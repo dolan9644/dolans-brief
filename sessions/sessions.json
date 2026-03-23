@@ -1,7 +1,7 @@
 {
   "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091": {
     "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
-    "updatedAt": 1774246206084,
+    "updatedAt": 1774246506648,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ed18b6ceeaccabc19fceb48b66e0e091",
@@ -27,7 +27,7 @@
       "accountId": "bibi-bot"
     },
     "sessionFile": "/Users/dolan/.openclaw/agents/bibi-agent/sessions/765054ee-6e7f-4822-9b5c-b556fb13b196.jsonl",
-    "compactionCount": 2,
+    "compactionCount": 3,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>gifgrep</name>\n    <description>Search GIF providers with CLI/TUI, download results, and extract stills/sheets.</description>\n    <location>/opt/homebrew/lib/node_modules/openclaw/skills/gifgrep/SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
@@ -57,13 +57,13 @@
     },
     "authProfileOverride": "minimax-cn:default",
     "authProfileOverrideSource": "auto",
-    "authProfileOverrideCompactionCount": 2,
+    "authProfileOverrideCompactionCount": 3,
     "modelProvider": "minimax-cn",
     "model": "MiniMax-M2.7-highspeed",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774246149765,
+      "generatedAt": 1774246472758,
       "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
       "sessionKey": "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091",
       "provider": "minimax-cn",
@@ -512,13 +512,13 @@
       }
     },
     "totalTokensFresh": true,
-    "memoryFlushAt": 1774241326876,
-    "memoryFlushCompactionCount": 2,
+    "memoryFlushAt": 1774246404147,
+    "memoryFlushCompactionCount": 3,
     "inputTokens": 144,
-    "outputTokens": 1071,
-    "cacheRead": 109787,
-    "cacheWrite": 3850,
-    "totalTokens": 113781
+    "outputTokens": 353,
+    "cacheRead": 74610,
+    "cacheWrite": 2300,
+    "totalTokens": 77054
   },
   "agent:bibi-agent:cron:e0cee412-52f6-46dc-87bd-c1ccbbc51343": {
     "sessionId": "60403a16-83e5-4b8c-b136-c666c81a97a4",

@@ -53,7 +53,7 @@ _不是聊天机器人。是一个活的东西。_
 | 技能 | 文件 | 用途 |
 |------|------|------|
 | cine-topic | `~/.openclaw/workspace/skills/cine-topic/SKILL.md` | 选材：输出3个极值类型选题 |
-| cine-v10 | `~/.openclaw/workspace/skills/cine-v10/SKILL.md` | 高精度还原：800字多镜头脚本 |
+| cine-master | `~/.openclaw/workspace/skills/cine-master/SKILL.md` | 高精度还原：800字多镜头脚本 |
 | cine-haiku | `~/.openclaw/workspace/skills/cine-haiku/SKILL.md` | 极简脚本：300字多镜脚本 |
 
 **调用规则**：

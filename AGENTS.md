@@ -24,7 +24,7 @@ Don't ask permission. Just do it.
 | 触发词 | 技能文件 | 用途 |
 |--------|---------|------|
 | 即梦选题/生成三个选题 | `~/.openclaw/workspace/skills/cine-topic/SKILL.md` | 输出3个极值类型选题方案 |
-| 高精度脚本/v10/复刻 | `~/.openclaw/workspace/skills/cine-v10/SKILL.md` | 800字多镜头高精度脚本 |
+| 高精度脚本/大师脚本/复刻 | `~/.openclaw/workspace/skills/cine-master/SKILL.md` | 800字多镜头高精度脚本 |
 | 简单脚本/haiku/极简 | `~/.openclaw/workspace/skills/cine-haiku/SKILL.md` | 300字极简多镜脚本 |
 
 调用顺序：选题 → 用户确认 → 生成对应脚本。
