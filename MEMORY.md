@@ -19,7 +19,7 @@
 ## GitHub Pages 部署
 
 - **仓库**: `dolan9644/bibi-intel`
-- **CDN**: https://dolan9644.github.io/bibi-intel/docs/
+- **CDN**: https://dolan9644.github.io/dolans-brief/
 ## 飞书推送工作流
 
 - **群组**: `oc_ed18b6ceeaccabc19fceb48b66e0e091`

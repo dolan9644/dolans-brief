@@ -1,7 +1,7 @@
 {
   "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091": {
     "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
-    "updatedAt": 1774247250316,
+    "updatedAt": 1774247713425,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ed18b6ceeaccabc19fceb48b66e0e091",
@@ -19,9 +19,9 @@
     "lastAccountId": "bibi-bot",
     "origin": {
       "label": "oc_ed18b6ceeaccabc19fceb48b66e0e091",
-      "provider": "feishu",
-      "surface": "feishu",
-      "chatType": "group",
+      "provider": "webchat",
+      "surface": "webchat",
+      "chatType": "direct",
       "from": "feishu:ou_3a88b7b21440fb9d99cd0b4399f64b3a",
       "to": "chat:oc_ed18b6ceeaccabc19fceb48b66e0e091",
       "accountId": "bibi-bot"
@@ -63,7 +63,7 @@
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774247192814,
+      "generatedAt": 1774247250999,
       "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
       "sessionKey": "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091",
       "provider": "minimax-cn",
@@ -514,11 +514,11 @@
     "totalTokensFresh": true,
     "memoryFlushAt": 1774246404147,
     "memoryFlushCompactionCount": 3,
-    "inputTokens": 68801,
-    "outputTokens": 816,
+    "inputTokens": 426393,
+    "outputTokens": 2164,
     "cacheRead": 35329,
     "cacheWrite": 0,
-    "totalTokens": 103986
+    "totalTokens": 115290
   },
   "agent:bibi-agent:cron:e0cee412-52f6-46dc-87bd-c1ccbbc51343": {
     "sessionId": "60403a16-83e5-4b8c-b136-c666c81a97a4",

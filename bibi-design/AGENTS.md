@@ -22,10 +22,9 @@
 ## 推送规则
 
 完成 HTML 后：
-1. 写入 `/Users/dolan/.openclaw/agents/bibi-agent/docs/daily_brief_YYYY-MM-DD.html`
-2. Git commit：`docs/daily_brief_YYYY-MM-DD.html`
-3. Git push 到 origin main
-4. 等待 push 完成
+1. 写入本地 `data/daily_brief_YYYY-MM-DD.html`
+2. 通过 GitHub API 推送到 `dolans-brief` 仓库根目录（不是 bibi-intel）
+3. GitHub Pages 会自动从 dolans-brief 的 `/` 提供服务
 
 ## 沟通规则
 
