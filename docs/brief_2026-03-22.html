@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's 情报终端 | 2026-03-22</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #0d1117;
+            --bg-card-hover: #161b22;
+            --border: #21262d;
+            --border-bright: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --accent-green: #00ff41;
+            --accent-green-dim: #00cc33;
+            --accent-yellow: #ffd60a;
+            --accent-red: #ff453a;
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --tag-s: #ff453a;
+            --tag-a: #ffd60a;
+            --tag-b: #58a6ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 14px;
+            min-height: 100vh;
+        }
+        
+        .terminal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .terminal-header {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            margin-bottom: 32px;
+        }
+        
+        .terminal-title-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27ca40; }
+        
+        .terminal-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .main-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-green);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        .main-title::before {
+            content: "█";
+            margin-right: 12px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .meta-info {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .meta-label {
+            color: var(--text-muted);
+        }
+        
+        .meta-value {
+            color: var(--accent-green-dim);
+        }
+        
+        .status-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 69, 58, 0.15);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-live::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Article */
+        .article-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: var(--bg-secondary);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .section-icon {
+            font-size: 14px;
+        }
+        
+        .article-content {
+            padding: 24px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        
+        .article-content h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article-content h2::before {
+            content: "▸ ";
+            color: var(--accent-green-dim);
+        }
+        
+        .article-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-yellow);
+            margin: 24px 0 12px 0;
+        }
+        
+        .article-content p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        
+        .article-content strong {
+            color: var(--accent-yellow);
+            font-weight: 600;
+        }
+        
+        .article-content em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* Intelligence Cards */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .intel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        
+        .intel-card:hover {
+            border-color: var(--border-bright);
+            transform: translateY(-2px);
+        }
+        
+        .intel-card-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .intel-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        
+        .tag-s {
+            background: rgba(255, 69, 58, 0.15);
+            color: var(--tag-s);
+            border: 1px solid var(--tag-s);
+        }
+        
+        .tag-a {
+            background: rgba(255, 214, 10, 0.15);
+            color: var(--tag-a);
+            border: 1px solid var(--tag-a);
+        }
+        
+        .tag-b {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--tag-b);
+            border: 1px solid var(--tag-b);
+        }
+        
+        .intel-source {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        
+        .intel-card-body {
+            padding: 14px 16px;
+        }
+        
+        .intel-headline {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .intel-summary {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .intel-sources {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        
+        /* Opening */
+        .opening {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.03) 0%, transparent 50%);
+            border-left: 3px solid var(--accent-green);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .opening-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .opening p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        
+        /* Cluster sections */
+        .cluster-section {
+            margin-bottom: 32px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .cluster-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cluster-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        
+        .cluster-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-yellow);
+        }
+        
+        .cluster-body {
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        
+        .cluster-body p {
+            margin-bottom: 12px;
+        }
+        
+        .key-points {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+        }
+        
+        .key-point {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .key-point::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green-dim);
+        }
+        
+        .key-point:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Risk Disclaimer */
+        .risk-disclaimer {
+            background: rgba(255, 69, 58, 0.08);
+            border: 1px solid rgba(255, 69, 58, 0.3);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 32px;
+        }
+        
+        .risk-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .risk-icon {
+            font-size: 14px;
+        }
+        
+        .risk-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent-red);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .risk-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .terminal-footer {
+            margin-top: 32px;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .footer-left {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        
+        .footer-right {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .footer-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 4px 10px;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .footer-link:hover {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+        
+        /* Summary Stats */
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        @media (max-width: 600px) {
+            .summary-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-card.warning .stat-value {
+            color: var(--accent-yellow);
+        }
+        
+        .stat-card.danger .stat-value {
+            color: var(--accent-red);
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-bright);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Header -->
+        <header class="terminal-header">
+            <div class="terminal-title-bar">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">DOLAN'S INTELLIGENCE TERMINAL v6.1</span>
+            </div>
+            <h1 class="main-title">Bloomberg Intelligence Matrix</h1>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <span class="meta-label">DATE:</span>
+                    <span class="meta-value">2026-03-22</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">TIME:</span>
+                    <span class="meta-value">15:35 GMT+8</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">SOURCES:</span>
+                    <span class="meta-value">12 RSS Feeds</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">ARTICLES:</span>
+                    <span class="meta-value">18 Processed</span>
+                </div>
+                <span class="status-live">LIVE</span>
+            </div>
+        </header>
+
+        <!-- Summary Stats -->
+        <div class="summary-stats">
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Intelligence Clusters</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">S-Class Alerts</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-value">4</div>
+                <div class="stat-label">A-Class Signals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">B-Class Context</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-grid">
+            <!-- Article -->
+            <div class="article-section">
+                <div class="section-header">
+                    <span class="section-icon">◉</span>
+                    <span class="section-title">Intelligence Brief</span>
+                </div>
+                <div class="article-content">
+                    
+                    <!-- Opening -->
+                    <div class="opening">
+                        <div class="opening-title">Executive Summary</div>
+                        <p>硅谷的权力交接从来不是突然的。它发生在一次收购、一纸公告、一句在 GTC 大会上被掌声打断的玩笑话里。2026年3月，OpenAI 收购 Astral、Google DeepMind 发布 AGI 测量框架、Nvidia 推动 token 薪酬化——三个信号同时出现，指向同一个结论：<strong>AI 基础设施的主权争夺战，正在进入决定性阶段。</strong></p>
+                    </div>
+
+                    <!-- Cluster 1 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #1 · S-CLASS</div>
+                                <div class="cluster-title">OpenAI 收购 Astral：Python 基础设施主权争夺战</div>
+                            </div>
+                            <span class="intel-tag tag-s">S</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>事件：</strong>OpenAI 宣布收购 Astral——那家拥有 uv（Python 环境管理事实标准）、ruff（极速 linter）和 ty（类型检查器）的公司。Astral 团队将并入 OpenAI 的 Codex 团队，继续"支持"开源产品。</p>
+                            <p>uv 每月下载量超过 <strong>1.26 亿次</strong>，上线仅两年。这是 Python 生态中最具战略价值的基础设施。</p>
+                            <p><strong>核心判断：</strong>这不是产品收购，是人才收割。Simon Willison 一针见血：Codex 是 Rust 写的，而 Astral 拥有 BurntSushi（ripgrep、rust-regex、jiff 作者）这样的顶级 Rust 工程师。</p>
+                            <div class="key-points">
+                                <div class="key-point">Python 生态对 uv 的依赖程度已接近"单点失败"风险</div>
+                                <div class="key-point">历史教训：开源被收购后的剧本高度一致——品牌维系、人才收割、慢慢收缩</div>
+                                <div class="key-point">跟踪指标：12 个月内 Astral 创始团队是否离职，uv commit 频率是否下降</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 2 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #2 · A-CLASS</div>
+                                <div class="cluster-title">DeepMind 的 AGI 框架：认知科学能定义通用智能吗？</div>
+                            </div>
+                            <span class="intel-tag tag-a">A</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>事件：</strong>Google DeepMind 发布论文《Measuring Progress Toward AGI: A Cognitive Taxonomy》，提出用认知科学框架评估 AGI 进程。与 Kaggle 合作推出 <strong>20 万美元奖金</strong>的黑客马拉松。</p>
+                            <p>框架识别了 10 项关键认知能力：感知、生成、注意力、学习、记忆、推理、元认知、执行功能、问题解决和社会认知。</p>
+                            <p><strong>核心判断：</strong>这是一份<strong>权力文件</strong>。谁先定义"AGI 长什么样"，谁就拥有了影响监管政策、引导资本流向的最强工具。DeepMind 同时开发最强 AI，又在定义 AGI 标准——裁判和运动员身份模糊。</p>
+                            <div class="key-points">
+                                <div class="key-point">选择"相对人类能力"的评估路径，可通过选择基线人群影响结论</div>
+                                <div class="key-point">Kaggle 黑客马拉松是"开放过程、封闭结论"策略</div>
+                                <div class="key-point">战略时机：AI 监管趋紧时抢占 AGI 话语权</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 3 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #3 · A-CLASS</div>
+                                <div class="cluster-title">AI Tokens 薪酬化：Jensen Huang 的荒诞预言正在成真</div>
+                            </div>
+                            <span class="intel-tag tag-a">A</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>事件：</strong>Nvidia CEO Jensen Huang 在 GTC 大会上提出：工程师应获得约等于基本工资一半的 AI token 预算。顶级工程师每年可消耗 <strong>25 万美元</strong>算力。</p>
+                            <p>VC Tomasz Tunguz 已经论证这是工程薪酬的"第四支柱"——基本工资 37.5 万 + 10 万 token = 47.5 万完整薪酬包，意味着<strong>每 5 美元中有 1 美元是算力</strong>。</p>
+                            <p><strong>核心判断：</strong>Token 薪酬不是赋权工具，是<strong>绩效考核的精密化</strong>。当算力成本接近员工工资时，HR 重新思考人员配置的动机就成立了。NYT 发现 Meta 和 OpenAI 工程师已开始内部竞争 token 消耗排行榜。</p>
+                            <div class="key-points">
+                                <div class="key-point">致命逻辑：算力成本 ≥ 员工工资 → 为什么不直接扩大 agent 算力，裁掉这个员工？</div>
+                                <div class="key-point">信息不对称：员工知道预算限额，公司知道实际消耗与产出比</div>
+                                <div class="key-point">Nvidia 动机：让 GPU 预算成为每家公司不可削减的固定成本</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 4 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #4 · A-CLASS</div>
+                                <div class="cluster-title">HuggingFace Open Source 生态：200万模型背后的权力集中</div>
+                            </div>
+                            <span class="intel-tag tag-a">A</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>数据：</strong>平台拥有 1300 万用户、200 万以上公共模型、50 万以上数据集。但 <strong>0.01% 的模型</strong>（前 200 个）占据了 <strong>49.6%</strong> 的下载量。</p>
+                            <p>30% 的财富 500 强企业在 HuggingFace 上有认证账号。英伟达已成为最强代码贡献者。</p>
+                            <p><strong>核心判断：</strong>开源 AI 的繁荣是假象：大量模型被上传（学术发表需求、刷简历需求），实际被使用的只有头部一小批。BigTech 的策略：用开源社区力量降低生态迁移成本，深度依赖后再商业化。</p>
+                            <div class="key-points">
+                                <div class="key-point">99.99% 的 HuggingFace 模型几乎没有人用</div>
+                                <div class="key-point">英伟达贡献代码是为了绑定更多开发者在 CUDA 生态</div>
+                                <div class="key-point">值得跟踪：中国模型（Qwen、DeepSeek）的地理分布趋势</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 5 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #5 · B-CLASS</div>
+                                <div class="cluster-title">Gemini 3.1 Flash-Lite：Google 的效率焦虑</div>
+                            </div>
+                            <span class="intel-tag tag-b">B</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>事件：</strong>Google DeepMind 发布 Gemini 3.1 Flash-Lite，定位为"为规模化智能打造的高效模型"。</p>
+                            <p><strong>核心判断：</strong>"Lite"命名是 Google 的营销失误。开发者愿意把多少生产负载交给一个被标记为"Lite"的模型？aude Haiku 受欢迎的原因是"便宜且够用"，而不是"Lite"。</p>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 6 -->
+                    <div class="cluster-section">
+                        <div class="cluster-header">
+                            <div>
+                                <div class="cluster-id">CLUSTER #6 · B-CLASS</div>
+                                <div class="cluster-title">AlphaGo 十周年：范式转移的遗产</div>
+                            </div>
+                            <span class="intel-tag tag-b">B</span>
+                        </div>
+                        <div class="cluster-body">
+                            <p><strong>事件：</strong>DeepMind 纪念 AlphaGo 论文发表十周年，发布回顾文章《From games to biology and beyond》。</p>
+                            <p><strong>核心判断：</strong>AI 在完全信息博弈中击败人类，但真实世界的决策从来不是完全信息的。在 Agent 系统大火时，这个教训尤其重要——受控环境中的优异表现不等于真实世界的稳定。</p>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <h2>结语：三条线索，一个方向</h2>
+                    <p>OpenAI 收购 Astral、Google 定义 AGI 框架、Nvidia 推动 token 薪酬——这三件事共同指向：</p>
+                    <p><strong>AI 权力正在以三种方式集中：</strong></p>
+                    <p>① <strong>基础设施层</strong>：OpenAI 控制开发者工具链<br>
+② <strong>标准定义层</strong>：Google 控制 AGI 话语权<br>
+③ <strong>资源分配层</strong>：Nvidia 控制算力定价</p>
+                    <p>这不是阴谋论，是商业逻辑的自然展开。</p>
+
+                    <!-- Risk Disclaimer -->
+                    <div class="risk-disclaimer">
+                        <div class="risk-header">
+                            <span class="risk-icon">⚠</span>
+                            <span class="risk-title">Risk Disclaimer</span>
+                        </div>
+                        <div class="risk-text">
+                            本报告仅供内部研究参考，不构成任何投资建议。内容基于公开信息整理，疏漏难免。AI 行业变化迅速，部分判断可能在短期内被证伪。请读者自行判断信息时效性。
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar: Intelligence Cards -->
+            <div class="sidebar">
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-s">S</span>
+                        <span class="intel-source">SimonWillison</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">OpenAI 收购 Astral：Python 基础设施主权争夺战</div>
+                        <div class="intel-summary">uv 每月 1.26 亿次下载，Python 生态依赖度已达"单点失败"阈值。这是人才收割，不是产品收购。</div>
+                        <div class="intel-sources">Source: OpenAI Blog, Astral Blog</div>
+                    </div>
+                </div>
+
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-a">A</span>
+                        <span class="intel-source">DeepMind</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">DeepMind 发布 AGI 测量框架：认知科学定义通用智能</div>
+                        <div class="intel-summary">10 项认知能力 + 相对人类基准评估 = 裁判同时制定规则。Kaggle 20 万美元黑客马拉松是"开放过程、封闭结论"。</div>
+                        <div class="intel-sources">Source: DeepMind Research</div>
+                    </div>
+                </div>
+
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-a">A</span>
+                        <span class="intel-source">TechCrunch</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">AI Token 薪酬化：Jensen Huang 的荒诞预言成真</div>
+                        <div class="intel-summary">顶级工程师年消耗 25 万美元算力 = 每 5 美元有 1 美元是算力。Token 薪酬是绩效考核精密化，不是赋权工具。</div>
+                        <div class="intel-sources">Source: GTC 2026, NYT</div>
+                    </div>
+                </div>
+
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-a">A</span>
+                        <span class="intel-source">HuggingFace</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">HuggingFace 200万模型：0.01% 占据 49.6% 下载</div>
+                        <div class="intel-summary">开源 AI 生态高度集中，30% 财富 500 强已入驻。英伟达成最强贡献者——绑定生态策略。</div>
+                        <div class="intel-sources">Source: HuggingFace State of OS 2026</div>
+                    </div>
+                </div>
+
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-b">B</span>
+                        <span class="intel-source">DeepMind</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">Gemini 3.1 Flash-Lite：效率焦虑还是产品迭代？</div>
+                        <div class="intel-summary">"Lite"命名暴露定位失误。开发者对"Lite"模型的生产信任度存疑。</div>
+                        <div class="intel-sources">Source: DeepMind Blog</div>
+                    </div>
+                </div>
+
+                <div class="intel-card">
+                    <div class="intel-card-header">
+                        <span class="intel-tag tag-b">B</span>
+                        <span class="intel-source">DeepMind</span>
+                    </div>
+                    <div class="intel-card-body">
+                        <div class="intel-headline">AlphaGo 十周年：范式转移的遗产</div>
+                        <div class="intel-summary">AlphaGo → AlphaFold 的路径揭示：游戏验证 → 真实世界迁移。但真实世界从来不是完全信息的。</div>
+                        <div class="intel-sources">Source: DeepMind Blog</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="terminal-footer">
+            <div class="footer-left">
+                <div>Dolan's Intelligence Terminal v6.1 | Pipeline: RSS(12) + Jina(18/18) + Clusters(6)</div>
+                <div>Generated: 2026-03-22 15:35 GMT+8 | Data sources: DeepMind, SimonWillison, TechCrunch, HuggingFace</div>
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/dolan9644/dolans-brief" class="footer-link">GitHub</a>
+                <a href="https://dolan9644.github.io/bibi-intel/brief_2026-03-22.html" class="footer-link">Live URL</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

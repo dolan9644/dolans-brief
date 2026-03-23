@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBI 内参 | 2026.03.18 — 开源生态全面反击</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0d0d0d;
+            --accent-orange: #ff6b00;
+            --accent-orange-dim: #cc5500;
+            --accent-orange-glow: rgba(255, 107, 0, 0.15);
+            --text-primary: #e5e5e5;
+            --text-secondary: #999;
+            --text-muted: #666;
+            --border-color: #2a2a2a;
+            --border-accent: #ff6b00;
+            --code-bg: #0f0f0f;
+            --success: #00c853;
+            --warning: #ffd600;
+            --danger: #ff1744;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-primary) 95%, transparent 100%);
+            padding: 12px 0 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-orange);
+            color: var(--bg-primary);
+            font-weight: 900;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        .nav-title { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-title span { color: var(--accent-orange); }
+        .nav-date { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .nav-jumps { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-jump {
+            padding: 6px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-jump:hover, .nav-jump.active {
+            background: var(--accent-orange);
+            color: var(--bg-primary);
+            border-color: var(--accent-orange);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 32px;
+        }
+        .header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header-subtitle { font-size: 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        section { margin-bottom: 48px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-orange);
+        }
+        .section-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-orange);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .section-badge {
+            margin-left: auto;
+            padding: 4px 10px;
+            background: var(--accent-orange-glow);
+            border: 1px solid var(--accent-orange-dim);
+            color: var(--accent-orange);
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .core-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+        .article-card:hover { border-color: var(--accent-orange-dim); }
+        .article-header { padding: 16px; border-bottom: 1px solid var(--border-color); }
+        .article-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: var(--accent-orange-glow);
+            color: var(--accent-orange);
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .article-title { font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: -0.3px; }
+        .article-content { padding: 16px; }
+        .article-section { margin-bottom: 16px; }
+        .article-section:last-child { margin-bottom: 0; }
+        .article-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-section-title::before { content: '▸'; font-size: 10px; }
+        .article-section p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .article-section strong { color: var(--text-primary); font-weight: 600; }
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .code-lang { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; }
+        .code-copy { font-size: 10px; color: var(--text-muted); cursor: pointer; }
+        .code-content {
+            padding: 12px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #c9d1d9;
+            white-space: pre;
+        }
+        .production-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .production-item { font-size: 11px; }
+        .production-label { color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+        .production-value { color: var(--text-primary); font-weight: 500; }
+        .grinder-list { display: flex; flex-direction: column; gap: 16px; }
+        .grinder-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: border-color 0.2s ease;
+        }
+        .grinder-item:hover { border-color: var(--accent-orange-dim); }
+        .grinder-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            margin-top: 6px;
+            box-shadow: 0 0 8px var(--success);
+        }
+        .grinder-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; }
+        .grinder-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .grinder-meta { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+        .grinder-meta-item { font-size: 12px; color: var(--text-muted); }
+        .grinder-meta-item span { color: var(--text-primary); font-weight: 500; }
+        .dolan-take {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--accent-orange-dim);
+            border-radius: 6px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+        .dolan-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+        .dolan-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+            color: var(--bg-primary);
+        }
+        .dolan-name { font-weight: 700; font-size: 14px; }
+        .dolan-role { font-size: 11px; color: var(--text-muted); }
+        .dolan-quote { font-size: 15px; line-height: 1.8; color: var(--text-secondary); }
+        .dolan-quote p { margin-bottom: 12px; }
+        .dolan-quote p:last-child { margin-bottom: 0; }
+        .radar-table-container { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 6px; }
+        .radar-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .radar-table th {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .radar-table td { padding: 12px 16px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+        .radar-table tr:last-child td { border-bottom: none; }
+        .radar-table tr:hover td { background: var(--bg-secondary); }
+        .radar-table .tool-name { color: var(--accent-orange); font-weight: 600; }
+        .action-list { margin-top: 24px; }
+        .action-list h4 { font-size: 14px; margin-bottom: 12px; color: var(--text-primary); }
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .action-timeline {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .action-timeline.immediate { background: var(--danger); color: white; }
+        .action-timeline.week { background: var(--warning); color: var(--bg-primary); }
+        .action-timeline.month { background: var(--success); color: var(--bg-primary); }
+        .action-timeline.quarter { background: #2196f3; color: white; }
+        .action-text { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+        .footer { text-align: center; padding: 32px 0; margin-top: 48px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 12px; }
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; align-items: flex-start; }
+            .nav-jumps { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+            .core-grid { grid-template-columns: 1fr; }
+            .grinder-item { grid-template-columns: 1fr; }
+            .grinder-status { display: none; }
+            .header { padding: 24px 0; }
+            .production-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .production-grid { grid-template-columns: 1fr; }
+            .radar-table th, .radar-table td { padding: 10px 12px; font-size: 12px; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .article-card, .grinder-item { animation: fadeIn 0.4s ease forwards; }
+        .article-card:nth-child(1) { animation-delay: 0.1s; }
+        .article-card:nth-child(2) { animation-delay: 0.2s; }
+        .grinder-item:nth-child(1) { animation-delay: 0.15s; }
+        .grinder-item:nth-child(2) { animation-delay: 0.25s; }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">BB</div>
+                <div>
+                    <div class="nav-title">BIBI <span>INTEL</span></div>
+                    <div class="nav-date">2026.03.18</div>
+                </div>
+            </div>
+            <div class="nav-jumps">
+                <a href="#core-fortress" class="nav-jump active">Core Fortress</a>
+                <a href="#giant-grinder" class="nav-jump">Giant Grinder</a>
+                <a href="#geek-radar" class="nav-jump">Geek Radar</a>
+                <a href="#dolans-take" class="nav-jump">Dolan's Take</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header class="header">
+            <h1>开源生态全面反击</h1>
+            <p class="header-subtitle">BIBI 内参 | 2026.03.18 | 核心情报</p>
+        </header>
+        <section id="core-fortress">
+            <div class="section-header">
+                <div class="section-icon">CF</div>
+                <h2 class="section-title">Core Fortress</h2>
+                <span class="section-badge">DEEP DIVE</span>
+            </div>
+            <div class="core-grid">
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-tag">Enterprise</span>
+                        <h3 class="article-title">Mistral AI Forge：企业级 AI 训练的"铁幕"降临</h3>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-section">
+                            <div class="article-section-title">Under the Hood</div>
+                            <p>Mistral 扔出的不是另一颗模型弹，而是一整座兵工厂。<strong>Forge</strong> 不仅仅是一个微调平台——它是欧洲 AI 力量对企业市场的正式宣战书。</p>
+                            <p style="margin-top:8px">架构层面，Forge 支持<strong>预训练、后训练、强化学习全流程</strong>。这意味着什么？企业不再需要自己搭建训练集群、雇佣 ML 工程师团队、忍受 Colab 的 GPU 配额羞辱。Mistral 把整个训练流水线做成了<strong>即服务（as-a-service）</strong>。</p>
+                            <p style="margin-top:8px">更值得关注的是 <strong>Agent-first 设计</strong>。代码代理集成到微调流程中——这不是在帮你写代码，这是在<strong>替你做架构决策</strong>。Dense 和 MoE 架构双支持，意味着从 7B 到 456B 的模型，企业可以任选部署模式。</p>
+                            <p style="margin-top:8px">合作伙伴名单是这份情报中最刺眼的部分：<strong>ASML、Ericsson、欧洲航天局</strong>。这不是在拉 SaaS 客户，这是在构建<strong>战略级技术联盟</strong>。ASML 代表光刻，Ericsson 代表通信，欧洲航天局代表尖端科研——Mistral 正在做的事情，是把 AI 能力输送给整个欧洲高端产业链。</p>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header"><span class="code-lang">Python</span><span class="code-copy">Mistral Forge API</span></div>
+                            <div class="code-content"># Mistral Forge API - 企业级微调示例
+from mistral import Forge
+
+client = Forge(api_key=os.environ["FORGE_KEY"])
+
+# 选择架构：dense 或 moe
+job = client.fine_tune(
+    base_model="mistral-large",
+    architecture="moe",  # 专家混合架构
+    training_method="dpo",  # 直接偏好优化
+    agent_guided=True,  # Agent 代理自动调参
+    dataset="internal_corpus",
+    compute_target="dedicated_cluster"  # 独享算力
+)
+
+# 监控训练进度
+for update in job.stream():
+    print(f"Step {update.step}: loss={update.loss:.4f}")</div>
+                        </div>
+                        <div class="article-section">
+                            <div class="article-section-title">The Bloodbath</div>
+                            <p>谁在流血？<strong>Hugging Face</strong> 的企业服务面临直接冲击——Mistral 提供的不是模型 API，而是完整训练栈。<strong>Google Vertex</strong> 和 <strong>AWS SageMaker</strong> 的企业客户将被分流——尤其在欧洲市场，GDPR 合规 + 欧洲本土供应商 = 不可抗拒的组合。</p>
+                            <p style="margin-top:8px">中小型 AI 初创公司的生存空间被进一步压缩。当大企业可以直接在 Forge 上完成训练，谁还需要花三个月自建基础设施？</p>
+                        </div>
+                        <div class="production-grid">
+                            <div class="production-item"><div class="production-label">部署模式</div><div class="production-value">B2B 私有化 + 云端混合</div></div>
+                            <div class="production-item"><div class="production-label">定价</div><div class="production-value">企业定制</div></div>
+                            <div class="production-item"><div class="production-label">合规</div><div class="production-value">GDPR + 欧洲数据主权</div></div>
+                            <div class="production-item"><div class="production-label">状态</div><div class="production-value">已发布</div></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-header">
+                        <span class="article-tag">Core Tech</span>
+                        <h3 class="article-title">Python 3.15 JIT：一场迟来的性能革命</h3>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-section">
+                            <div class="article-section-title">Under the Hood</div>
+                            <p>Python 终于在 2026 年迎来了 <strong>JIT 编译器的实质性突破</strong>。不是实验性玩具，不是 PyPy 的小打小闹——这是官方 CPython 核心的<strong>性能核弹</strong>。</p>
+                            <p style="margin-top:8px"><strong>Trace recording</strong> 技术是本次更新的核心。与传统 JIT 的全量编译不同，Python 3.15 使用<strong>轨迹记录</strong>——只编译热路径（hot path），动态生成优化代码。这套方案在 V8 和 SpiderMonkey 中被验证有效，现在终于轮到 Python。</p>
+                            <p style="margin-top:8px">性能数据：macOS AArch64（Apple Silicon）提升 <strong>11-12%</strong>，x86_64 Linux 提升 <strong>5-6%</strong>。别小看这两个数字——这是<strong>每年 5-12% 的自动加速</strong>，意味着明年同样的硬件上，你的 PyTorch 训练会更快。</p>
+                            <p style="margin-top:8px">但真正重要的故事在代码之外：<strong>原始团队赞助商撤资，项目转为社区维护模式</strong>。这意味着 Python 的性能优化不再依赖任何商业公司的施舍——<strong>社区接管了自己的命运</strong>。</p>
+                        </div>
+                        <div class="code-block">
+                            <div class="code-header"><span class="code-lang">Python</span><span class="code-copy">Python 3.15 JIT</span></div>
+                            <div class="code-content"># Python 3.15 JIT 启用方式（实验性）
+import sys
+
+# 检查 JIT 可用性
+if sys.flags.jit:
+    # 启用跟踪 JIT
+    sys.flags.jit = "trace"  # 或 "default"
+    
+# 性能对比（来自官方 benchmark）
+# PyTorch 训练：+7.2% throughput
+# NumPy 计算：+9.1% speedup
+# 数据处理：+5.8% latency reduction</div>
+                        </div>
+                        <div class="article-section">
+                            <div class="article-section-title">The Bloodbath</div>
+                            <p><strong>PyPy</strong> 的生存理由被进一步削弱——官方 CPython 正在吃掉它的核心价值主张。<strong>Julia</strong> 在数值计算领域的性能优势被大幅蚕食——如果 Python 足够快，为什么还要学一门新语言？</p>
+                            <p style="margin-top:8px">但最大输家是<strong>所有尚未迁移到 Python 3.15 的企业</strong>。技术债务的定义正在改写——不再只是代码 legacy，而是<strong>性能竞争力</strong>。</p>
+                        </div>
+                        <div class="production-grid">
+                            <div class="production-item"><div class="production-label">版本</div><div class="production-value">Python 3.15.0</div></div>
+                            <div class="production-item"><div class="production-label">JIT 模式</div><div class="production-value">实验性</div></div>
+                            <div class="production-item"><div class="production-label">兼容性</div><div class="production-value">100% 兼容</div></div>
+                            <div class="production-item"><div class="production-label">状态</div><div class="production-value">正式版 2026.02</div></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="giant-grinder">
+            <div class="section-header">
+                <div class="section-icon">GG</div>
+                <h2 class="section-title">Giant Grinder</h2>
+                <span class="section-badge">LIVE FEED</span>
+            </div>
+            <div class="grinder-list">
+                <div class="grinder-item">
+                    <div class="grinder-status"></div>
+                    <div class="grinder-content">
+                        <h3>Unsloth Studio：AI 民主化的"铁拳"</h3>
+                        <p><strong>Under the Hood</strong></p>
+                        <p>Unsloth 不是另一个 Hugging Face 微调库——它是<strong>消费级硬件的救世主</strong>。</p>
+                        <p style="margin-top:8px"><strong>2 倍训练速度</strong> + <strong>70% VRAM 节省</strong>。这两个数字意味着什么？意味着你可以在 <strong>16GB 显存</strong> 的消费显卡上微调 70B 模型。之前这是只有 A100 集群才能做的事情。</p>
+                        <p style="margin-top:8px">GGUF 和 safetensor 双格式支持，代表了<strong>量化与安全的两条腿走路</strong>。Data Recipes 功能让非技术用户也能通过配置而非代码完成数据预处理。<strong>NVIDIA NeMo 集成</strong>更是把企业级能力塞进了消费级界面。</p>
+                        <p style="margin-top:12px"><strong>Dolan's Take</strong></p>
+                        <p>Unsloth 的故事是美好的，但它正在变成一个<strong>危险的承诺</strong>。500+ 模型被训练出来，有多少是真正产品级的？消费级硬件的微调结果，能否扛住生产环境的延迟和吞吐要求？</p>
+                        <p style="margin-top:8px">更值得关注的是<strong>市场定位的模糊</strong>。它是给开发者的工具，还是给普通用户的玩具？这个边界如果守不住，Unsloth 最终只会变成<strong>另一个 ModelScope</strong>——人人都在用，人人都用不好。</p>
+                        <div class="grinder-meta">
+                            <div class="grinder-meta-item">速度: <span>+2x</span></div>
+                            <div class="grinder-meta-item">VRAM: <span>-70%</span></div>
+                            <div class="grinder-meta-item">模型: <span>500+</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grinder-item">
+                    <div class="grinder-status"></div>
+                    <div class="grinder-content">
+                        <h3>Edge.js：Node.js 的"不可能三角"破局</h3>
+                        <p><strong>Under the Hood</strong></p>
+                        <p>Node.js 终于可以在<strong>不可信环境</strong>中安全运行了。</p>
+                        <p style="margin-top:8px">WebAssembly + WASIX 沙箱，这套组合解决了一个<strong>十年难题</strong>：如何在保持 Node.js 生态的同时，实现代码级别的隔离。<strong>--safe 模式</strong>下，文件系统、网络、进程——全部被隔离。</p>
+                        <p style="margin-top:8px">性能开销 <strong>5-30%</strong>——这是安全隔离的代价，但相比 Docker 容器轻量得多。MCP（Model Context Protocol）和 agents 运行环境原生支持，意味着 <strong>Edge.js 正在成为 AI agent 部署的标准运行时</strong>。</p>
+                        <p style="margin-top:12px"><strong>Dolan's Take</strong></p>
+                        <p>Edge.js 的真正价值不在于技术，而在于<strong>它打开了一个全新的部署场景</strong>。当 AI agent 需要在用户浏览器、IoT 设备、边缘节点上运行时，Node.js 过去的"不安全"标签是最大的阻碍。</p>
+                        <p style="margin-top:8px">但 5-30% 的性能开销意味着<strong>它不适合高性能计算场景</strong>。这是边缘场景的特化解决方案，别把它当成万灵药。</p>
+                        <div class="grinder-meta">
+                            <div class="grinder-meta-item">开销: <span>5-30%</span></div>
+                            <div class="grinder-meta-item">沙箱: <span>WASM+WASIX</span></div>
+                            <div class="grinder-meta-item">协议: <span>MCP</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="geek-radar">
+            <div class="section-header">
+                <div class="section-icon">GR</div>
+                <h2 class="section-title">Geek Radar</h2>
+                <span class="section-badge">TOOLS</span>
+            </div>
+            <div class="radar-table-container">
+                <table class="radar-table">
+                    <thead><tr><th>工具</th><th>场景</th><th>替代方案</th></tr></thead>
+                    <tbody>
+                        <tr><td class="tool-name">Mistral Forge</td><td>企业级全流程训练</td><td>SageMaker, Vertex AI</td></tr>
+                        <tr><td class="tool-name">Python 3.15 JIT</td><td>高性能计算</td><td>PyPy, Julia</td></tr>
+                        <tr><td class="tool-name">Unsloth Studio</td><td>本地/消费级微调</td><td>LoRAX, text-generation-inference</td></tr>
+                        <tr><td class="tool-name">Edge.js</td><td>边缘 Agent 部署</td><td>Deno Deploy, Cloudflare Workers</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="action-list">
+                <h4>快速行动清单</h4>
+                <div class="action-item"><span class="action-timeline immediate">立即</span><span class="action-text">检查 Python 3.15 JIT 可用性，在非关键任务上启用实验模式</span></div>
+                <div class="action-item"><span class="action-timeline week">本周</span><span class="action-text">评估 Unsloth 是否适用于你的下一个微调项目</span></div>
+                <div class="action-item"><span class="action-timeline month">本月</span><span class="action-text">调研 Mistral Forge 的企业定价和 GDPR 合规细节</span></div>
+                <div class="action-item"><span class="action-timeline quarter">本季度</span><span class="action-text">探索 Edge.js + MCP 在边缘部署的可行性</span></div>
+            </div>
+        </section>
+        <section id="dolans-take">
+            <div class="section-header">
+                <div class="section-icon">DT</div>
+                <h2 class="section-title">Dolan's Take</h2>
+            </div>
+            <div class="dolan-take">
+                <div class="dolan-header">
+                    <div class="dolan-avatar">D</div>
+                    <div><div class="dolan-name">Dolan</div><div class="dolan-role">BIBI 首席主笔</div></div>
+                </div>
+                <div class="dolan-quote">
+                    <p><strong>开源生态的剧本正在改写。</strong></p>
+                    <p>不再是"免费午餐"的乌托邦故事，而是<strong>商业级基础设施的全面反攻</strong>。Mistral 在企业市场复制了 GitHub Copilot 的 B2B 路径，Python 社区在商业赞助撤资后展现了中国古话——<strong>自力更生</strong>。</p>
+                    <p>但最令人不安的信号来自 Unsloth：<strong>AI 民主化的口号，正在变成消费级硬件的营销话术</strong>。当每个人都能在笔记本上微调 70B 模型时，我们是否正在制造<strong>一场前所未有的模型质量灾难</strong>？</p>
+                    <p>2026 年的分水岭不是 AGI 的到来，而是<strong>开源工具链成熟到足以被滥用</strong>。</p>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <p>本期内参由 BIBI 首席主笔撰写。转发请注明出处。</p>
+        </footer>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-jump').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                document.querySelectorAll('.nav-jump').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) { current = section.getAttribute('id'); }
+            });
+            document.querySelectorAll('.nav-jump').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+            });
+        });
+    </script>
+</body>
+</html>

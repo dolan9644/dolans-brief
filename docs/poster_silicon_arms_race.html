@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>硅谷的算力军备竞赛已经打响了</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+            background: #f5f0e8;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .poster {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffef9;
+            border: 1px solid #d4c9b8;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #1a1a1a 0%, #8b0000 50%, #1a1a1a 100%);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 40px 30px;
+            border-bottom: 3px double #1a1a1a;
+            position: relative;
+        }
+        
+        .brand {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 14px;
+            letter-spacing: 8px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .headline {
+            font-size: 42px;
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #8b0000;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #e0d9ce;
+            padding-top: 15px;
+        }
+        
+        .meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .dot {
+            width: 4px;
+            height: 4px;
+            background: #8b0000;
+            border-radius: 50%;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .lead {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #8b0000;
+        }
+        
+        .section {
+            margin-bottom: 28px;
+            text-align: justify;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: '■';
+            color: #8b0000;
+            font-size: 12px;
+        }
+        
+        .section p {
+            font-size: 16px;
+            color: #333;
+            text-indent: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(139, 0, 0, 0.1) 60%);
+            padding: 0 3px;
+        }
+        
+        .quote {
+            background: #f8f5f0;
+            border-left: 3px solid #1a1a1a;
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            font-size: 17px;
+            color: #444;
+        }
+        
+        .quote-source {
+            font-style: normal;
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+            text-align: right;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ccc, transparent);
+            margin: 30px 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e0d9ce;
+        }
+        
+        .tag {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 12px;
+            padding: 5px 12px;
+            background: #1a1a1a;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        
+        .tag.accent {
+            background: #8b0000;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 25px 40px;
+            text-align: center;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+        
+        .footer .brand-mark {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 6px;
+        }
+        
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 28px;
+            }
+            .content {
+                padding: 25px;
+            }
+            .lead {
+                font-size: 17px;
+            }
+            .section p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="brand">Dolan's Daily</div>
+            <h1 class="headline">硅谷的算力军备竞赛已经打响了</h1>
+            <div class="subtitle">Google收购Wiz · Mira Murati抱上Nvidia大腿</div>
+            <div class="meta">
+                <span><span class="dot"></span>2026年3月12日</span>
+                <span><span class="dot"></span>科技前沿</span>
+                <span><span class="dot"></span>算力争夺战</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="lead">
+                硅谷的算力军备竞赛已经彻底白热化了。就在昨天，Google正式宣布完成收购网络安全独角兽Wiz——这不仅是今年最大的科技并购之一，更是巨头们在AI时代疯狂囤积安全资产的标志性事件。
+            </div>
+            
+            <div class="section">
+                <div class="section-title">未雨绸缪：Google收购Wiz</div>
+                <p>你看，Wiz可是近年来增长最快的云安全初创，Google花重金买它，图的不是别的，就是四个字：<span class="highlight">未雨绸缪</span>。毕竟AI驱动的网络攻击越来越狠，巨头们必须要把护城河筑到硬件层面。</p>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">甜蜜的枷锁：Nvidia的算力霸权</div>
+                <p>但真正有意思的是Mira Murati的动向。这位前OpenAI高管创立的Thinking Machines Lab，前脚刚离职，后脚就抱上了Nvidia的大腿，宣布千兆瓦规模的合作。表面看是强强联手，细想则是整个AI行业的隐喻：没有Nvidia的算力，你连上牌桌的资格都没有。</p>
+                <div class="quote">
+                    Nvidia已经成了AI初创的"水电煤"，谁抱上大腿谁就能起飞，但也意味着脖子被卡得更紧——这波啊，是<span class="highlight">甜蜜的枷锁</span>。
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">硬件战场：Meta的MTIA芯片</div>
+                <p>再说Meta那边推出的MTIA 300芯片。大厂自研芯片早就不是新闻，但Meta在算力上的持续投入说明了一个趋势：<span class="highlight">AI竞争已经打到硬件层面了</span>。将来不是谁模型好谁赢，而是谁芯片多谁赢。算力就是新时代的石油，这不是比喻，是现实。</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section">
+                <div class="section-title">极客的逆袭：开源与边缘计算</div>
+                <p>不过，极客圈子里可不管这些大厂的游戏。Microsoft开源的BitNet能在本地CPU上跑100B参数的1-bit模型，这才是真正砸场子的存在。边缘设备运行大模型不再是梦，推理成本直接砍到脚踝。而GitHub上爆火的agent框架——agency-agents、MiroFish、airi——说明单体Agent已经过时了，<span class="highlight">多智能体协作才是下一个爆点</span>。</p>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">暗流涌动：AI的伦理困境</div>
+                <p>最后聊聊那些见不得光的暗流。Grammarly的AI"sloppelganger"争议还没完——未经同意模仿他人风格写作，这事儿在法律上还是灰色地带。至于AI面试官取代人类HR，虽然听起来很美，但算法偏见同样存在，而且你连申诉的门都找不到。</p>
+            </div>
+            
+            <div class="quote">
+                巨头们在算力战场上杀红了眼，安全成了新的必争之地。而真正的创新，永远发生在<span class="highlight">开源社区和边缘地带</span>。
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Google</span>
+                <span class="tag">Wiz</span>
+                <span class="tag">Nvidia</span>
+                <span class="tag">Meta</span>
+                <span class="tag">Microsoft</span>
+                <span class="tag">BitNet</span>
+                <span class="tag accent">算力军备</span>
+                <span class="tag accent">AI安全</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="brand-mark">DOLAN'S</div>
+            <div>用最辛辣的方式解读科技世界</div>
+        </div>
+    </div>
+</body>
+</html>

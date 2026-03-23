@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's 全景内参：AI狂潮卷动万亿产业变局</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e0e0e0;
+            --quote-bg: #fff5f5;
+            --quote-border: #e94560;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            padding: 12px 20px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 1.3em;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .quote-box {
+            background: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 18px 22px;
+            margin-top: 18px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-label {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .quote-text {
+            font-size: 0.95rem;
+            color: var(--text);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .quote-text strong {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .radar-list {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .radar-list ul {
+            list-style: none;
+        }
+
+        .radar-list li {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 1rem;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .radar-icon {
+            font-size: 1.2rem;
+        }
+
+        .final-judgment {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d2d4a 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 35px;
+            margin-top: 20px;
+        }
+
+        .final-judgment .section-title {
+            background: transparent;
+            color: #fff;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .final-judgment p {
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .final-judgment .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .final-quote {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            padding: 22px;
+            margin-top: 25px;
+        }
+
+        .final-quote .quote-label {
+            color: #ffd700;
+        }
+
+        .final-quote .quote-text {
+            color: #fff;
+        }
+
+        .final-quote strong {
+            color: #ffd700;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            header {
+                padding: 25px 15px;
+            }
+
+            .card, .radar-list, .final-judgment {
+                padding: 18px;
+            }
+
+            .quote-box {
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dolan's 全景内参</h1>
+            <p class="subtitle">AI狂潮卷动万亿产业变局</p>
+        </header>
+
+        <section>
+            <h2 class="section-title"><span class="section-icon">🎯</span> 核心阵地</h2>
+            
+            <div class="card">
+                <h3>乐天Codex实战：30000名员工的AI规模化实证</h3>
+                <p>日本电商巨头乐天将OpenAI Codex嵌入核心开发流程，<span class="highlight">MTTR（平均修复时间）直接砍半</span>，季度级开发周期压缩到数周。他们让Codex充当SRE视角的监控诊断助手，KQL查询自动化、CI/CD流水线中的代码审查、漏洞扫描。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">乐天模式的可悲之处在于，大多数中国互联网公司还在用AI写周报，而日本人已经用<strong>AI修Bug</strong>了。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Wayfair数据炼金术：250万产品标签的AI重塑</h3>
+                <p>Wayfair将OpenAI模型植入核心运营系统，一口气纠正了<span class="highlight">超过250万个产品属性标签</span>。训练"标签定义Agent"解决人工定义标签标准的瓶颈，扩展速度提升70倍。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">Wayfair案例打了所有"AI只能做玩具"论调的脸。当你的产品目录里有250万条记录需要清理时，AI不是选择题，是<strong>生存题</strong>。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>AlphaGo十周年：DeepMind的进化论</h3>
+                <p>从AlphaFold破解50年蛋白质折叠难题并斩获2024诺贝尔化学奖，到AlphaProof/AlphaGeometry在国际数学奥林匹克竞赛中摘得银牌。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">AlphaGo的遗产不是围棋，是证明了一个铁律：深度学习+强化学习+蒙特卡洛树搜索这个<strong>三位一体</strong>，可以干翻任何有明确目标的人类智慧。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title"><span class="section-icon">🌍</span> 巨头绞肉机</h2>
+
+            <div class="card">
+                <h3>Google Flash-Lite与Nano Banana的性价比革命</h3>
+                <p>Gemini 3.1 Flash-Lite以<span class="highlight">$0.25/百万token</span>的输入价格，把大模型推理成本砍到脚踝价。比2.5 Flash快2.5倍。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">Google的策略清晰到残忍——不要最强模型，要<strong>最具成本效益的智能</strong>。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>NVIDIA AI-Q：企业级Agent架构教科书</h3>
+                <p>NVIDIA AI-Q在DeepResearch Bench双榜登顶，<span class="highlight">55.95分和54.50分</span>。三层设计：Orchestrator+Planner+Researcher。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">AI-Q的意义不在于刷榜，而在于它证明了<strong>企业级深度研究智能体</strong>是有可复制架构的。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Cloudflare重写Next.js：商业开源的奇点时刻</h3>
+                <p>Pragmatic Engineer爆出的消息：Cloudflare正在用AI重写Next.js。这标志着AI重构软件栈进入奇点时刻。</p>
+                <div class="quote-box">
+                    <span class="quote-label">Dolan's 锐评</span>
+                    <p class="quote-text">当框架本身都被AI重写时，所有还在用"AI辅助编码"自慰的开发者，应该感受到<strong>寒意</strong>了。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title"><span class="section-icon">📡</span> 极客雷达</h2>
+
+            <div class="radar-list">
+                <ul>
+                    <li><span class="radar-icon">🔵</span> Simon Willison的觉醒：从"无聊技术"到重新拥抱AI编程工具</li>
+                    <li><span class="radar-icon">🤗</span> HuggingFace Storage Buckets：补完ML工作流的最后一块拼图</li>
+                    <li><span class="radar-icon">🕷️</span> OpenClaw更新：新增zalouser出站分块器，修复UI路由问题</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title"><span class="section-icon">💡</span> 终局研判</h2>
+
+            <div class="final-judgment">
+                <p>这一周的情报揭示了一个清晰的信号：<span class="highlight">AI编程已经从"能不能"的探索期，全面进入"有多快"的落地期。</span></p>
+                <p>乐天用30000人证明规模化可行，Wayfair用250万标签证明数据质量可变现，Google用Flash-Lite证明成本可以降到地板，NVIDIA用AI-Q证明Agent架构可复制。</p>
+                <div class="final-quote">
+                    <span class="quote-label">Dolan's 终局研判</span>
+                    <p class="quote-text"><strong>2025年将是企业AI部署的爆发元年。</strong>不是概念验证，是生产系统。<br><br>当乐天的修Bug速度翻倍时，你的团队还在用AI写周报吗？</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,455 @@
+[
+  {
+    "category": "AI编程工具生态",
+    "event_core": "OpenAI收购Astral（uv/ruff/ty）：AI实验室「买开发者生态」战争升级",
+    "tier": "T0",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "Astral（uv包管理器、ruff linter、ty type checker）被OpenAI收购，团队并入Codex团队。同期Anthropic收购Bun（JavaScript运行时），Google收购Antigravity团队（Cursor基础）。Astral 2023年种子轮、2024年A轮、B轮均未公开宣布——这是首次确认。OpenAI承诺继续支持开源，但Simon Willison指出「产品+人才」收购随时可演变为纯人才收割。uv月下载量超1.26亿次。",
+    "perspectives": [
+      "开源基础设施工具被AI公司收购的历史先例表明：长期维护承诺几乎从不被兑现——BurntSushi等顶级工程师的持续输出是最大风险点",
+      "Python生态的控制权争夺本质上是「AI编程工作流入口」之争——控制uv的解析器和ruff的代码分析能力，等于掌握了AI编程的事实标准"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI桌面应用战略",
+    "event_core": "Claude Cowork迟到两年入场：Anthropic的桌面AI战略是亡羊补牢还是后发制人",
+    "tier": "T0",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "Anthropic推出Claude Cowork桌面应用，由前Slack桌面版/Electron维护者Felix Rieseberg领导。Felix透露Cowork起源于「Claude Code用户用它做非编程工作」的意外发现，人类团队仅一周半协调多个Claude Code实例完成产品——AI自己写了产品。Electron沙箱安全模型。Jensen Huang在GTC上公开称赞OpenClaw安全模式，被认为是对OpenClaw的回应，但Cowork晚了两年才真正推出。",
+    "perspectives": [
+      "Electron架构的沙箱安全边界存疑：本地拥有完整文件系统访问权限的AI代理，其攻击面远超云端——「安全」与「功能」的权衡是核心矛盾",
+      "Cowork「自己写了自己」的故事是强大的营销叙事，但也揭示了AI应用开发的根本转变：人类角色从「建造者」变为「协调者」，这个转变比大多数从业者承认的更快"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI编程方法论",
+    "event_core": "Simon Willison：AI编程三分法与「无人读代码」安全争议",
+    "tier": "T0",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "Simon Willison在Pragmatic Summit提出AI编程三阶段：ChatGPT问答→代理写代码→「无人读代码」。StrongDM提出极端原则「没人写代码、没人读代码」引发安全争议，Willison称其为「明显不负责任」。Willison同时展示了用Claude编写任务管理Starlette 1.0应用并完整测试的案例。关键方法：TDD for agents（uv run pytest），测试→红→绿→重构循环。",
+    "perspectives": [
+      "安全公司StrongDM的「无人读代码」模式是将安全责任外包给AI——对于安全公司而言，这种模式一旦失误，代价是灾难性的",
+      "AI编程工具的真正瓶颈不是代码生成质量，而是测试覆盖率与可观测性——代码质量是由「测试质量×生成质量」决定的，而非单独一项"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "开源AI生态",
+    "event_core": "Astral quiet Series A/B曝光：OpenAI收购背后的VC退出路径与社区担忧",
+    "tier": "T0",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "Astral的A轮（Accel/Casey Aylward）和B轮（a16z/Jennifer Li）均为首次曝光，此前仅公布种子轮。这是首次确认Astral从2023年创立到2025年间已完成至少三轮融资。社区担忧：Armin Ronacher（Rye作者）指出开源项目被VC收购后最坏情况是「fork and move on」而非软件消失；Astral的Douglas Creager强调 permissively licensed使最坏情况可控。",
+    "perspectives": [
+      "开源VC融资的秘密化是双刃剑：社区在不知情时失去参与机会，但过早曝光可能导致竞争收购——这笔交易的条款可能比大多数开源收购更保护社区",
+      "pyxis（私有PyPI注册表）未出现在收购公告中是重要信号——这可能是Astral最接近商业化的产品，其消失意味着OpenAI对Astral的定位是「工具」而非「平台」"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI 投资科技",
+    "event_core": "GIM 获千万天使轮：五源+Monolith 联手港大教授，押注 Agentic Investing 资管新品类",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "Grace Investment Machine（GIM）完成数千万元天使轮，五源资本与 Monolith 联合注资。创始人徐嘉浩为前Neumann Advisors/五源资本资深投资人；联创刘琦博士为港大计算机系助理教授，曾在DeepMind、FAIR任职。GIM基于自研金融时序大模型，构建多智能体投资平台，目标成为「第三代AI资产管理平台」。私募证券投资基金布局推进中，计划推出智能体驱动基金策略。",
+    "perspectives": [
+      "第三代资管路径：主观投资人（巴菲特）→量化投资（文艺复兴）→Agentic Investing。核心壁垒在于自进化智能体能否真正实现持续超额收益",
+      "多智能体架构在真实资管场景的可行性仍待验证——研究辅助到全自动交易之间存在巨大鸿沟，尤其在合规与风控层面"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI 内容生产",
+    "event_core": "AI漫剧爆发：月薪3000职校生用Seedance 2.0「干掉」北影分镜导演",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "AI漫剧赛道规模超200亿元。酱油动漫月收入5000万，员工1200人（月薪3000-4000元）；字节红果漫剧DAU突破1000万仅用三个多月。Seedance 2.0（2026年2月）让分镜导演被裁撤，8-10人/部配置压缩至3人，AI仿真人剧成新方向。平台争夺：字节、腾讯、百度、快手全部入场，各家年框协议争夺API接口。",
+    "perspectives": [
+      "最先进的大模型技术（Seedance 2.0）被用于最廉价的劳动密集型内容生产——技术平权没有带来创作平权，而是将「创意劳动」降格为「抽卡操作」",
+      "AI漫剧的技术迭代速度（三个月换一代）远超传统影视，任何产能壁垒都是暂时的，最终竞争回到内容本身——但平台已用速度建立起先发优势"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "3D空间智能",
+    "event_core": "竹马创新获千万天使轮：消费级3DGS相机「Pebble」切入万亿空间内容市场",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "竹马创新获峰瑞资本领投、洪泰基金跟投的数千万天使轮。创始人张吉为前群核科技副总裁。核心技术：3DGS（三维高斯泼溅），可实现高保真重建与实时渲染。第一代产品Pebble定位专业级3DGS相机，定价远低于5万元以上的工业设备；第二代「空间记忆相机」面向C端。应用场景：空间设计、游戏、AR/VR、具身智能仿真。",
+    "perspectives": [
+      "3DGS正在成为下一个「手机摄像头」——从工业级向消费级的范式转移中，谁能先做到「普通相机的价格」，谁就拿到了空间内容时代的门票",
+      "竹马定义的竞争对手与其说是工业设备厂商，不如说是苹果iPhone Pro系列的LiDAR+计算摄影组合——但3DGS的视觉保真度远超现有方案"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "自动驾驶/物理AI",
+    "event_core": "轻舟智航获1亿美元D轮：加码世界模型+强化学习，2027年目标NOA300万台",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "轻舟智航完成D轮1亿美元融资，投资方包括国内头部主机厂、汽车电子零部件公司等产业资本。资金用于：1）世界模型+强化学习的物理AI技术研发；2）组织人才建设。轻舟判断2026年是无人驾驶黄金十年新起点，已实现L2++乘风系统100万台交付（与理想、奇瑞、广汽、吉利等近10家车企合作）。2027年目标：NOA量产300万台，Robovan十万台级别量产，Robotaxi规模化。",
+    "perspectives": [
+      "世界模型是自动驾驶从「感知-规划分离」走向「端到端物理理解」的关键路径，但真实物理规律的建模复杂度远超视觉模型",
+      "百万量级交付数据闭环的价值被低估——L2与L4数据共享的技术底座，使得轻舟比纯L4公司拥有更可持续的数据来源"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "生物制造/碳科技",
+    "event_core": "食气生化获超亿元融资：五万吨级碳利用项目获备案，食气梭菌发酵法颠覆石油基丁醇成本逻辑",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "食气生化获上海科创知识产权基金、天创资本超亿元投资。核心技术：食气梭菌发酵法，以工业废气（CO、CO₂）为原料生产丁醇，联产替代饲料蛋白。2024年建成百吨级和五百吨级中试装置，完成过万小时测试；五万吨级示范项目已备案赋码。传统石油-丙烯工艺原料成本占比超60%，而生物法原料成本占比远低于此。丁醇生产每吨可减少约4吨CO₂排放，未来切入CCUST碳汇市场。",
+    "perspectives": [
+      "碳排放管理从「管能源」向「管碳」转变的的政策拐点已至——生物制造正在将碳排放从负资产变为生产原料",
+      "「用高技术做低附加值大宗产品」的战略选择是明智的——丁醇市场足够大、竞价充分，但技术壁垒与工程化放大能力才是真正的护城河"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "小模型成本战",
+    "event_core": "GPT-5.4 nano降至$0.20/M输入：MiniMax 2.7以1/3成本达SOTA，小模型进入极度内卷",
+    "tier": "T1",
+    "source": "bibi-agent prior analysis",
+    "details_and_data": "OpenAI发布GPT-5.4 nano：$0.20/M输入、$1.25/M输出，价格低于Gemini 3.1 Flash-Lite。7.6万张照片批量描述成本约$52.44。同期MiniMax 2.7发布，Artificial Analysis显示以1/3成本达到与Z.ai GLM-5同等的SOTA开放模型分数，引入「自我进化」概念声称可覆盖30%-50%工作流。",
+    "perspectives": [
+      "小模型价格战的尽头是推理边际成本趋近于零——当使用成本可以忽略不计，基于用量的商业模式将面临根本性重构",
+      "MiniMax「自我进化」的30%-50%覆盖率声明需要审慎看待：这与真正的自主进化之间存在巨大差距，更接近于「上下文学习能力的工程化」"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI终端/边缘推理",
+    "event_core": "Flash-MoE：397B参数模型本地 Laptop 推理实现，稀疏MoE架构突破终端算力边界",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "HN Score=320pts/108comments。GitHub: danveloper/flash-moe。通过稀疏MoE架构实现397B参数在消费级硬件运行，标志端侧大模型推理能力里程碑。",
+    "perspectives": [
+      "工程可行性：MoE稀疏激活降低实际计算量，使千亿参数模型可在非服务器环境运行",
+      "开源社区响应：项目获高关注，flash-moe成为近期最受关注推理优化开源项目之一"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI科学/自动化",
+    "event_core": "AI Agent 自主完成高能物理分析全流程：事件筛选→背景估计→统计推断→论文起草",
+    "tier": "T1",
+    "source": "arXiv AI/ML",
+    "details_and_data": "arXiv:2603.20179, Authors: Eric A. Moreno et al. 实验证明 Claude Code 可自动化 HEP 完整分析流程，最小化专家介入。",
+    "perspectives": [
+      "科研自动化：物理学家开始正视AI替代分析劳动力的现实",
+      "多阶段pipeline：事件选择、背景估计、不确定性量化、统计推断全程AI驱动",
+      "论文撰写：AI已开始涉足科学写作的创意与结构环节"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI安全/企业应用",
+    "event_core": "六Agent系统替代$15,000+ NIST CSF安全评估：小型组织网络安全迎来自动化",
+    "tier": "T1",
+    "source": "arXiv AI/ML",
+    "details_and_data": "arXiv:2603.20131, Authors: Ravish Gupta et al. 六阶段Agent架构：组织画像→资产映射→威胁分析→控制评估→风险评分→建议生成。",
+    "perspectives": [
+      "成本颠覆：传统NIST CSF合规评估$15,000起，AI系统大幅降低门槛",
+      "稀缺性解决：安全从业者严重短缺，AI填补评估能力缺口",
+      "持续监控：多Agent架构支持动态风险跟踪而非一次性评估"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "PC Gamer recommends RSS readers in a 37mb article that just ",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "PC Gamer recommends RSS readers in a 37mb article that just keeps downloading\nhttps://stuartbreckenridge.net/2026-03-19-pc-gamer-recommends-rss-readers-in-a-37mb-article/\nHN Score: 432 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: PC Gamer recommends RSS readers in a 37mb article that just keeps downloading\nURL: https://stuartbreckenridge.net/2026-03-19-pc-gamer-recommends-rss-readers-in-a-37mb-article/\nScore: 432 points | Comments: 220 | by JumpCrisscross\nDiscussion: https://news.ycombinator.com/item?id=47480507",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Engineering",
+    "event_core": "The future of version control",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "The future of version control\nhttps://bramcohen.com/p/manyana\nHN Score: 467 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: The future of version control\nURL: https://bramcohen.com/p/manyana\nScore: 467 points | Comments: 256 | by c17r\nDiscussion: https://news.ycombinator.com/item?id=47478401",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Reports of code's death are greatly exaggerated",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "Reports of code's death are greatly exaggerated\nhttps://stevekrouse.com/precision\nHN Score: 320 | Age: 0d | Radar: 6.0\n\n[HN Discussion]\n\nTitle: Reports of code's death are greatly exaggerated\nURL: https://stevekrouse.com/precision\nScore: 320 points | Comments: 243 | by stevekrouse\nDiscussion: https://news.ycombinator.com/item?id=47476315",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "AI/ML",
+    "event_core": "Flash-MoE: Running a 397B Parameter Model on a Laptop",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "Flash-MoE: Running a 397B Parameter Model on a Laptop\nhttps://github.com/danveloper/flash-moe\nHN Score: 329 | Age: 0d | Radar: 6.5\n\n[HN Discussion]\n\nTitle: Flash-MoE: Running a 397B Parameter Model on a Laptop\nURL: https://github.com/danveloper/flash-moe\nScore: 329 points | Comments: 109 | by mft_\nDiscussion: https://news.ycombinator.com/item?id=47476422",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "GrapheneOS will remain usable by anyone without requiring pe",
+    "tier": "T1",
+    "source": "Hacker News",
+    "details_and_data": "GrapheneOS will remain usable by anyone without requiring personal information\nhttps://grapheneos.social/@GrapheneOS/116261301913660830\nHN Score: 297 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: GrapheneOS will remain usable by anyone without requiring personal information\nURL: https://grapheneos.social/@GrapheneOS/116261301913660830\nScore: 297 points | Comments: 77 | by nothrowaways\nDiscussion: https://news.ycombinator.com/item?id=47482217",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "AI安全/对抗样本",
+    "event_core": "「Vibe-Coding Spam」模式曝光：AI辅助批量生成垃圾内容正在规模化",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "HN Score=50pts/36comments。Tedium报道，AI辅助写邮件垃圾内容技术门槛大幅下降，质量已难与人工区分。",
+    "perspectives": [
+      "威胁升级：传统反垃圾规则面临AI生成内容绕过",
+      "检测困境：LLM生成文本与正常商业邮件边界模糊",
+      "监管空白：现行反垃圾法规未针对性覆盖AI生成内容"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "AI安全/对齐",
+    "event_core": "自动化多目标越狱攻击：低资源语言+加密数据触发LLM安全对齐失效",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "arXiv:2603.20122, Authors: Wenjing Hong et al. 越狱攻击从手工规则进化至自动化多目标优化，攻击面从主流语言扩展至长尾分布。",
+    "perspectives": [
+      "攻击自动化：越狱不再是极客实验，而是系统性工程",
+      "长尾分布风险：低资源语言、加密数据等边缘输入绕过对齐机制",
+      "评估不足：现有红队方法无法覆盖自动化越狱攻击的广度"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "LLM评测/不确定性量化",
+    "event_core": "Semantic Token Clustering：无需重复采样的高效LLM不确定性量化方法",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "arXiv:2603.20161, Authors: Qi Cao et al. 解决LLM过度自信问题，传统方法需重复采样或额外模型，STC通过语义token聚类实现高效不确定性估计。",
+    "perspectives": [
+      "计算效率：消除重复采样开销，适合资源受限环境",
+      "可靠性提升：帮助识别模型不确定输出，降低幻觉风险",
+      "可扩展性：方法可与多种LLM架构集成"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "LLM评测/可解释性",
+    "event_core": "CoT faithfulness 测量依赖分类器选择：DeepSeek-R1诚实度39%结论不可信",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "arXiv:2603.20172, Authors: Richard J. Young. 三种分类器（regex/regex+LLM/Sonnet 4 judge）在同一数据上产生差异显著结论，faithfulness非客观可测量属性。",
+    "perspectives": [
+      "方法论危机：现有CoT faithfulness研究结论存在分类器选择偏差",
+      "模型比较无效：跨模型faithfulness对比在方法论上不成立",
+      "需要标准基准：亟需分类器无关的CoT评估标准"
+    ],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "25 Years of Eggs",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "25 Years of Eggs\nhttps://www.john-rush.com/posts/eggs-25-years-20260219.html\nHN Score: 260 | Age: 4d | Radar: 3.5\n\n[HN Discussion]\n\nTitle: 25 Years of Eggs\nURL: https://www.john-rush.com/posts/eggs-25-years-20260219.html\nScore: 260 points | Comments: 73 | by avyfain\nDiscussion: https://news.ycombinator.com/item?id=47427224",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Robotics/VLM",
+    "event_core": "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark,",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering\nhttps://arxiv.org/abs/2603.20193v1\nAge: 3d | Radar: 3.5\n\n<abstract>Abstract:\nExisting tampering detection benchmarks largely rely on object masks, which severely misalign with the true edit signal: many pixels inside a mask are untouched or only trivially modified, while subtle yet consequential edits outside the mask are treated as natural. We reformulate VLM image tampering from coarse region labels to a pixel-grounded, meaning and language-aware task. First, we introduce a taxonomy spanning edit primitives (replace/remove/splice/inpaint/attribute/colorization, etc.) and their semantic class of tampered object, linking low-level changes to high-level unders</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Video AI",
+    "event_core": "LumosX: Relate Any Identities with Their Attributes for Pers",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "LumosX: Relate Any Identities with Their Attributes for Personalized Video Generation\nhttps://arxiv.org/abs/2603.20192v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nRecent advances in diffusion models have significantly improved text-to-video generation, enabling personalized content creation with fine-grained control over both foreground and background elements. However, precise face-attribute alignment across subjects remains challenging, as existing methods lack explicit mechanisms to ensure intra-group consistency. Addressing this gap requires both explicit modeling strategies and face-attribute-aware data resources. We therefore propose LumosX, a framework that advances both data and model design. On the data side, a tailored collection pip</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Video AI",
+    "event_core": "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking\nhttps://arxiv.org/abs/2603.20185v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nVideo agentic models have advanced challenging video-language tasks. However, most agentic approaches still heavily rely on greedy parsing over densely sampled video frames, resulting in high computational cost. We present VideoSeek, a long-horizon video agent that leverages video logic flow to actively seek answer-critical evidence instead of exhaustively parsing the full video. This insight allows the model to use far fewer frames while maintaining, or even improving, its video understanding capability. VideoSeek operates in a think-act-observe loop with a well-designed toolkit for</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Security",
+    "event_core": "Improving Generalization on Cybersecurity Tasks with Multi-M",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Improving Generalization on Cybersecurity Tasks with Multi-Modal Contrastive Learning\nhttps://arxiv.org/abs/2603.20181v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nThe use of ML in cybersecurity has long been impaired by generalization issues: Models that work well in controlled scenarios fail to maintain performance in production. The root cause often lies in ML algorithms learning superficial patterns (shortcuts) rather than underlying cybersecurity concepts. We investigate contrastive multi-modal learning as a first step towards improving ML performance in cybersecurity tasks. We aim at transferring knowledge from data-rich modalities, such as text, to data-scarce modalities, such as payloads. We set up a case study on threat classification </abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Video AI",
+    "event_core": "Adaptive Greedy Frame Selection for Long Video Understanding",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Adaptive Greedy Frame Selection for Long Video Understanding\nhttps://arxiv.org/abs/2603.20180v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nLarge vision--language models (VLMs) are increasingly applied to long-video question answering, yet inference is often bottlenecked by the number of input frames and resulting visual tokens. Naive sparse sampling can miss decisive moments, while purely relevance-driven selection frequently collapses onto near-duplicate frames and sacrifices coverage of temporally distant evidence. We propose a question-adaptive greedy frame selection method that jointly optimizes query relevance and semantic representativeness under a fixed frame budget. Our approach constructs a 1~FPS candidate pool</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "AI Agent",
+    "event_core": "AI Agents Can Already Autonomously Perform Experimental High",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "AI Agents Can Already Autonomously Perform Experimental High Energy Physics\nhttps://arxiv.org/abs/2603.20179v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nLarge language model-based AI agents are now able to autonomously execute substantial portions of a high energy physics (HEP) analysis pipeline with minimal expert-curated input. Given access to a HEP dataset, an execution framework, and a corpus of prior experimental literature, we find that Claude Code succeeds in automating all stages of a typical analysis: event selection, background estimation, uncertainty quantification, statistical inference, and paper drafting. We argue that the experimental HEP community is underestimating the current capabilities of these systems, and that </abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "LLM Research",
+    "event_core": "Measuring Faithfulness Depends on How You Measure: Classifie",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Measuring Faithfulness Depends on How You Measure: Classifier Sensitivity in LLM Chain-of-Thought Evaluation\nhttps://arxiv.org/abs/2603.20172v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nRecent work on chain-of-thought (CoT) faithfulness reports single aggregate numbers (e.g., DeepSeek-R1 acknowledges hints 39% of the time), implying that faithfulness is an objective, measurable property of a model. This paper demonstrates that it is not. Three classifiers (a regex-only detector, a two-stage regex-plus-LLM pipeline, and an independent Claude Sonnet 4 judge) are applied to 10,276 influenced reasoning traces from 12 open-weight models spanning 9 families and 7B to 1T parameters. On identical data, these classifiers produce overall faithfulness rates of 74.4%, 82.6%, an</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Learning Dynamic Belief Graphs for Theory-of-mind Reasoning",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Learning Dynamic Belief Graphs for Theory-of-mind Reasoning\nhttps://arxiv.org/abs/2603.20170v1\nAge: 3d | Radar: 3.5\n\n<abstract>Abstract:\nTheory of Mind (ToM) reasoning with Large Language Models (LLMs) requires inferring how people's implicit, evolving beliefs shape what they seek and how they act under uncertainty -- especially in high-stakes settings such as disaster response, emergency medicine, and human-in-the-loop autonomy. Prior approaches either prompt LLMs directly or use latent-state models that treat beliefs as static and independent, often producing incoherent mental models over time and weak reasoning in dynamic contexts. We introduce a structured cognitive trajectory model for LLM-based ToM that represen</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Robotics/VLM",
+    "event_core": "The Robot's Inner Critic: Self-Refinement of Social Behavior",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "The Robot's Inner Critic: Self-Refinement of Social Behaviors through VLM-based Replanning\nhttps://arxiv.org/abs/2603.20164v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nConventional robot social behavior generation has been limited in flexibility and autonomy, relying on predefined motions or human feedback. This study proposes CRISP (Critique-and-Replan for Interactive Social Presence), an autonomous framework where a robot critiques and replans its own actions by leveraging a Vision-Language Model (VLM) as a `human-like social critic.' CRISP integrates (1) extraction of movable joints and constraints by analyzing the robot's description file (e.g., MJCF), (2) generation of step-by-step behavior plans based on situational context, (3) generation of</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "LLM Research",
+    "event_core": "Semantic Token Clustering for Efficient Uncertainty Quantifi",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Semantic Token Clustering for Efficient Uncertainty Quantification in Large Language Models\nhttps://arxiv.org/abs/2603.20161v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nLarge language models (LLMs) have demonstrated remarkable capabilities across diverse tasks. However, the truthfulness of their outputs is not guaranteed, and their tendency toward overconfidence further limits reliability. Uncertainty quantification offers a promising way to identify potentially unreliable outputs, but most existing methods rely on repeated sampling or auxiliary models, introducing substantial computational overhead. To address these limitations, we propose Semantic Token Clustering (STC), an efficient uncertainty quantification method that leverages the semantic in</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Video AI",
+    "event_core": "Design-OS: A Specification-Driven Framework for Engineering ",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Design-OS: A Specification-Driven Framework for Engineering System Design with a Control-Systems Design Case\nhttps://arxiv.org/abs/2603.20151v1\nAge: 3d | Radar: 3.0\n\n<abstract>Abstract:\nEngineering system design -- whether mechatronic, control, or embedded -- often proceeds in an ad hoc manner, with requirements left implicit and traceability from intent to parameters largely absent. Existing specification-driven and systematic design methods mostly target software, and AI-assisted tools tend to enter the workflow at solution generation rather than at problem framing. Human--AI collaboration in the design of physical systems remains underexplored. This paper presents Design-OS, a lightweight, specification-driven workflow for engineering system design organized in f</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Enhancing Hyperspace Analogue to Language (HAL) Representati",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Enhancing Hyperspace Analogue to Language (HAL) Representations via Attention-Based Pooling for Text Classification\nhttps://arxiv.org/abs/2603.20149v1\nAge: 3d | Radar: 3.5\n\n<abstract>Abstract:\nThe Hyperspace Analogue to Language (HAL) model relies on global word co-occurrence matrices to construct distributional semantic representations. While these representations capture lexical relationships effectively, aggregating them into sentence-level embeddings via standard mean pooling often results in information loss. Mean pooling assigns equal weight to all tokens, thereby diluting the impact of contextually salient words with uninformative structural tokens. In this paper, we address this limitation by integrating a learnable, temperature-scaled additive attention mechanism </abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Security",
+    "event_core": "An Agentic Multi-Agent Architecture for Cybersecurity Risk M",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "An Agentic Multi-Agent Architecture for Cybersecurity Risk Management\nhttps://arxiv.org/abs/2603.20131v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nGetting a real cybersecurity risk assessment for a small organization is expensive -- a NIST CSF-aligned engagement runs $15,000 on the low end, takes weeks, and depends on practitioners who are genuinely scarce. Most small companies skip it entirely. We built a six-agent AI system where each agent handles one analytical stage: profiling the organization, mapping assets, analyzing threats, evaluating controls, scoring risks, and generating recommendations. Agents share a persistent context that grows as the assessment proceeds, so later agents build on what earlier ones concluded -- </abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Security",
+    "event_core": "Evolving Jailbreaks: Automated Multi-Objective Long-Tail Att",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Evolving Jailbreaks: Automated Multi-Objective Long-Tail Attacks on Large Language Models\nhttps://arxiv.org/abs/2603.20122v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nLarge Language Models (LLMs) have been widely deployed, especially through free Web-based applications that expose them to diverse user-generated inputs, including those from long-tail distributions such as low-resource languages and encrypted private data. This open-ended exposure increases the risk of jailbreak attacks that undermine model safety alignment. While recent studies have shown that leveraging long-tail distributions can facilitate such jailbreaks, existing approaches largely rely on handcrafted rules, limiting the systematic evaluation of these security and privacy vuln</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Chain-of-Adaptation: Surgical Vision-Language Adaptation wit",
+    "tier": "T2",
+    "source": "arXiv AI/ML",
+    "details_and_data": "Chain-of-Adaptation: Surgical Vision-Language Adaptation with Reinforcement Learning\nhttps://arxiv.org/abs/2603.20116v1\nAge: 3d | Radar: 4.0\n\n<abstract>Abstract:\nConventional fine-tuning on domain-specific datasets can inadvertently alter a model's pretrained multimodal priors, leading to reduced generalization. To address this, we propose Chain-of-Adaptation (CoA), an adaptation framework designed to integrate domain knowledge while maintaining the model's inherent reasoning and perceptual capabilities. CoA introduces a structured reasoning format that enhances domain alignment without sacrificing general multimodal competence by reinforcement learning. Experiments on standard surgical benchmarks, under both in-distribution and out-of-distri</abstract>",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Developer Ecosystem",
+    "event_core": "How to Attract AI Bots to Your Open Source Project",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "How to Attract AI Bots to Your Open Source Project\nhttps://nesbitt.io/2026/03/21/how-to-attract-ai-bots-to-your-open-source-project.html\nHN Score: 101 | Age: 1d | Radar: 4.5\n\n[HN Discussion]\n\nTitle: How to Attract AI Bots to Your Open Source Project\nURL: https://nesbitt.io/2026/03/21/how-to-attract-ai-bots-to-your-open-source-project.html\nScore: 101 points | Comments: 13 | by zdw\nDiscussion: https://news.ycombinator.com/item?id=47471271",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "Engineering",
+    "event_core": "The gold standard of optimization: A look under the hood of ",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "The gold standard of optimization: A look under the hood of RollerCoaster Tycoon\nhttps://larstofus.com/2026/03/22/the-gold-standard-of-optimization-a-look-under-the-hood-of-rollercoaster-tycoon/\nHN Score: 284 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: The gold standard of optimization: A look under the hood of RollerCoaster Tycoon\nURL: https://larstofus.com/2026/03/22/the-gold-standard-of-optimization-a-look-under-the-hood-of-rollercoaster-tycoon/\nScore: 284 points | Comments: 88 | by mariuz\nDiscussion: https://news.ycombinator.com/item?id=47480886",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Why I love NixOS",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "Why I love NixOS\nhttps://www.birkey.co/2026-03-22-why-i-love-nixos.html\nHN Score: 249 | Age: 0d | Radar: 5.0\n\n[HN Discussion]\n\nTitle: Why I love NixOS\nURL: https://www.birkey.co/2026-03-22-why-i-love-nixos.html\nScore: 249 points | Comments: 163 | by birkey\nDiscussion: https://news.ycombinator.com/item?id=47479751",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Project Nomad – Knowledge That Never Goes Offline",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "Project Nomad – Knowledge That Never Goes Offline\nhttps://www.projectnomad.us\nHN Score: 394 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: Project Nomad – Knowledge That Never Goes Offline\nURL: https://www.projectnomad.us\nScore: 394 points | Comments: 124 | by jensgk\nDiscussion: https://news.ycombinator.com/item?id=47476821",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "Windows native app development is a mess",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "Windows native app development is a mess\nhttps://domenic.me/windows-native-dev/\nHN Score: 368 | Age: 0d | Radar: 5.5\n\n[HN Discussion]\n\nTitle: Windows native app development is a mess\nURL: https://domenic.me/windows-native-dev/\nScore: 368 points | Comments: 366 | by domenicd\nDiscussion: https://news.ycombinator.com/item?id=47475938",
+    "perspectives": [],
+    "focus_trace": false
+  },
+  {
+    "category": "General",
+    "event_core": "What Young Workers Are Doing to AI-Proof Themselves",
+    "tier": "T2",
+    "source": "Hacker News",
+    "details_and_data": "What Young Workers Are Doing to AI-Proof Themselves\nhttps://www.wsj.com/economy/jobs/ai-jobs-young-people-careers-14282284\nHN Score: 99 | Age: 0d | Radar: 4.5\n\n[HN Discussion]\n\nTitle: What Young Workers Are Doing to AI-Proof Themselves\nURL: https://www.wsj.com/economy/jobs/ai-jobs-young-people-careers-14282284\nScore: 99 points | Comments: 134 | by wallflower\nDiscussion: https://news.ycombinator.com/item?id=47480447",
+    "perspectives": [],
+    "focus_trace": false
+  }
+]

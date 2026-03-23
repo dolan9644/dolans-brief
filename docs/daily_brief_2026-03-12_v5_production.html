@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's 全景内参：2026年3月12日</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f8f6f3 0%, #efeae4 50%, #e8e3db 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 32px 28px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+            font-weight: 900;
+            font-size: 1.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .date {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            font-weight: 400;
+        }
+        
+        main {
+            padding: 28px;
+        }
+        
+        h2 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: #1a1a1a;
+            margin: 32px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #e74c3c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2d2d2d;
+            margin: 24px 0 12px;
+        }
+        
+        .section-intro {
+            font-size: 0.85rem;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .section-intro.core { color: #e74c3c; }
+        .section-intro.giants { color: #9b59b6; }
+        .section-intro.geek { color: #3498db; }
+        .section-intro.final { color: #27ae60; }
+        
+        p {
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+        
+        .dolans-comment {
+            background: #fef5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 16px 18px;
+            margin: 16px 0 24px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .dolans-comment p {
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #c0392b;
+        }
+        
+        .dolans-comment::before {
+            content: "Dolan's锐评：";
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .item {
+            margin-bottom: 20px;
+        }
+        
+        .item-title {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .item-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 8px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .geek-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .geek-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .geek-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .geek-list .item-number {
+            background: #3498db;
+        }
+        
+        .final {
+            background: linear-gradient(135deg, #f0f9f4 0%, #e8f5e9 100%);
+            border: 1px solid #a5d6a7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 28px;
+        }
+        
+        .final h2 {
+            border-bottom-color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .final h2::before {
+            content: "💡";
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.8rem;
+            font-family: 'Noto Sans SC', sans-serif;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+            
+            header {
+                padding: 24px 20px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.15rem;
+            }
+            
+            .dolans-comment {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dolan's 全景内参</h1>
+            <div class="date">2026年3月12日</div>
+        </header>
+        
+        <main>
+            <p class="section-intro core">🎯 核心阵地 (50%)</p>
+            
+            <div class="item">
+                <h3><span class="item-number">1</span>乐天 Codex 实践：企业级 AI 编程助手成熟落地</h3>
+                <p>乐天工程团队在 30000 名员工中大规模部署 OpenAI Codex。MTTR（平均修复时间）降低 50%，季度级开发周期压缩至数周。Codex 在 CI/CD 中执行代码审查和漏洞检查。</p>
+                <div class="dolans-comment">
+                    <p>AI 编程助手的价值不是生成代码，而是安全地加速。乐天模式 = SRE 的 MTTR 优化 + 开发者的代码质量保障 + 产品的自主执行。LLM 从写代码转向验证输出——这才是正确的姿势。</p>
+                </div>
+            </div>
+            
+            <div class="item">
+                <h3><span class="item-number">2</span>OpenAI 对抗提示注入：从过滤到社会工程学防御</h3>
+                <p>OpenAI 揭示其 AI 智能体安全策略：不再依赖输入过滤，转向社会工程学防御模型。核心思路是将 AI 视为客服代理，在对抗环境中通过限制能力边界来降低风险。</p>
+                <div class="dolans-comment">
+                    <p>提示注入攻击已经进化成社会工程学了。防御思路的转变很务实——与其检测恶意输入，不如限制攻击影响范围。毕竟检测恶意输入和检测谎言一样困难。</p>
+                </div>
+            </div>
+            
+            <p class="section-intro giants">🌍 巨头绞肉机 (30%)</p>
+            
+            <div class="item">
+                <h3><span class="item-number">3</span>AlphaGo 十周年：从围棋到生物学</h3>
+                <p>2016 年击败李世石的第 37 手成为 AI 创造力的象征。AlphaFold 解决 50 年蛋白质折叠难题，获 2024 诺贝尔化学奖。AlphaProof/AlphaGeometry 获 IMO 银牌。</p>
+            </div>
+            
+            <div class="item">
+                <h3><span class="item-number">4</span>Gemini 3.1 Flash-Lite：极致性价比</h3>
+                <p>定价：输入$0.25/百万 token，输出$1.50/百万 token。性能比 2.5 Flash 快 2.5 倍。</p>
+                <div class="dolans-comment">
+                    <p>Google 的大规模智能战略：不是最强模型，而是最具成本效益的智能。这才是落地姿势。</p>
+                </div>
+            </div>
+            
+            <div class="item">
+                <h3><span class="item-number">5</span>Wayfair 企业 AI：250万+产品标签纠正</h3>
+                <p>将 OpenAI 模型嵌入核心运营系统，纠正 250 万+产品标签属性，覆盖百万级最畅销产品。</p>
+            </div>
+            
+            <p class="section-intro geek">📡 极客雷达 (15%)</p>
+            
+            <ul class="geek-list">
+                <li>
+                    <span class="item-number">6</span>
+                    <span><strong>HuggingFace Storage Buckets</strong>：面向 ML 的 S3 类对象存储</span>
+                </li>
+                <li>
+                    <span class="item-number">7</span>
+                    <span><strong>3D 编织技术</strong>：可持续服装制造，99% 材料利用率</span>
+                </li>
+                <li>
+                    <span class="item-number">8</span>
+                    <span><strong>OpenClaw 更新</strong>：新增 zalouser 出站分块器，修复 UI 路由问题</span>
+                </li>
+                <li>
+                    <span class="item-number">9</span>
+                    <span><strong>Simon Willison 重新审视 AI 编程</strong>：从"无聊技术"到重新评估价值</span>
+                </li>
+            </ul>
+            
+            <div class="final">
+                <h2>终局研判</h2>
+                <p>AI 编程助手已进入企业落地阶段。从乐天到 Wayfair，验证了"AI 加速 + 人类验证"的模式。提示注入防御从技术过滤转向社会工程学——这是正确的方向。2026 年是 AI 编程从玩具变成生产力的转折点。</p>
+            </div>
+        </main>
+        
+        <footer>
+            Dolan's 全景内参 · 每日AI行业速览
+        </footer>
+    </div>
+</body>
+</html>

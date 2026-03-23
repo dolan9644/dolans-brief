@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "version": "2026-03-23",
+    "description": "BIBI Agent 核心配置中心 — 所有文件同步的单一真相源"
+  },
+  "cron": {
+    "morning_brief": {
+      "id": "0eef9649-42e1-4bc3-822f-dc155181e934",
+      "schedule": "0 6 * * * @ Asia/Shanghai",
+      "timeout": 1800,
+      "agent": "bibi-agent",
+      "target": "isolated"
+    }
+  },
+  "files": {
+    "raw_rss": "data/raw_rss.json",
+    "topic_result": "data/topic_result.json",
+    "brief_content": "data/brief_content.txt",
+    "daily_brief": "data/daily_brief_YYYY-MM-DD.html",
+    "topic_backup": "/tmp/topic_result_YYYY-MM-DD.json",
+    "brief_backup": "/tmp/brief_content_YYYY-MM-DD.txt",
+    "design_backup": "/tmp/daily_brief_YYYY-MM-DD.html"
+  },
+  "memory": {
+    "compression_threshold_tokens": 120000,
+    "archive_keep_days": 7,
+    "archived_log_limit": 30
+  },
+  "rss": {
+    "phase0_hn": { "type": "firebase_api", "jina_cost": 0 },
+    "phase0b_arxiv": { "type": "official_api", "jina_cost": 0 },
+    "phase1_others": { "type": "jina_reader", "max_entries": 200 }
+  },
+  "feishu": {
+    "group_id": "oc_ed18b6ceeaccabc19fceb48b66e0e091",
+    "user_id": "ou_3a88b7b21440fb9d99cd0b4399f64b3a"
+  },
+  "github": {
+    "repo": "dolan9644/bibi-intel",
+    "docs_path": "docs/",
+    "cdn_base": "https://cdn.jsdelivr.net/gh/dolan9644/bibi-intel@main/docs/"
+  }
+}

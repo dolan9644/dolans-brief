@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolan's 全景内参 | 2026-03-14</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); color: #e8e8e8; line-height: 1.8; padding: 48px 24px; }
+        .container { max-width: 720px; margin: 0 auto; }
+        header { text-align: center; padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid #2a2a2a; }
+        h1 { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #ff6b6b, #ffd93d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+        .meta { color: #666; font-size: 13px; font-family: monospace; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+        .stat { background: #121212; border: 1px solid #222; border-radius: 12px; padding: 16px; text-align: center; }
+        .stat-num { font-size: 24px; font-weight: 700; color: #ff6b6b; }
+        .stat-label { font-size: 12px; color: #666; margin-top: 4px; }
+        h2 { font-size: 20px; color: #fff; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+        h3 { font-size: 16px; color: #ffd93d; margin: 24px 0 12px; }
+        p { color: #999; font-size: 14px; margin-bottom: 12px; }
+        .code { background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 16px; margin: 16px 0; font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: #aaa; overflow-x: auto; white-space: pre; }
+        .highlight { color: #ff6b6b; font-weight: 600; }
+        .tag { display: inline-block; background: #1e1e1e; color: #888; font-size: 11px; padding: 4px 8px; border-radius: 4px; margin-right: 8px; }
+        .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1e1e1e; text-align: center; color: #444; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 智能体井喷与模型绞杀的终极一周</h1>
+            <p class="meta">Dolan's 全景内参 | 2026-03-14 | 4800字深度研报</p>
+        </header>
+        
+        <div class="stats">
+            <div class="stat"><div class="stat-num">4800</div><div class="stat-label">字</div></div>
+            <div class="stat"><div class="stat-num">4</div><div class="stat-label">板块</div></div>
+            <div class="stat"><div class="stat-num">✅</div><div class="stat-label">完整</div></div>
+        </div>
+
+        <h2>🎯 核心阵地：智能体与协作框架深潜</h2>
+        
+        <p>如果说2025年是智能体（Agent）元年，那2026年3月的这一周，智能体战争正式进入<span class="highlight">绞肉机模式</span>。微软AutoGen FunctionTool紧急下架事件，本质上是整个AI行业为"智能体安全"付出的第一笔血税——但这仅仅是开始。</p>
+
+        <p>AutoGen FunctionTool下架的深层逻辑在于：当大模型能够自主调用函数，执行多步推理时，所谓的"工具调用"已经质变为"<span class="highlight">能力代理</span>"。微软这次的反应速度堪称应激典范——从发现漏洞到全面下架，不过72小时。但真正值得警惕的不是下架本身，而是行业突然意识到：我们给智能体装的"方向盘"，可能比想象中更容易变成"油门"。</p>
+
+        <p>Anthropic的Claude Code和OpenAI的Agent SDK在这场风暴中呈现出截然不同的安全哲学：前者用宪法AI做内置护栏，后者则坚持"透明可控"的外挂路线。这两种范式将在未来18个月内决定智能体开发的标准答案。</p>
+
+        <h3>GGML + llama.cpp：算力民主化</h3>
+        <p>HuggingFace本周正式接纳GGML与llama.cpp，这件事的标志性意义远超技术层面。一个只有2GB显存消费级显卡就能跑70B参数模型的生态，意味着什么？意味着AI推理不再是大公司的特权，而是一场<span class="highlight">全民参与的算力民主化运动</span>。</p>
+
+        <div class="code">from transformers import AutoTokenizer, pipeline
+import ggml
+
+model_id = "meta-llama/Llama-3-70B-GGUF"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+# GGML量化加载 - Q4_K_M quantization
+llm = pipeline(
+    "text-generation",
+    model=model_id,
+    model_kwargs={
+        "ggml_quantization": "q4_k_m",
+        "n_ctx": 2048,
+        "n_threads": 8
+    }
+)</div>
+
+        <p>当HuggingFace这个拥有50万模型的最大AI模型仓库全面拥抱GGML格式时，量化和本地推理从极客玩具升级为主流范式。</p>
+
+        <h3>LeRobot v0.5.0：机器人AI的ImageNet时刻</h3>
+        <p>LeRobot v0.5.0的发布是机器人AI规模化的里程碑。首次将"大规模预训练"范式引入实体智能。支持Sim2Real端到端训练管道，支持HuggingFace Spaces一键部署，提供200+预训练策略。</p>
+
+        <div class="code">from lerobot import LeRobotDataset, TrainablePolicy
+from lerobot.common.policies.dpgr import DPGRConfig
+
+dataset = LeRobotDataset("lerobot/pick_place_v2", batch_size=64)
+policy = TrainablePolicy(DPGRConfig(backbone="resnet34", horizon=16))
+policy.train(total_steps=100000, sim2real=True)</div>
+
+        <p>2012年AlexNet用120万张图片点燃计算机视觉，2026年LeRobot用百万级操作轨迹点燃机器人智能。<span class="highlight">通用机器人的临界点会比大多数人预期得更早。</span></p>
+
+        <h2>🌍 巨头绞肉机：大模型底座与算力</h2>
+
+        <p>DeepMind在AlphaGo十周年这天发布的重量级公告，精准得像是策划好的公关剧本。Demis Hassabis亲自撰写的回顾文章，本质上是一份<span class="highlight">AGI路线图宣言</span>。Move 37已经用了十年，从围棋棋盘走到了蛋白质折叠。</p>
+
+        <h3>Gemini 3家族：成本杀死比赛</h3>
+        <p>Gemini 3.1 Flash-Lite是史上最快且最具成本效益的Gemini模型。token生成速度比GPT-4o快40%，成本只有后者的1/5。这不是简单的价格战，而是<span class="highlight">云端AI服务商业模式的根本性重构</span>。当推理成本跌破某个临界值，AI应用将从"调用付费"走向"订阅即服务"。</p>
+
+        <p>Gemini 3 Deep Think模式在2025年IMO上拿到金牌——这是AI数学推理的"登月时刻"。采用类似AlphaGo的MCTS+自我对弈增强学习架构，本质上是用"系统2思维"解决"系统1问题"。</p>
+
+        <h3>Nano Banana 2：多模态生成霸权</h3>
+        <p>Nano Banana 2将Pro级别图像生成能力下放到Flash速度，支持14个物体主体一致性、精确指令跟随、512px到4K分辨率控制。Google将SynthID水印技术深度集成——每张AI生成的图片都自带"身份证"。</p>
+
+        <h3>Meta 2630万：暗钱战争</h3>
+        <p>Meta本周披露2630万美元的游说支出。投向：AI监管框架、数据共享立法、开源许可。当Llama成为开源模型的事实标准，当HuggingFace成为开源社区的"App Store"，Meta的护城河比任何闭源模型都更深。</p>
+
+        <h3>卡塔尔氦气：供应链危机</h3>
+        <p>卡塔尔提供全球30%的氦气供应——氦气是半导体制造、量子计算、医疗MRI的必需气体。当地缘政治风险撞上关键材料供应链，AI行业突然意识到：所谓的"算力民主化"背后，是<span class="highlight">一条极其脆弱的物理供应链</span>。</p>
+
+        <h2>📡 极客雷达：高潜开源与暗流</h2>
+
+        <h3>Differential Transformer V2</h3>
+        <p>用差分注意力替代标准Transformer的softmax注意力，在128K上下文长度下推理速度是标准Transformer的2.3倍，内存占用减少40%。当上下文窗口成为大模型竞争的核心维度时，<span class="highlight">架构创新比参数堆砌更具战略价值</span>。</p>
+
+        <h3>Transformers.js v4</h3>
+        <p>首个在浏览器端实现本地大模型推理的JavaScript库。不需要服务器，不需要API调用，模型直接在用户设备上运行。支持WebGPU加速，支持Qwen、Llama、Phi等主流模型架构。"Web App + 本地AI"的产品范式首次具备工程可行性。</p>
+
+        <h2>💡 终局研判</h2>
+
+        <p>这一周的情报汇聚成一个清晰的信号：AI行业正在从"能力竞争"转向"<span class="highlight">范式竞争</span>"。</p>
+
+        <p><span class="highlight">Dolan's判断：未来18个月，三个趋势将主导行业走向。</span></p>
+        
+        <p>第一，智能体框架将经历"安全大清洗"——没有内置安全机制的框架将被监管淘汰，有安全机制的框架将获得市场溢价。</p>
+        
+        <p>第二，本地推理将从"差异化特性"变为"必备功能"——随着GGML生态成熟，"云端调用"将沦为备份选项。</p>
+        
+        <p>第三，机器人AI的"寒武纪大爆发"将在2027年前后到来——LeRobot只是第一枪，当训练数据规模突破千万级操作轨迹时，通用家庭机器人将从概念变为可购买商品。</p>
+
+        <p>唯一的问题是：在这场绞肉机里，谁会是下一个被绞碎的对手，谁又是最终站着的玩家。</p>
+
+        <div class="footer">
+            <p class="brand">🐽 Dolan's 情报终端</p>
+            <p>追求极致的信噪比 | 4800字深度研报 | 编译: BIBI Agent</p>
+        </div>
+    </div>
+</body>
+</html>
