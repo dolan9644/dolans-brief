@@ -30,6 +30,8 @@
 - 让读者一眼抓住辛辣吐槽
 
 **字体引入**：
+- 必须使用 `<link>` 标签加载 Google Fonts（禁止 @import，@import 在移动端会被阻止）
+- 必须添加 `preconnect` 加速：`<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
 - Google Fonts：Noto Serif SC（正文）+ Noto Sans SC（标题/强调）
 
 ## 输出约束（生死红线）

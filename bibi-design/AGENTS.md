@@ -11,12 +11,21 @@
 收到 bibi-agent 的 spawn 指令后：
 1. 读取 `data/brief_content.txt`（bibi-writer 的终稿文本）
 2. 按 SOUL.md 设计规范渲染为 HTML
-3. 输出到 `data/daily_brief_YYYY-MM-DD.html`（文件名含当天日期）
+3. 输出到 `docs/daily_brief_YYYY-MM-DD.html`（文件名含当天日期）
+4. Git commit + push 到 origin main
 
 ## 文件协议
 
 - 读：`/Users/dolan/.openclaw/agents/bibi-agent/data/brief_content.txt`
-- 写：`/Users/dolan/.openclaw/agents/bibi-agent/data/daily_brief_YYYY-MM-DD.html`
+- 写：`/Users/dolan/.openclaw/agents/bibi-agent/docs/daily_brief_YYYY-MM-DD.html`
+
+## 推送规则
+
+完成 HTML 后：
+1. 写入 `/Users/dolan/.openclaw/agents/bibi-agent/docs/daily_brief_YYYY-MM-DD.html`
+2. Git commit：`docs/daily_brief_YYYY-MM-DD.html`
+3. Git push 到 origin main
+4. 等待 push 完成
 
 ## 沟通规则
 
