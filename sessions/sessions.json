@@ -1,7 +1,7 @@
 {
   "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091": {
     "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
-    "updatedAt": 1774243122818,
+    "updatedAt": 1774243529167,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_ed18b6ceeaccabc19fceb48b66e0e091",
@@ -63,7 +63,7 @@
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774242012119,
+      "generatedAt": 1774243496319,
       "sessionId": "765054ee-6e7f-4822-9b5c-b556fb13b196",
       "sessionKey": "agent:bibi-agent:feishu:group:oc_ed18b6ceeaccabc19fceb48b66e0e091",
       "provider": "minimax-cn",
@@ -514,11 +514,11 @@
     "totalTokensFresh": true,
     "memoryFlushAt": 1774241326876,
     "memoryFlushCompactionCount": 2,
-    "inputTokens": 265795,
-    "outputTokens": 2753,
-    "cacheRead": 35329,
-    "cacheWrite": 0,
-    "totalTokens": 81314
+    "inputTokens": 144,
+    "outputTokens": 505,
+    "cacheRead": 85391,
+    "cacheWrite": 1614,
+    "totalTokens": 87149
   },
   "agent:bibi-agent:cron:e0cee412-52f6-46dc-87bd-c1ccbbc51343": {
     "sessionId": "60403a16-83e5-4b8c-b136-c666c81a97a4",
