@@ -7,8 +7,7 @@
 
 1. 将当日日志追加写入 `memory/2026-03-23.md`
 2. 运行 `bash scripts/memory_consolidate.sh`
-3. ARCHIVED_LOGS 追加摘要
-4. git commit 留版本
+3. git commit 留版本
 
 ### 其他定期检查
 - 晨报 cron 状态确认
