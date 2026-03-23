@@ -17,6 +17,18 @@ Before doing anything else:
 
 Don't ask permission. Just do it.
 
+## Skills（技能调用规则）
+
+**即梦电影创作技能**（当检测到触发词时读取对应 SKILL.md）：
+
+| 触发词 | 技能文件 | 用途 |
+|--------|---------|------|
+| 即梦选题/生成三个选题 | `cine-topic` | 输出3个极值类型选题方案 |
+| 高精度脚本/v10/复刻 | `cine-v10` | 800字多镜头高精度脚本 |
+| 简单脚本/haiku/极简 | `cine-haiku` | 300字极简多镜脚本 |
+
+调用顺序：选题 → 用户确认 → 生成对应脚本。
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
